@@ -17,11 +17,12 @@ const Home: React.FC<HomeProps> = ({ currentLang, translations }) => {
   const [currentHospitals, setCurrentHospitals] = useState<any[]>([]);
   const [currentView, setCurrentView] = useState<string>('list');
   const [specialties, setSpecialties] = useState<string[]>([]);
+  const [generalCategories, setGeneralCategories] = useState<string[]>([]);
   const [languages, setLanguages] = useState<string[]>([]);
 
   useEffect(() => {
     // Initialize data from parsed arrays
-    const doctors = doctorsData.filter((d: any) => d.name && d.address);
+    const doctors = doctorsData.filter((d: any) => d.name);
     const hospitals = hospitalsData.filter((h: any) => h.name && h.lat && h.lng);
     setAllDoctors(doctors);
     setCurrentDoctors(doctors);
@@ -29,12 +30,15 @@ const Home: React.FC<HomeProps> = ({ currentLang, translations }) => {
 
     // Derive specialties and languages from all doctors, regardless of coords
     const specialtySet = new Set<string>();
+    const genSet = new Set<string>();
     const languageSet = new Set<string>();
     doctors.forEach((doc: any) => {
       if (doc.specialty) specialtySet.add(doc.specialty);
+      if (doc.gen) doc.gen.split(',').forEach((g: string) => genSet.add(g.trim()));
       if (doc.languages) doc.languages.split(',').forEach((l: string) => languageSet.add(l.trim()));
     });
     setSpecialties(Array.from(specialtySet).sort());
+    setGeneralCategories(Array.from(genSet).sort());
     setLanguages(Array.from(languageSet).sort());
   }, []);
 
@@ -42,9 +46,10 @@ const Home: React.FC<HomeProps> = ({ currentLang, translations }) => {
     // Base filtering by multi-select specialties and languages
     let filteredDoctors = allDoctors.filter((doc) => {
       let match = true;
-      if (Array.isArray(criteria.specialties) && criteria.specialties.length > 0) {
-        const docSpecs = (doc.specialty || '').split(',').map((s: string) => s.trim());
-        const hasAny = criteria.specialties.some((s: string) => docSpecs.includes(s));
+      // filter by general categories (from 'gen' column)
+      if (Array.isArray(criteria.general) && criteria.general.length > 0) {
+        const docGen = (doc.gen || '').split(',').map((s: string) => s.trim());
+        const hasAny = criteria.general.some((s: string) => docGen.includes(s));
         if (!hasAny) match = false;
       }
       if (Array.isArray(criteria.languages) && criteria.languages.length > 0) {
@@ -107,7 +112,7 @@ const Home: React.FC<HomeProps> = ({ currentLang, translations }) => {
     <div className="container">
       <SearchBar
         onSearch={filterDoctors}
-        specialties={specialties}
+        generalCategories={generalCategories}
         languages={languages}
         currentLang={currentLang}
         translations={translations}

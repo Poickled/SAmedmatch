@@ -3,7 +3,8 @@ import { DOCTORS_CLEANED_CSV } from './doctors_cleaned_raw';
 
 export type Doctor = {
   name: string;
-  specialty: string; // comma-separated categories
+  specialty: string; // comma-separated specific specialties
+  gen?: string; // comma-separated general categories from 'gen'
   languages: string; // comma-separated
   address: string;
   lat: string;
@@ -20,6 +21,7 @@ type CleanedDoctorRow = {
   lat?: string;
   lng?: string;
   phone?: string;
+  gen?: string;
 };
 
 function parseListString(listLike?: string): string[] {
@@ -41,9 +43,11 @@ const rawRows = parseCSVToObjects<CleanedDoctorRow>(DOCTORS_CLEANED_CSV);
 const raw: Doctor[] = rawRows.map((r) => {
   const specialties = parseListString(r.specialty);
   const langs = parseListString(r.languages);
+  const general = parseListString(r.gen);
   return {
     name: (r.name || '').trim(),
     specialty: specialties.join(', '),
+    gen: general.join(', '),
     languages: langs.join(', '),
     address: (r.address || '').replace(/\s+/g, ' ').trim(),
     lat: String(r.lat || '').trim(),
@@ -54,13 +58,13 @@ const raw: Doctor[] = rawRows.map((r) => {
 
 // Normalize and filter
 export const doctors: Doctor[] = raw
-  .filter((d) => d.name && d.address)
+  .filter((d) => d.name)
   .map((d) => ({
     ...d,
     name: d.name.trim(),
     specialty: (d.specialty || '').replace(/\s*,\s*/g, ', '),
     languages: (d.languages || '').replace(/\s*,\s*/g, ', '),
-    address: d.address.trim(),
+    address: (d.address || '').trim(),
     lat: String(d.lat).trim(),
     lng: String(d.lng).trim(),
   }));
