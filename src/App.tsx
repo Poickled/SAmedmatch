@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
-import { BrowserRouter } from 'react-router-dom';
-<BrowserRouter basename={process.env.PUBLIC_URL}>
-  {/* your routes */}
-</BrowserRouter>
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './components/Home';
 import AboutUs from './components/AboutUs';
 import translationsData from './translations';
 
 const App: React.FC = () => {
-  const [translations, setTranslations] = useState<any>(translationsData);
+  const [translations] = useState<any>(translationsData);
   const [currentLang, setCurrentLang] = useState<string>('en');
 
   const handleLanguageChange = (lang: string) => {
@@ -17,35 +14,25 @@ const App: React.FC = () => {
   };
 
   return (
-    <Router>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <div>
-        <Header 
-          title={translations[currentLang]?.title || 'SA MedMatch'} 
-          currentLang={currentLang} 
-          onLanguageChange={handleLanguageChange} 
+        <Header
+          title={translations[currentLang]?.title || 'SA MedMatch'}
+          currentLang={currentLang}
+          onLanguageChange={handleLanguageChange}
         />
         <Routes>
-          <Route 
-            path="/" 
-            element={
-              <Home 
-                currentLang={currentLang} 
-                translations={translations} 
-              />
-            } 
+          <Route
+            path="/"
+            element={<Home currentLang={currentLang} translations={translations} />}
           />
-          <Route 
-            path="/about" 
-            element={
-              <AboutUs 
-                currentLang={currentLang} 
-                translations={translations} 
-              />
-            } 
+          <Route
+            path="/about"
+            element={<AboutUs currentLang={currentLang} translations={translations} />}
           />
         </Routes>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 };
 
