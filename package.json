@@ -1,0 +1,47 @@
+{
+  "name": "sa-medmatch-react",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+  "start": "react-scripts start",
+  "start:3001": "set PORT=3001 && react-scripts start",
+  "start:3002": "set PORT=3002 && react-scripts start",
+    "build": "react-scripts build && cp public/CNAME build/ 2>/dev/null || true",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "homepage": "https://yourusername.github.io/sa-medmatch-react",
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+  "react-scripts": "5.0.0",
+  "react-router-dom": "^6.8.0",
+  "leaflet": "^1.9.3"
+  },
+  "devDependencies": {
+  "typescript": "^4.9.5",
+  "@types/react": "^18.2.57",
+  "@types/react-dom": "^18.2.19",
+  "gh-pages": "^4.0.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

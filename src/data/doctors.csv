@@ -1,0 +1,11 @@
+name,specialty,languages,address,lat,lng,zip,phone,uninsured
+Dr. John Smith,Cardiology,English,123 Heart St,29.4241,-98.4936,78205,123-456-7890,no
+Dr. Jane Doe,Dermatology,English,456 Skin Ave,29.4242,-98.4937,78205,987-654-3210,yes
+Dr. Emily Johnson,Pediatrics,English,789 Child Rd,29.4243,-98.4938,78205,555-555-5555,no
+Dr. Carlos Garcia,General Practice,Spanish,321 Health Blvd,29.4244,-98.4939,78205,444-444-4444,yes
+Dr. Aisha Khan,Internal Medicine,English,654 Wellness Way,29.4245,-98.4940,78205,333-333-3333,no
+Dr. Hiroshi Tanaka,Orthopedics,Japanese,987 Bone St,29.4246,-98.4941,78205,222-222-2222,yes
+Dr. Maria Lopez,Family Medicine,Spanish,159 Family Dr,29.4247,-98.4942,78205,111-111-1111,no
+Dr. David Brown,Neurology,English,753 Brain St,29.4248,-98.4943,78205,888-888-8888,yes
+Dr. Fatima Ali,Obstetrics,Arabic,852 Baby St,29.4249,-98.4944,78205,777-777-7777,no
+Dr. Raj Patel,Oncology,Hindi,963 Cancer Rd,29.4250,-98.4945,78205,666-666-6666,yes
