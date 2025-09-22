@@ -39,16 +39,19 @@ const Home: React.FC<HomeProps> = ({ currentLang, translations }) => {
   }, []);
 
   const filterDoctors = (criteria: any) => {
-    // Base filtering by name, specialty, language only
+    // Base filtering by multi-select specialties and languages
     let filteredDoctors = allDoctors.filter((doc) => {
       let match = true;
-      if (criteria.search && !doc.name.toLowerCase().includes(criteria.search.toLowerCase())) match = false;
-      if (criteria.specialty && doc.specialty !== criteria.specialty) match = false;
-      if (
-        criteria.language &&
-        (!doc.languages || !doc.languages.split(',').map((l: string) => l.trim()).includes(criteria.language))
-      )
-        match = false;
+      if (Array.isArray(criteria.specialties) && criteria.specialties.length > 0) {
+        const docSpecs = (doc.specialty || '').split(',').map((s: string) => s.trim());
+        const hasAny = criteria.specialties.some((s: string) => docSpecs.includes(s));
+        if (!hasAny) match = false;
+      }
+      if (Array.isArray(criteria.languages) && criteria.languages.length > 0) {
+        const docLangs = (doc.languages || '').split(',').map((l: string) => l.trim());
+        const hasAny = criteria.languages.some((l: string) => docLangs.includes(l));
+        if (!hasAny) match = false;
+      }
       return match;
     });
 

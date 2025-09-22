@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './components/Home';
 import AboutUs from './components/AboutUs';
+import JoinDirectory from './components/JoinDirectory';
+import OtherResources from './components/OtherResources';
 import translationsData from './translations';
 
 const App: React.FC = () => {
@@ -27,8 +29,16 @@ const App: React.FC = () => {
             element={<Home currentLang={currentLang} translations={translations} />}
           />
           <Route
+            path="/resources"
+            element={<OtherResources currentLang={currentLang} translations={translations} />}
+          />
+          <Route
             path="/about"
             element={<AboutUs currentLang={currentLang} translations={translations} />}
+          />
+          <Route
+            path="/join"
+            element={<JoinDirectory currentLang={currentLang} translations={translations} />}
           />
         </Routes>
       </div>

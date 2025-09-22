@@ -23,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({ title, currentLang, onLanguageChange })
           <div>
             <h1 id="title">{title}</h1>
             <p id="tagline" style={{ color: '#fff', fontSize: '1.1rem', margin: 0 }}>
-              Hablamos español &bull; Medicaid / Obamacare
+              San Antonio Insuranceless Healthcare Directory
             </p>
           </div>
         </Link>
@@ -46,6 +46,20 @@ const Header: React.FC<HeaderProps> = ({ title, currentLang, onLanguageChange })
             Find Doctors
           </Link>
           <Link 
+            to="/resources" 
+            style={{ 
+              color: 'white', 
+              textDecoration: 'none', 
+              fontWeight: isActive('/resources') ? '600' : '400',
+              padding: '0.5rem 1rem',
+              borderRadius: '6px',
+              background: isActive('/resources') ? 'rgba(255,255,255,0.2)' : 'transparent',
+              transition: 'background 0.2s'
+            }}
+          >
+            Other Resources
+          </Link>
+          <Link 
             to="/about" 
             style={{ 
               color: 'white', 
@@ -58,6 +72,20 @@ const Header: React.FC<HeaderProps> = ({ title, currentLang, onLanguageChange })
             }}
           >
             About Us
+          </Link>
+          <Link 
+            to="/join" 
+            style={{ 
+              color: 'white', 
+              textDecoration: 'none', 
+              fontWeight: isActive('/join') ? '600' : '400',
+              padding: '0.5rem 1rem',
+              borderRadius: '6px',
+              background: isActive('/join') ? 'rgba(255,255,255,0.2)' : 'transparent',
+              transition: 'background 0.2s'
+            }}
+          >
+            Join Our Directory
           </Link>
         </div>
         
