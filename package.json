@@ -12,7 +12,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://yourusername.github.io/sa-medmatch-react",
+  "homepage": "https://Poickled.github.io/SAMedMatch",
   "dependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
