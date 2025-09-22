@@ -23,15 +23,15 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, generalCategories, lang
     <div className="search-bar">
       {/* General categories dropdown (from 'gen' column) */}
       <div style={{ position: 'relative' }}>
-        <button type="button" onClick={() => setIsGenOpen(v => !v)} style={{ padding: '0.5rem 0.75rem', borderRadius: 8 }}>
+        <button type="button" onClick={() => setIsGenOpen(v => !v)} style={{ padding: '0.5rem 0.75rem', borderRadius: 8, textAlign: 'left' }}>
           {translations[currentLang]?.specialties || 'Specialties'} ({selectedGeneral.length})
         </button>
         {isGenOpen && (
-          <div style={{ position: 'absolute', zIndex: 10, background: 'white', padding: '0.5rem', borderRadius: 8, boxShadow: '0 4px 12px rgba(0,0,0,0.1)', width: 280, maxHeight: 260, overflow: 'auto' }}>
+          <div style={{ position: 'absolute', left: 0, zIndex: 10, background: 'white', padding: '0.5rem', borderRadius: 8, boxShadow: '0 4px 12px rgba(0,0,0,0.1)', width: 300, maxHeight: 260, overflow: 'auto', textAlign: 'left' }}>
             {generalCategories.map((s) => {
               const checked = selectedGeneral.includes(s);
               return (
-                <label key={s} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', padding: '0.25rem 0' }}>
+                <label key={s} style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: '0.5rem', fontSize: '0.9rem', padding: '0.25rem 0' }}>
                   <input
                     type="checkbox"
                     checked={checked}
@@ -49,15 +49,15 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, generalCategories, lang
 
       {/* Languages dropdown */}
       <div style={{ position: 'relative' }}>
-        <button type="button" onClick={() => setIsLangOpen(v => !v)} style={{ padding: '0.5rem 0.75rem', borderRadius: 8 }}>
+        <button type="button" onClick={() => setIsLangOpen(v => !v)} style={{ padding: '0.5rem 0.75rem', borderRadius: 8, textAlign: 'left' }}>
           {translations[currentLang]?.languages || 'Languages'} ({selectedLanguages.length})
         </button>
         {isLangOpen && (
-          <div style={{ position: 'absolute', zIndex: 10, background: 'white', padding: '0.5rem', borderRadius: 8, boxShadow: '0 4px 12px rgba(0,0,0,0.1)', width: 280, maxHeight: 260, overflow: 'auto' }}>
+          <div style={{ position: 'absolute', left: 0, zIndex: 10, background: 'white', padding: '0.5rem', borderRadius: 8, boxShadow: '0 4px 12px rgba(0,0,0,0.1)', width: 300, maxHeight: 260, overflow: 'auto', textAlign: 'left' }}>
             {languages.map((l) => {
               const checked = selectedLanguages.includes(l);
               return (
-                <label key={l} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', padding: '0.25rem 0' }}>
+                <label key={l} style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: '0.5rem', fontSize: '0.9rem', padding: '0.25rem 0' }}>
                   <input
                     type="checkbox"
                     checked={checked}
