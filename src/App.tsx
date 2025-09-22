@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+<BrowserRouter basename={process.env.PUBLIC_URL}>
+  {/* your routes */}
+</BrowserRouter>
 import Header from './components/Header';
 import Home from './components/Home';
 import AboutUs from './components/AboutUs';
