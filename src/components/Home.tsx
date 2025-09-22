@@ -3,7 +3,7 @@ import SearchBar from './SearchBar';
 import DoctorList from './DoctorList';
 import MapView from './MapView';
 import ViewToggle from './ViewToggle';
-import doctorsData from '../data/doctors';
+import doctorsData, { loadDoctors } from '../data/doctors';
 import hospitalsData from '../data/hospitals';
 
 interface HomeProps {
@@ -21,25 +21,28 @@ const Home: React.FC<HomeProps> = ({ currentLang, translations }) => {
   const [languages, setLanguages] = useState<string[]>([]);
 
   useEffect(() => {
-    // Initialize data from parsed arrays
-    const doctors = doctorsData.filter((d: any) => d.name);
-    const hospitals = hospitalsData.filter((h: any) => h.name && h.lat && h.lng);
-    setAllDoctors(doctors);
-    setCurrentDoctors(doctors);
-    setCurrentHospitals(hospitals);
+    const init = async () => {
+      // Prefer runtime-loaded CSV from public/ if available; fallback to bundled
+      const docs = await loadDoctors().catch(() => doctorsData);
+      const doctors = (docs || []).filter((d: any) => d.name);
+      const hospitals = hospitalsData.filter((h: any) => h.name && h.lat && h.lng);
+      setAllDoctors(doctors);
+      setCurrentDoctors(doctors);
+      setCurrentHospitals(hospitals);
 
-    // Derive specialties and languages from all doctors, regardless of coords
-    const specialtySet = new Set<string>();
-    const genSet = new Set<string>();
-    const languageSet = new Set<string>();
-    doctors.forEach((doc: any) => {
-      if (doc.specialty) specialtySet.add(doc.specialty);
-      if (doc.gen) doc.gen.split(',').forEach((g: string) => genSet.add(g.trim()));
-      if (doc.languages) doc.languages.split(',').forEach((l: string) => languageSet.add(l.trim()));
-    });
-    setSpecialties(Array.from(specialtySet).sort());
-    setGeneralCategories(Array.from(genSet).sort());
-    setLanguages(Array.from(languageSet).sort());
+      const specialtySet = new Set<string>();
+      const genSet = new Set<string>();
+      const languageSet = new Set<string>();
+      doctors.forEach((doc: any) => {
+        if (doc.specialty) specialtySet.add(doc.specialty);
+        if (doc.gen) doc.gen.split(',').forEach((g: string) => genSet.add(g.trim()));
+        if (doc.languages) doc.languages.split(',').forEach((l: string) => languageSet.add(l.trim()));
+      });
+      setSpecialties(Array.from(specialtySet).sort());
+      setGeneralCategories(Array.from(genSet).sort());
+      setLanguages(Array.from(languageSet).sort());
+    };
+    init();
   }, []);
 
   const filterDoctors = (criteria: any) => {

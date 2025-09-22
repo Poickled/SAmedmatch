@@ -38,23 +38,26 @@ function parseListString(listLike?: string): string[] {
     .filter((s) => s.length > 0);
 }
 
-const rawRows = parseCSVToObjects<CleanedDoctorRow>(DOCTORS_CLEANED_CSV);
-
-const raw: Doctor[] = rawRows.map((r) => {
+function rowsToDoctors(rawRows: CleanedDoctorRow[]): Doctor[] {
+  return rawRows.map((r) => {
   const specialties = parseListString(r.specialty);
   const langs = parseListString(r.languages);
   const general = parseListString(r.gen);
-  return {
-    name: (r.name || '').trim(),
-    specialty: specialties.join(', '),
-    gen: general.join(', '),
-    languages: langs.join(', '),
-    address: (r.address || '').replace(/\s+/g, ' ').trim(),
-    lat: String(r.lat || '').trim(),
-    lng: String(r.lng || '').trim(),
-    phone: (r.phone || '').trim() || undefined,
-  } as Doctor;
-});
+    return {
+      name: (r.name || '').trim(),
+      specialty: specialties.join(', '),
+      gen: general.join(', '),
+      languages: langs.join(', '),
+      address: (r.address || '').replace(/\s+/g, ' ').trim(),
+      lat: String(r.lat || '').trim(),
+      lng: String(r.lng || '').trim(),
+      phone: (r.phone || '').trim() || undefined,
+    } as Doctor;
+  });
+}
+
+const rawRows = parseCSVToObjects<CleanedDoctorRow>(DOCTORS_CLEANED_CSV);
+const raw: Doctor[] = rowsToDoctors(rawRows);
 
 // Normalize and filter
 export const doctors: Doctor[] = raw
@@ -68,5 +71,28 @@ export const doctors: Doctor[] = raw
     lat: String(d.lat).trim(),
     lng: String(d.lng).trim(),
   }));
+
+export async function loadDoctors(): Promise<Doctor[]> {
+  try {
+    const response = await fetch(`${process.env.PUBLIC_URL}/data/doctors_cleaned.csv`, { cache: 'no-store' });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const text = await response.text();
+    const rows = parseCSVToObjects<CleanedDoctorRow>(text);
+    const parsed = rowsToDoctors(rows)
+      .filter((d) => d.name)
+      .map((d) => ({
+        ...d,
+        name: d.name.trim(),
+        specialty: (d.specialty || '').replace(/\s*,\s*/g, ', '),
+        languages: (d.languages || '').replace(/\s*,\s*/g, ', '),
+        address: (d.address || '').trim(),
+        lat: String(d.lat).trim(),
+        lng: String(d.lng).trim(),
+      }));
+    return parsed;
+  } catch (e) {
+    return doctors;
+  }
+}
 
 export default doctors;
