@@ -370,7 +370,6 @@
             <li><a href="#" class="nav-link active" data-page="home" data-en="Insuranceless Healthcare Finder" data-es="Buscador de Atención Médica sin Seguro" data-vi="Tìm Dịch Vụ Y Tế Không Bảo Hiểm">Insuranceless Healthcare Finder</a></li>
             <li><a href="#" class="nav-link" data-page="about" data-en="About Us" data-es="Acerca de Nosotros" data-vi="Về Chúng Tôi">About Us</a></li>
             <li><a href="#" class="nav-link" data-page="resources" data-en="Additional Resources" data-es="Recursos Adicionales" data-vi="Tài Nguyên Bổ Sung">Additional Resources</a></li>
-            <li><a href="#" class="nav-link" data-page="join" data-en="Join Directory" data-es="Únete al Directorio" data-vi="Tham Gia Thư Mục">Join Directory</a></li>
         </ul>
     </nav>
     
@@ -558,50 +557,6 @@
             </div>
         </div>
         
-        <!-- Join Directory Page -->
-        <div id="join" class="page">
-            <div class="search-section">
-                <h2 data-en="Join Our Directory" data-es="Únete a Nuestro Directorio" data-vi="Tham Gia Thư Mục Của Chúng Tôi">Join Our Directory</h2>
-                <p data-en="Are you a medical facility in San Antonio? We'd love to include you in our directory!" data-es="¿Eres una instalación médica en San Antonio? ¡Nos encantaría incluirte en nuestro directorio!" data-vi="Bạn có phải là cơ sở y tế ở San Antonio? Chúng tôi rất muốn bao gồm bạn trong thư mục của chúng tôi!">Are you a medical facility in San Antonio? We'd love to include you in our directory!</p>
-                
-                <div style="background: #f8f9fa; padding: 2rem; border-radius: 8px; margin: 2rem 0;">
-                    <h3 data-en="Contact Information" data-es="Información de Contacto" data-vi="Thông Tin Liên Hệ">Contact Information</h3>
-                    <p data-en="To join our directory, please contact us with the following information:" data-es="Para unirse a nuestro directorio, por favor contáctenos con la siguiente información:" data-vi="Để tham gia thư mục của chúng tôi, vui lòng liên hệ với chúng tôi với thông tin sau:">To join our directory, please contact us with the following information:</p>
-                    
-                    <ul style="margin: 1rem 0; padding-left: 2rem;">
-                        <li data-en="Facility Name" data-es="Nombre de la Instalación" data-vi="Tên Cơ Sở">Facility Name</li>
-                        <li data-en="Contact Person" data-es="Persona de Contacto" data-vi="Người Liên Hệ">Contact Person</li>
-                        <li data-en="Address" data-es="Dirección" data-vi="Địa Chỉ">Address</li>
-                        <li data-en="Phone Number" data-es="Número de Teléfono" data-vi="Số Điện Thoại">Phone Number</li>
-                        <li data-en="Email" data-es="Correo Electrónico" data-vi="Email">Email</li>
-                        <li data-en="Medical Specialties" data-es="Especialidades Médicas" data-vi="Chuyên Khoa Y Tế">Medical Specialties</li>
-                        <li data-en="Languages Spoken" data-es="Idiomas Hablados" data-vi="Ngôn Ngữ Được Nói">Languages Spoken</li>
-                        <li data-en="Hours of Operation" data-es="Horario de Operación" data-vi="Giờ Hoạt Động">Hours of Operation</li>
-                    </ul>
-                    
-                    <div style="background: white; padding: 1.5rem; border-radius: 6px; border-left: 4px solid #dc2626;">
-                        <h4 data-en="Email Us" data-es="Envíanos un Email" data-vi="Gửi Email Cho Chúng Tôi">Email Us</h4>
-                        <p><strong data-en="Email:" data-es="Email:" data-vi="Email:">Email:</strong> <a href="mailto:info@samedmatch.org">info@samedmatch.org</a></p>
-                        
-                        <h4 data-en="Call Us" data-es="Llámanos" data-vi="Gọi Cho Chúng Tôi">Call Us</h4>
-                        <p><strong data-en="Phone:" data-es="Teléfono:" data-vi="Điện Thoại:">Phone:</strong> <a href="tel:+12105551234">(210) 555-1234</a></p>
-                        
-                        <h4 data-en="Visit Our Office" data-es="Visita Nuestra Oficina" data-vi="Thăm Văn Phòng Của Chúng Tôi">Visit Our Office</h4>
-                        <p><strong data-en="Address:" data-es="Dirección:" data-vi="Địa Chỉ:">Address:</strong> 123 Medical Plaza, San Antonio, TX 78201</p>
-                    </div>
-                </div>
-                
-                <div style="background: #e7f3ff; padding: 1.5rem; border-radius: 8px; margin: 2rem 0;">
-                    <h4 data-en="What Happens Next?" data-es="¿Qué Pasa Después?" data-vi="Điều Gì Xảy Ra Tiếp Theo?">What Happens Next?</h4>
-                    <ol style="margin: 1rem 0; padding-left: 2rem;">
-                        <li data-en="We review your information" data-es="Revisamos su información" data-vi="Chúng tôi xem xét thông tin của bạn">We review your information</li>
-                        <li data-en="We verify your facility details" data-es="Verificamos los detalles de su instalación" data-vi="Chúng tôi xác minh chi tiết cơ sở của bạn">We verify your facility details</li>
-                        <li data-en="We add you to our directory" data-es="Te agregamos a nuestro directorio" data-vi="Chúng tôi thêm bạn vào thư mục của chúng tôi">We add you to our directory</li>
-                        <li data-en="You receive confirmation" data-es="Recibes confirmación" data-vi="Bạn nhận được xác nhận">You receive confirmation</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
     </div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -1102,14 +1057,42 @@
                 return;
             }
 
+            // Label translations
+            const labels = {
+                en: {
+                    specialty: 'Specialty:',
+                    general: 'General Categories:',
+                    languages: 'Languages:',
+                    address: 'Address:',
+                    phone: 'Phone:',
+                    notSpecified: 'Not specified'
+                },
+                es: {
+                    specialty: 'Especialidad:',
+                    general: 'Categorías Generales:',
+                    languages: 'Idiomas:',
+                    address: 'Dirección:',
+                    phone: 'Teléfono:',
+                    notSpecified: 'No especificado'
+                },
+                vi: {
+                    specialty: 'Chuyên Khoa:',
+                    general: 'Danh Mục Chung:',
+                    languages: 'Ngôn Ngữ:',
+                    address: 'Địa Chỉ:',
+                    phone: 'Điện Thoại:',
+                    notSpecified: 'Không xác định'
+                }
+            };
+
             doctorList.innerHTML = doctors.map(doctor => `
                 <div class="doctor-card">
                     <h3>${doctor.name}</h3>
-                    <p><strong data-en="Specialty:" data-es="Especialidad:" data-vi="Chuyên Khoa:">Specialty:</strong> ${translateDataValue(doctor.specialty, currentLang) || 'Not specified'}</p>
-                    <p><strong data-en="General Categories:" data-es="Categorías Generales:" data-vi="Danh Mục Chung:">General Categories:</strong> ${translateDataValue(doctor.gen, currentLang) || 'Not specified'}</p>
-                    <p><strong data-en="Languages:" data-es="Idiomas:" data-vi="Ngôn Ngữ:">Languages:</strong> ${translateDataValue(doctor.languages, currentLang) || 'Not specified'}</p>
-                    <p><strong data-en="Address:" data-es="Dirección:" data-vi="Địa Chỉ:">Address:</strong> ${doctor.address || 'Not specified'}</p>
-                    ${doctor.phone ? `<p><strong data-en="Phone:" data-es="Teléfono:" data-vi="Điện Thoại:">Phone:</strong> ${doctor.phone}</p>` : ''}
+                    <p><strong>${labels[currentLang].specialty}</strong> ${translateDataValue(doctor.specialty, currentLang) || labels[currentLang].notSpecified}</p>
+                    <p><strong>${labels[currentLang].general}</strong> ${translateDataValue(doctor.gen, currentLang) || labels[currentLang].notSpecified}</p>
+                    <p><strong>${labels[currentLang].languages}</strong> ${translateDataValue(doctor.languages, currentLang) || labels[currentLang].notSpecified}</p>
+                    <p><strong>${labels[currentLang].address}</strong> ${doctor.address || labels[currentLang].notSpecified}</p>
+                    ${doctor.phone ? `<p><strong>${labels[currentLang].phone}</strong> ${doctor.phone}</p>` : ''}
                 </div>
             `).join('');
         }
