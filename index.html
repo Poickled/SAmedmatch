@@ -145,29 +145,36 @@
         /* Dropdown Navigation */
         .dropdown {
             position: relative;
+            display: inline-block;
         }
         
         .dropdown-toggle {
             cursor: pointer;
+            position: relative;
+        }
+        
+        .dropdown-toggle::after {
+            content: ' ▼';
+            font-size: 0.8em;
+            margin-left: 0.5em;
         }
         
         .dropdown-menu {
             position: absolute;
             top: 100%;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%);
             background: white;
             border: 1px solid #ddd;
             border-radius: 8px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-            min-width: 250px;
+            min-width: 280px;
             z-index: 1000;
             display: none;
             padding: 0.5rem 0;
-            transform: translateX(-50%);
-            left: 50%;
+            margin-top: 0.5rem;
         }
         
-        .dropdown:hover .dropdown-menu,
         .dropdown.open .dropdown-menu {
             display: block;
         }
@@ -177,8 +184,9 @@
             padding: 0.75rem 1.5rem;
             color: #333;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             border-bottom: 1px solid #f0f0f0;
+            white-space: nowrap;
         }
         
         .dropdown-item:last-child {
@@ -186,16 +194,6 @@
         }
         
         .dropdown-item:hover {
-            background-color: #dc2626;
-            color: white;
-        }
-        
-        .dropdown-item:active {
-            background-color: #dc2626;
-            color: white;
-        }
-        
-        .dropdown-item.active {
             background-color: #dc2626;
             color: white;
         }
@@ -1829,58 +1827,76 @@
 
         // Navigation functionality
         function showPage(pageId) {
+            console.log('showPage called with:', pageId);
+            
             // Hide all pages
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
             });
             
             // Show selected page
-            document.getElementById(pageId).classList.add('active');
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+                console.log('Page shown:', pageId);
+            } else {
+                console.error('Page not found:', pageId);
+            }
+        }
+
+        function initNavigation() {
+            // Main navigation links
+            document.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const pageId = e.target.getAttribute('data-page');
+                    if (pageId) {
+                        showPage(pageId);
+                        updateActiveNav(link);
+                    }
+                });
+            });
+
+            // Dropdown toggle
+            const dropdownToggle = document.querySelector('.dropdown-toggle');
+            const dropdown = document.querySelector('.dropdown');
             
-            // Update navigation
+            dropdownToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                dropdown.classList.toggle('open');
+            });
+
+            // Dropdown items
+            document.querySelectorAll('.dropdown-item').forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const pageId = e.target.getAttribute('data-page');
+                    if (pageId) {
+                        showPage(pageId);
+                        dropdown.classList.remove('open');
+                        // Don't update active nav for dropdown items
+                    }
+                });
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.dropdown')) {
+                    dropdown.classList.remove('open');
+                }
+            });
+        }
+
+        function updateActiveNav(activeLink) {
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.remove('active');
             });
-            document.querySelector(`[data-page="${pageId}"]`).classList.add('active');
+            activeLink.classList.add('active');
         }
 
-        // Event listeners
-        document.querySelectorAll('.nav-link, .dropdown-item').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const pageId = e.target.getAttribute('data-page');
-                if (pageId) {
-                    console.log('Navigating to page:', pageId); // Debug log
-                    showPage(pageId);
-                    
-                    // Update active state for main nav links (not dropdown items)
-                    if (link.classList.contains('nav-link') && !link.classList.contains('dropdown-toggle')) {
-                        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-                        link.classList.add('active');
-                    }
-                    
-                    // Close dropdown after clicking an item
-                    if (link.classList.contains('dropdown-item')) {
-                        document.querySelector('.dropdown').classList.remove('open');
-                    }
-                }
-            });
-        });
-
-        // Dropdown toggle functionality
-        document.querySelector('.dropdown-toggle').addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            const dropdown = document.querySelector('.dropdown');
-            dropdown.classList.toggle('open');
-        });
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.dropdown')) {
-                document.querySelector('.dropdown').classList.remove('open');
-            }
-        });
+        // Initialize navigation when page loads
+        initNavigation();
 
         // Language switching functionality
         function changeLanguage(lang) {
