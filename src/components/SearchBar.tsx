@@ -3,20 +3,23 @@ import React, { useState } from 'react';
 interface SearchBarProps {
   onSearch: (criteria: any) => void;
   generalCategories: string[];
+  specialties: string[];
   languages: string[];
   currentLang: string;
   translations: any;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ onSearch, generalCategories, languages, currentLang, translations }) => {
+const SearchBar: React.FC<SearchBarProps> = ({ onSearch, generalCategories, specialties, languages, currentLang, translations }) => {
   const [isGenOpen, setIsGenOpen] = useState(false);
+  const [isSpecOpen, setIsSpecOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [selectedGeneral, setSelectedGeneral] = useState<string[]>([]);
+  const [selectedSpecialties, setSelectedSpecialties] = useState<string[]>([]);
   const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);
   const [zipcode, setZipcode] = useState('');
 
   const handleSearch = () => {
-    onSearch({ general: selectedGeneral, languages: selectedLanguages, zipcode });
+    onSearch({ general: selectedGeneral, specialties: selectedSpecialties, languages: selectedLanguages, zipcode });
   };
 
   return (
@@ -37,6 +40,32 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, generalCategories, lang
                     checked={checked}
                     onChange={(e) => {
                       setSelectedGeneral((prev) => e.target.checked ? [...prev, s] : prev.filter(x => x !== s));
+                    }}
+                  />
+                  {s}
+                </label>
+              );
+            })}
+          </div>
+        )}
+      </div>
+
+      {/* Specific specialties dropdown (from 'specialty' column) */}
+      <div style={{ position: 'relative' }}>
+        <button type="button" onClick={() => setIsSpecOpen(v => !v)} style={{ padding: '0.5rem 0.75rem', borderRadius: 8, textAlign: 'left' }}>
+          {translations[currentLang]?.specificSpecialties || 'Specific Specialties'} ({selectedSpecialties.length})
+        </button>
+        {isSpecOpen && (
+          <div style={{ position: 'absolute', left: 0, zIndex: 10, background: 'white', padding: '0.5rem', borderRadius: 8, boxShadow: '0 4px 12px rgba(0,0,0,0.1)', width: 300, maxHeight: 260, overflow: 'auto', textAlign: 'left' }}>
+            {specialties.map((s) => {
+              const checked = selectedSpecialties.includes(s);
+              return (
+                <label key={s} style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: '0.5rem', fontSize: '0.9rem', padding: '0.25rem 0' }}>
+                  <input
+                    type="checkbox"
+                    checked={checked}
+                    onChange={(e) => {
+                      setSelectedSpecialties((prev) => e.target.checked ? [...prev, s] : prev.filter(x => x !== s));
                     }}
                   />
                   {s}

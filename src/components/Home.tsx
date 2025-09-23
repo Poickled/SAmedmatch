@@ -26,6 +26,10 @@ const Home: React.FC<HomeProps> = ({ currentLang, translations }) => {
       const docs = await loadDoctors().catch(() => doctorsData);
       const doctors = (docs || []).filter((d: any) => d.name);
       const hospitals = hospitalsData.filter((h: any) => h.name && h.lat && h.lng);
+      
+      console.log('Loaded doctors:', doctors.length);
+      console.log('Sample doctor:', doctors[0]);
+      
       setAllDoctors(doctors);
       setCurrentDoctors(doctors);
       setCurrentHospitals(hospitals);
@@ -34,13 +38,22 @@ const Home: React.FC<HomeProps> = ({ currentLang, translations }) => {
       const genSet = new Set<string>();
       const languageSet = new Set<string>();
       doctors.forEach((doc: any) => {
-        if (doc.specialty) specialtySet.add(doc.specialty);
+        if (doc.specialty) doc.specialty.split(',').forEach((s: string) => specialtySet.add(s.trim()));
         if (doc.gen) doc.gen.split(',').forEach((g: string) => genSet.add(g.trim()));
         if (doc.languages) doc.languages.split(',').forEach((l: string) => languageSet.add(l.trim()));
       });
-      setSpecialties(Array.from(specialtySet).sort());
-      setGeneralCategories(Array.from(genSet).sort());
-      setLanguages(Array.from(languageSet).sort());
+      
+      const specialtiesArray = Array.from(specialtySet).sort();
+      const generalArray = Array.from(genSet).sort();
+      const languagesArray = Array.from(languageSet).sort();
+      
+      console.log('Specialties found:', specialtiesArray.length);
+      console.log('General categories found:', generalArray.length);
+      console.log('Languages found:', languagesArray.length);
+      
+      setSpecialties(specialtiesArray);
+      setGeneralCategories(generalArray);
+      setLanguages(languagesArray);
     };
     init();
   }, []);
@@ -49,17 +62,28 @@ const Home: React.FC<HomeProps> = ({ currentLang, translations }) => {
     // Base filtering by multi-select specialties and languages
     let filteredDoctors = allDoctors.filter((doc) => {
       let match = true;
-      // filter by general categories (from 'gen' column)
+      
+      // filter by general categories (from 'gen' column) - for map view
       if (Array.isArray(criteria.general) && criteria.general.length > 0) {
         const docGen = (doc.gen || '').split(',').map((s: string) => s.trim());
         const hasAny = criteria.general.some((s: string) => docGen.includes(s));
         if (!hasAny) match = false;
       }
+      
+      // filter by specific specialties (from 'specialty' column) - for list view
+      if (Array.isArray(criteria.specialties) && criteria.specialties.length > 0) {
+        const docSpecialties = (doc.specialty || '').split(',').map((s: string) => s.trim());
+        const hasAny = criteria.specialties.some((s: string) => docSpecialties.includes(s));
+        if (!hasAny) match = false;
+      }
+      
+      // filter by languages
       if (Array.isArray(criteria.languages) && criteria.languages.length > 0) {
         const docLangs = (doc.languages || '').split(',').map((l: string) => l.trim());
         const hasAny = criteria.languages.some((l: string) => docLangs.includes(l));
         if (!hasAny) match = false;
       }
+      
       return match;
     });
 
@@ -116,6 +140,7 @@ const Home: React.FC<HomeProps> = ({ currentLang, translations }) => {
       <SearchBar
         onSearch={filterDoctors}
         generalCategories={generalCategories}
+        specialties={specialties}
         languages={languages}
         currentLang={currentLang}
         translations={translations}

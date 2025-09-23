@@ -3,8 +3,8 @@ import { DOCTORS_CLEANED_CSV } from './doctors_cleaned_raw';
 
 export type Doctor = {
   name: string;
-  specialty: string; // comma-separated specific specialties
-  gen?: string; // comma-separated general categories from 'gen'
+  specialty: string; // specific specialties from 'specialty' column
+  gen?: string; // general categories from 'gen' column
   languages: string; // comma-separated
   address: string;
   lat: string;
@@ -40,9 +40,9 @@ function parseListString(listLike?: string): string[] {
 
 function rowsToDoctors(rawRows: CleanedDoctorRow[]): Doctor[] {
   return rawRows.map((r) => {
-  const specialties = parseListString(r.specialty);
-  const langs = parseListString(r.languages);
-  const general = parseListString(r.gen);
+    const specialties = parseListString(r.specialty);
+    const langs = parseListString(r.languages);
+    const general = parseListString(r.gen);
     return {
       name: (r.name || '').trim(),
       specialty: specialties.join(', '),
@@ -56,6 +56,7 @@ function rowsToDoctors(rawRows: CleanedDoctorRow[]): Doctor[] {
   });
 }
 
+// For fallback when CSV loading fails
 const rawRows = parseCSVToObjects<CleanedDoctorRow>(DOCTORS_CLEANED_CSV);
 const raw: Doctor[] = rowsToDoctors(rawRows);
 
@@ -74,7 +75,7 @@ export const doctors: Doctor[] = raw
 
 export async function loadDoctors(): Promise<Doctor[]> {
   try {
-    const response = await fetch(`${process.env.PUBLIC_URL}/data/doctors_cleaned.csv`, { cache: 'no-store' });
+    const response = await fetch(`/data/doctors_cleaned.csv`, { cache: 'no-store' });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const text = await response.text();
     const rows = parseCSVToObjects<CleanedDoctorRow>(text);
@@ -91,6 +92,7 @@ export async function loadDoctors(): Promise<Doctor[]> {
       }));
     return parsed;
   } catch (e) {
+    console.warn('Failed to load doctors from CSV, using fallback data:', e);
     return doctors;
   }
 }
