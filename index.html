@@ -937,6 +937,50 @@
             initMap();
         }
 
+        // Translation mappings for medical terms
+        const translations = {
+            // General Categories
+            'Family Medicine': { es: 'Medicina Familiar', vi: 'Y Học Gia Đình' },
+            'Pediatrics': { es: 'Pediatría', vi: 'Nhi Khoa' },
+            'Pregnancy & Family Planning': { es: 'Embarazo y Planificación Familiar', vi: 'Thai Sản và Kế Hoạch Gia Đình' },
+            'Mental Health': { es: 'Salud Mental', vi: 'Sức Khỏe Tâm Thần' },
+            'Dental Care': { es: 'Cuidado Dental', vi: 'Chăm Sóc Răng Miệng' },
+            'Emergency Care': { es: 'Atención de Emergencia', vi: 'Chăm Sóc Khẩn Cấp' },
+            'Women\'s Health': { es: 'Salud de la Mujer', vi: 'Sức Khỏe Phụ Nữ' },
+            'Chronic Disease Management': { es: 'Manejo de Enfermedades Crónicas', vi: 'Quản Lý Bệnh Mãn Tính' },
+            
+            // Specialties
+            'Family Medicine': { es: 'Medicina Familiar', vi: 'Y Học Gia Đình' },
+            'Pediatrics': { es: 'Pediatría', vi: 'Nhi Khoa' },
+            'Pregnancy Testing & Family Planning': { es: 'Pruebas de Embarazo y Planificación Familiar', vi: 'Xét Nghiệm Thai và Kế Hoạch Gia Đình' },
+            'Internal Medicine': { es: 'Medicina Interna', vi: 'Nội Khoa' },
+            'Cardiology': { es: 'Cardiología', vi: 'Tim Mạch' },
+            'Dermatology': { es: 'Dermatología', vi: 'Da Liễu' },
+            'Endocrinology': { es: 'Endocrinología', vi: 'Nội Tiết' },
+            'Gastroenterology': { es: 'Gastroenterología', vi: 'Tiêu Hóa' },
+            'Neurology': { es: 'Neurología', vi: 'Thần Kinh' },
+            'Oncology': { es: 'Oncología', vi: 'Ung Thư' },
+            'Orthopedics': { es: 'Ortopedia', vi: 'Chỉnh Hình' },
+            'Psychiatry': { es: 'Psiquiatría', vi: 'Tâm Thần' },
+            'Pulmonology': { es: 'Neumología', vi: 'Phổi' },
+            'Rheumatology': { es: 'Reumatología', vi: 'Thấp Khớp' },
+            'Urology': { es: 'Urología', vi: 'Tiết Niệu' },
+            
+            // Languages
+            'English': { es: 'Inglés', vi: 'Tiếng Anh' },
+            'Spanish': { es: 'Español', vi: 'Tiếng Tây Ban Nha' },
+            'French': { es: 'Francés', vi: 'Tiếng Pháp' },
+            'German': { es: 'Alemán', vi: 'Tiếng Đức' },
+            'Italian': { es: 'Italiano', vi: 'Tiếng Ý' },
+            'Portuguese': { es: 'Portugués', vi: 'Tiếng Bồ Đào Nha' },
+            'Chinese': { es: 'Chino', vi: 'Tiếng Trung' },
+            'Japanese': { es: 'Japonés', vi: 'Tiếng Nhật' },
+            'Korean': { es: 'Coreano', vi: 'Tiếng Hàn' },
+            'Arabic': { es: 'Árabe', vi: 'Tiếng Ả Rập' },
+            'Vietnamese': { es: 'Vietnamita', vi: 'Tiếng Việt' },
+            'Tagalog': { es: 'Tagalo', vi: 'Tiếng Tagalog' }
+        };
+
         function populateFilters() {
             const generalSet = new Set();
             const specialtySet = new Set();
@@ -969,6 +1013,9 @@
                 const option = document.createElement('option');
                 option.value = item;
                 option.textContent = item;
+                option.setAttribute('data-en', item);
+                option.setAttribute('data-es', translations[item]?.es || item);
+                option.setAttribute('data-vi', translations[item]?.vi || item);
                 generalFilter.appendChild(option);
             });
 
@@ -978,6 +1025,9 @@
                 const option = document.createElement('option');
                 option.value = item;
                 option.textContent = item;
+                option.setAttribute('data-en', item);
+                option.setAttribute('data-es', translations[item]?.es || item);
+                option.setAttribute('data-vi', translations[item]?.vi || item);
                 specialtyFilter.appendChild(option);
             });
 
@@ -987,6 +1037,9 @@
                 const option = document.createElement('option');
                 option.value = item;
                 option.textContent = item;
+                option.setAttribute('data-en', item);
+                option.setAttribute('data-es', translations[item]?.es || item);
+                option.setAttribute('data-vi', translations[item]?.vi || item);
                 languageFilter.appendChild(option);
             });
 
@@ -1182,6 +1235,11 @@
             if (typeof displayDoctors === 'function') {
                 displayDoctors(filteredDoctors);
             }
+            
+            // Update dropdown options
+            document.querySelectorAll('select option[data-en][data-es][data-vi]').forEach(option => {
+                option.textContent = option.getAttribute(`data-${lang}`);
+            });
             
             // Update form placeholders and labels
             if (lang === 'es') {
