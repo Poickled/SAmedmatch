@@ -212,6 +212,8 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
+            position: relative !important;
+            z-index: 1 !important;
         }
         
         .search-section {
@@ -379,6 +381,10 @@
             display: block !important;
             visibility: visible !important;
             opacity: 1 !important;
+            position: relative !important;
+            z-index: 999 !important;
+            background: white !important;
+            min-height: 500px !important;
         }
         
         .resources-grid {
@@ -1848,6 +1854,17 @@
                 targetPage.classList.add('active');
                 console.log('Page shown:', pageId);
                 console.log('Page content:', targetPage.innerHTML.substring(0, 200) + '...');
+                
+                // Debug: Check computed styles
+                const computedStyle = window.getComputedStyle(targetPage);
+                console.log('Page display:', computedStyle.display);
+                console.log('Page visibility:', computedStyle.visibility);
+                console.log('Page opacity:', computedStyle.opacity);
+                console.log('Page position:', computedStyle.position);
+                console.log('Page z-index:', computedStyle.zIndex);
+                
+                // Force scroll to page
+                targetPage.scrollIntoView({ behavior: 'smooth' });
             } else {
                 console.error('Page not found:', pageId);
             }
