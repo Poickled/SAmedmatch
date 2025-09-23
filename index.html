@@ -163,9 +163,12 @@
             z-index: 1000;
             display: none;
             padding: 0.5rem 0;
+            transform: translateX(-50%);
+            left: 50%;
         }
         
-        .dropdown:hover .dropdown-menu {
+        .dropdown:hover .dropdown-menu,
+        .dropdown.open .dropdown-menu {
             display: block;
         }
         
@@ -183,6 +186,16 @@
         }
         
         .dropdown-item:hover {
+            background-color: #dc2626;
+            color: white;
+        }
+        
+        .dropdown-item:active {
+            background-color: #dc2626;
+            color: white;
+        }
+        
+        .dropdown-item.active {
             background-color: #dc2626;
             color: white;
         }
@@ -1837,6 +1850,7 @@
                 e.preventDefault();
                 const pageId = e.target.getAttribute('data-page');
                 if (pageId) {
+                    console.log('Navigating to page:', pageId); // Debug log
                     showPage(pageId);
                     
                     // Update active state for main nav links (not dropdown items)
@@ -1844,8 +1858,28 @@
                         document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
                         link.classList.add('active');
                     }
+                    
+                    // Close dropdown after clicking an item
+                    if (link.classList.contains('dropdown-item')) {
+                        document.querySelector('.dropdown').classList.remove('open');
+                    }
                 }
             });
+        });
+
+        // Dropdown toggle functionality
+        document.querySelector('.dropdown-toggle').addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const dropdown = document.querySelector('.dropdown');
+            dropdown.classList.toggle('open');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.dropdown')) {
+                document.querySelector('.dropdown').classList.remove('open');
+            }
         });
 
         // Language switching functionality
