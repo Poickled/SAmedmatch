@@ -1,0 +1,214 @@
+name,specialty,address,languages,lat,lng,phone,gen,Unnamed: 8,Unnamed: 9
+CENTROMED SARAH E DAVIDSON CLINIC,"['Family Medicine', 'Pediatrics', 'Pregnancy Testing & Family Planning']","1 Haven for Hope Way, Bldg 1 STE 300
+San Antonio, 78207","['English', 'Spanish']",,,,"['Family Medicine', 'Pediatrics', 'Pregnancy & Family Planning']",,
+San Antonio Specialty Health & Sports Medicine - Downtown,"['Neurology', 'Sports Medicine', 'Physical Therapy', 'Orthopedics', 'Dermatology', 'Rheumatology', 'Pain Management']","1200 Brooklyn Ave. STE 320
+San Antonio, 78212",['English'],29.4402731,-98.4905771,,"['Neurology', 'Sports Medicine', 'Physical Therapy', 'Orthopedics', 'Dermatology', 'Rheumatology', 'Pain Management']",,
+CommuniCare Health Centers - Metropolitan,"[""General Women's Wellness Care"", 'Pregnancy Care']","1200 Brooklyn Ave, Suite #300
+San Antonio, TX 78212","['English', 'Spanish']",,,,"['Women's Health', 'Pregnancy Care']",,
+CentroMed City Center Clinic,"['Pediatrics', 'Behavioral Health', 'Counseling', 'Family Medicine', 'Physicals', 'Immunizations', 'Child Health Step/EPSDT', 'Sick Visits', 'Well-child check-ups', 'Routine follow-up care', 'Vision & Hearing Screenings', 'Allergy Treatment', 'HIV Services', 'Lab Services', 'Nutrition Services', 'HIV Pre-Exposure Prophylaxis (PrEP)', 'Referrals to Specialist']",,['English'],,,,"['Pediatrics', 'Behavioral Health', 'Family Medicine', 'Physicals', 'Immunizations', 'Lab Services', 'Nutrition Services', 'Referrals']",,
+CentroMed SA Pediatrics - Promesa Building,"['Pediatrics', 'Physicals', 'Immunizations', 'Child Health Step/EPSDT', 'Sick Visits', 'Routine follow-up care', 'Vision & Hearing Screenings', 'Allergy Treatment', 'Lab Services']","1314 Guadalupe Street, Suite 107
+San Antonio, TX 78207",['English'],29.4180517,-98.5152218,,"['Pediatrics', 'Physicals', 'Immunizations', 'Lab Services']",,
+CENTROMED FAMILY MEDICINE CLINIC,[],,['English'],,,,[],,
+Devine Behavioral Health,"['Medical', 'Dental', 'Wellness Gym']","1010 W. Hondo Ave, Devine, Texas 78016",['English'],29.1472609,-98.9160889,,"['Medical', 'Dental', 'Wellness']",,
+CommuniCare Health Centers - Vital Life Wellness Broadway,"['Peak Transformation Program', 'Preventative Primary Care', 'Weight Loss Program', 'Hormone Replacement Therapy', 'Sexual Health Services', 'Individualized Diagnostic Care']","2520 Broadway St, Ste 100
+San Antonio, 78215",['English'],,,,"['Preventive Care', 'Weight Loss', 'Hormone Therapy', 'Sexual Health']",,
+CommuniCare Health Centers - West,"['Adult Medicine', ""Women's Health"", 'Pediatrics', 'Teen Health', 'Senior Care', 'Dental', 'Behavioral Health', 'Clinical Labs/Diagnostic Testing', 'WIC Program']","1102 Barclay St
+San Antonio, 78207",['English'],29.4100693,-98.5429277,,"['Adult Medicine', 'Women's Health', 'Pediatrics', 'Teen Health', 'Senior Care', 'Dental', 'Behavioral Health', 'Lab Services']",,
+CommuniCare Health Centers - East,"['Medical', 'Adult Medicine', ""Women's Health"", 'Pediatric Medicine', 'Teen Health', 'Senior Care', 'Cardiology', 'Dental', 'STD/HIV Screening & Testing', 'Clinical Laboratory']","3066 E Commerce St
+San Antonio, TX 78220",['English'],29.419674,-98.440346,,"['Adult Medicine', 'Women's Health', 'Pediatrics', 'Teen Health', 'Senior Care', 'Cardiology', 'Dental', 'STD/HIV Testing', 'Lab Services']",,
+CommuniCare Health Centers - Mobile Health Unit,"['Blood pressure', 'Height/weight', 'Vision screenings', 'Flu vaccines', 'COVID', 'influenza', 'and strep testing', 'Physical exams', 'Screening labs']","3066 E Commerce St
+San Antonio, 78220",['English'],29.419674,-98.440346,,"['Primary Care', 'Screenings', 'Vaccinations']",,
+CENTROMED SOUTH PARK MEDICAL CLINIC,"['Family Medicine', 'Pediatrics', 'Triage/Walk-In', 'Women’s Health (OB/GYN)', 'Behavioral Health', 'Eligibility Services', 'Lab Services']","6315 S Zarzamora St
+San Antonio, 78211",['English'],29.365423,-98.5341296,(210) 922-7000,"['Family Medicine', 'Pediatrics', 'Walk-In Care', 'Women's Health', 'Behavioral Health', 'Lab Services']",,
+CENTROMED SOUTH PARK DENTAL CLINIC,"['Complete Dental Exam', 'Preventative Care', 'Fillings', 'Root Canals', 'Extraction', 'Crowns', 'Bridges', 'Dentures', 'Partials']","910 Wagner Ave
+San Antonio, 78211",['English'],,,(210) 922-7000,['Dental'],,
+CommuniCare Health Centers - Roosevelt,"['Well Child Visits', 'Teen Health', 'ADHD/ADD Evaluations', 'Chronic Disease Management', 'Immunizations', 'Health and Nutrition Education']","3727 Roosevelt Ave,
+San Antonio, TX 78214",['English'],29.3506951,-98.4813334,(210) 233-7000,"['Pediatrics', 'Teen Health', 'Chronic Disease Management', 'Immunizations', 'Patient Education']",,
+CommuniCare Health Centers - South,"['Acute Care', 'Well Child Visits', 'Teen Health', 'ADHD/ADD Evaluations', 'Chronic Disease Management', 'Immunizations', 'Health and Nutrition Education']","2316 SE Military Dr,
+San Antonio, TX 78223",['English'],29.3520317,-98.4559002,(210) 233-7000,"['Acute Care', 'Pediatrics', 'Teen Health', 'Chronic Disease Management', 'Immunizations', 'Patient Education']",,
+CentroMed Women's Health Clinic,"['Health Screenings', 'Maternity Care', 'Sexual & Reproductive Health']","7386 Barlite Blvd
+San Antonio, 78224",['English'],29.3546398,-98.54611,,"['Health Screenings', 'Maternity Care', 'Sexual & Reproductive Health']",,
+CentroMed SA Pediatrics,"['Pediatrics', 'Physicals', 'Immunizations', 'Child Health Step/EPSDT', 'Sick Visits', 'Routine follow-up care', 'Vision & Hearing Screenings', 'Allergy Treatment', 'Lab Services']","94 Briggs St STE 400
+San Antonio, 78224",['English'],,,210) 922-7000,"['Pediatrics', 'Physicals', 'Immunizations', 'Lab Services']",,
+CentroMed Southside Medical,"['Family Medicine', 'Dental', 'Pediatrics', 'Behavioral Health', 'Eligibility Services', 'Lab Services', 'Women’s Health (OB/GYN)']","3750 Commercial Avenue
+San Antonio, TX 78221",['English'],29.335848,-98.516118,(210) 922-7000,"['Family Medicine', 'Dental', 'Pediatrics', 'Behavioral Health', 'Lab Services', 'Women's Health']",,
+CentroMed SA Pediatrics Southeast,"['Pediatrics', 'Physicals', 'Immunizations', 'Child Health Step/EPSDT', 'Sick Visits', 'Routine follow-up care', 'Vision & Hearing Screenings', 'Allergy Treatment', 'Lab Services']","3327 Research Plz STE 307
+San Antonio, 78235",['English'],29.3435597,-98.4372625,(210) 223-3543,"['Pediatrics', 'Physicals', 'Immunizations', 'Lab Services']",,
+CommuniCare Health Centers - Northwest,"['Adult Medicine', ""Women's Health"", 'WIC Program', 'Pediatric Medicine', 'Teen Health', 'Senior Care', 'Behavioral Health', 'STD/HIV Screening & Testing', 'Clinical Laboratory']","8210 Callaghan Road
+San Antonio, TX 78230",['English'],29.5142678,-98.5495499,(210) 233-7000,"['Adult Medicine', 'Women's Health', 'Pediatrics', 'Teen Health', 'Senior Care', 'Behavioral Health', 'STD/HIV Testing', 'Lab Services']",,
+CommuniCare Health Centers - Navigation Center,"['Psychotherapy and Psychiatry', 'Primary Care', 'Dental Care', 'OB/GYN Services', 'Vision', 'Specialized Health Care']","7420 Blanco Rd Ste 210
+San Antonio, 78216",['English'],29.5278792,-98.5052748,(210) 233-7000,"['Behavioral Health', 'Primary Care', 'Dental', 'Women's Health', 'Vision', 'Specialized Care']",,
+CENTROMED PALO ALTO CLINIC,"['Pediatrics', 'Family Medicine', 'Internal Medicine', 'Dental', 'Optometry', 'Optical', 'Lab Services']","9011 Poteet Jourdanton Fwy
+San Antonio, 78224",['English'],29.3342275,-98.5504693,(210) 922-7000,"['Pediatrics', 'Family Medicine', 'Internal Medicine', 'Dental', 'Optometry', 'Lab Services']",,
+CommuniCare Health Centers - Medical Center,"['Pediatrics', 'Well-Child Visits', 'Developmental Checkups', 'Pediatric Acute Care', 'Teen Health', 'ADHD Care', 'Puberty Development Education', 'Sports Physicals', ""Women's Health"", 'Annual Exams', 'Gynecological Surgery', 'Pregnancy Care', 'Immunizations', 'Patient Health Education']","7220 Louis Pasteur, Ste 140
+San Antonio, TX 78229",['English'],29.5003126,-98.5770904,(210) 233-7175,"['Pediatrics', 'Well-Child Visits', 'Developmental Checkups', 'Acute Care', 'Teen Health', 'ADHD Care', 'Women's Health', 'Immunizations', 'Patient Education']",,
+CentroMed Berto Guerra Jr. Clinic,"['Family Medicine', 'Pediatrics', 'Dental', 'Behavioral Health', 'Eligibility Services', 'Lab Services']","5439 Ray Ellison Boulevard
+San Antonio, TX 78242",['English'],29.3548422,-98.6055369,(210) 922-7000,"['Family Medicine', 'Pediatrics', 'Dental', 'Behavioral Health', 'Lab Services']",,
+Health Outcomes Centers,"['Hepatitis Care', 'Metabolic Care', 'Labs']","4751 Hamilton Wolfe Rd, Ste. 200
+San Antonio, TX 78229",['English'],,,(210) 233-7126,"['Hepatitis Care', 'Metabolic Care', 'Lab Services']",,
+CENTROMED WOMEN'S SHELTER CLINIC - LA PALOMA DE PAZ,"['Mental Health', 'Substance Abuse']","7404 W US Highway 90 Bldg 37
+San Antonio, 78227",['English'],,,,"['Mental Health', 'Substance Abuse']",,
+CentroMed Noemi Galvan Eling Clinic,"['Family Medicine', 'Pediatrics', 'Triage/Walk-In', 'Women’s Health (OB/GYN)', 'Dental', 'Behavioral Health', 'Eligibility Services', 'Lab Services']","5542 Walzem Road
+San Antonio, TX 78218",['English'],,,(210) 922-7000,"['Family Medicine', 'Pediatrics', 'Walk-In Care', 'Women's Health', 'Dental', 'Behavioral Health', 'Lab Services']",,
+CommuniCare at The MAC,"['Pediatric Primary Care', 'Adult Primary Care', 'Behavioral & Mental Health', 'OB/GYN Services', 'Chronic Disease Management', 'Patient Health Education']","5210 Thousand Oaks Dr, Suite 1203
+San Antonio, TX 78233",['English'],29.5368364,-98.3953294,(210) 233-7250,"['Pediatrics', 'Adult Medicine', 'Behavioral Health', 'Women's Health', 'Chronic Disease Management', 'Patient Education']",,
+CentroMed Thousand Oaks Clinic,"['Family Medicine', 'Pediatrics', 'Dental', 'Eligibility Services', 'Lab Services']","4300 Thousand Oak Drive, Suites #103 & 104
+San Antonio, TX 78217",['English'],,,(210) 922-7000,"['Family Medicine', 'Pediatrics', 'Dental', 'Lab Services']",,
+CommuniCare Health Centers - Hill Country Village,"['Pediatrics', 'Well-Child Visits', 'Developmental Checkups', 'Pediatric Acute Care', 'Teen Health', 'ADHD Care', 'Puberty Development Education', 'Sports Physicals', 'Behavioral Health', 'Chronic Disease Management', 'Immunizations', 'Patient Health Education']","14811 San Pedro Avenue
+San Antonio, TX 78232",['English'],29.5764084,-98.4777522,"(210) 233-7000
+","['Pediatrics', 'Well-Child Visits', 'Developmental Checkups', 'Acute Care', 'Teen Health', 'ADHD Care', 'Behavioral Health', 'Chronic Disease Management', 'Immunizations', 'Patient Education']",,
+CommuniCare Health Centers - Westover Hills,"['Acute Care', 'Adult Medicine', 'Chronic Disease Management', 'Immunizations', 'Nutrition Education', 'Patient Health Education', 'Pediatrics', 'Teen Health']","9022 Culebra Rd, Ste. 101
+San Antonio, TX 78251",['English'],,,(210) 942-5855,"['Acute Care', 'Adult Medicine', 'Chronic Disease Management', 'Immunizations', 'Nutrition', 'Patient Education', 'Pediatrics', 'Teen Health']",,
+CommuniCare Health Centers - Potranco,"['Pediatrics', 'Well-Child Visits', 'Developmental Checkups', 'Pediatric Acute Care', 'Teen Health', 'ADHD Care', 'Puberty Development Education', 'Sports Physicals', ""Women's Health"", 'Annual Exams', 'Gynecological Surgery', 'Obstetrics (Pregnancy Care)', 'Behavioral Health', 'Chronic Disease Management', 'Immunizations', 'Patient Health Education', 'WIC Program', 'Nutrition Education']","10002 Westover Bluff
+San Antonio Texas 78251",['English'],,,(210) 233-7216,"['Pediatrics', 'Well-Child Visits', 'Developmental Checkups', 'Acute Care', 'Teen Health', 'ADHD Care', 'Women's Health', 'Immunizations', 'Patient Education', 'Nutrition']",,
+CommuniCare Health Centers - Hallmark University,"['Virtual Adult Acute Care', 'Testing for Flu', 'COVID', 'and RSV', 'Annual Wellness Exams', 'Patient Health Education', 'A1C Testing']","9855 Westover Hills Blvd, Suite 156
+San Antonio, TX 78251",['English'],,,(210) 431-6264,"['Virtual Care', 'Screenings', 'Vaccinations', 'Wellness Exams', 'Patient Education']",,
+CommuniCare Health Centers - Allergy Institute,['Allergy'],"4456 Lockhill-Selma Rd, Suite 103, San Antonio, TX 78249",['English'],29.5842882,-98.5705676,(210) 455-2000,['Allergy'],,
+CommuniCare Blvd Dental,"['Adult & Pediatric Dentistry', 'Dental Exams', 'Teeth Cleanings', 'Sealants', 'Fillings', 'Root Canals', 'Extractions', 'Crowns', 'Bridges', 'Dentures', 'Implants']","5138 UTSA Blvd, Ste. 116
+San Antonio, TX 78249",['English'],,,(210) 233-7186,['Dental'],,
+"CENTROMED FAMILY FIRST CLINIC
+","['Family Medicine', 'Pediatrics', 'Lab Services']","9135 Schaefer Road, Suite 4
+Converse, TX 78109",['English'],29.506306,-98.306537,(210) 922-7000,"['Family Medicine', 'Pediatrics', 'Lab Services']",,
+CommuniCare Health Centers - Vital Life Wellness Stone Oak,"['Peak Transformation Program', 'Preventative Primary Care', 'Weight Loss Program', 'Hormone Replacement Therapy', 'Sexual Health Services', 'Individualized Diagnostic Care']","418 N Loop 1604 W
+San Antonio, TX 78232",['English'],,,(210) 922-7000,"['Preventive Care', 'Weight Loss', 'Hormone Therapy', 'Sexual Health']",,
+Apollo Wellness,"['HIV/STI Testing', 'STI Treatment', 'PrEP Prescriptions and Management (In-Person or Virtual Visits)', 'PEP Prescriptions', 'DoxyPEP Prescriptions', 'Sexual Health Education', 'Chronic Disease Management', 'Immunizations', 'Physicals', 'STD/HIV Testing and Treatment', 'Hepatitis B and Hepatitis C Evaluations', 'Counseling']","6511 W Loop 1604 N, Ste. 105, San Antonio, TX",['English'],,,9726) 224-3438,"['STD/HIV Testing', 'PrEP/PEP', 'Chronic Disease Management', 'Immunizations', 'Physicals', 'Patient Education']",,
+CentroMed SA Pediatrics Stone Oak,"['Pediatrics', 'Physicals', 'Immunizations', 'Child Health Step/EPSDT', 'Sick Visits', 'Routine Follow-Up Care', 'Vision & Hearing Screenings', 'Allergy Treatment', 'Lab Services']","123 Stone Oak Loop
+San Antonio, 78258",['English'],29.6305911,-98.4942968,(210) 223-3543,"['Pediatrics', 'Physicals', 'Immunizations', 'Lab Services']",,
+CommuniCare Health Centers - Encino Park,"['Pediatrics', 'Teen Health', 'Adult Medicine', 'Senior Care', 'Immunizations', 'Patient Health Education', 'Chronic Disease Management']","20306 Encino Ledge, Ste. 101 and 103 San Antonio, TX 78259",['English'],,,(210) 233-7000,"['Pediatrics', 'Teen Health', 'Adult Medicine', 'Senior Care', 'Immunizations', 'Patient Education', 'Chronic Disease Management']",,
+CommuniCare Health Centers - Luckey Ranch,"['Adult Medicine', 'Pediatrics', 'Teen Health', ""Women's Health (OB/GYN)"", 'Senior Care', 'After Hours Urgent Care']","11930 US 90, Ste. 110,
+San Antonio, TX 78245",['English'],,,(210) 233-7000,"['Adult Medicine', 'Pediatrics', 'Teen Health', 'Women's Health', 'Senior Care', 'Urgent Care']",,
+CommuniCare Health Centers - Helotes,"['Pediatrics & Teen Health', 'ADHD Care', 'Developmental Checkups', 'Pediatric Acute Care (Sick Visits)', 'Puberty Development Education', 'Sports Physicals', 'Well-Child Visits', ""Women's Health"", 'Physical Exams', 'Gynecological Surgery', 'Obstetrics (Pregnancy Care)', 'Adult Medicine', 'Acute Care', 'Chronic Disease Management', 'Health Screenings', 'Immunizations', 'Patient Health Education', 'Behavioral Health']","12850 Bandera Rd, Ste 106
+Helotes, TX 78023",['English'],29.5624171,-98.6832169,(210) 233-7000,"['Pediatrics', 'Teen Health', 'Women's Health', 'Adult Medicine', 'Acute Care', 'Chronic Disease Management', 'Immunizations', 'Patient Education', 'Behavioral Health']",,
+CommuniCare Health Centers - Alamo Ranch,"['Pediatrics', 'Teen Health', ""Women's Health (OB/GYN)"", 'Senior Care', 'Adult Medicine', 'Chronic Disease Management', 'Patient Health Education']","6838 Alamo Pkwy, Suite #5
+San Antonio, TX 78253",['English'],,,(210) 233-7000,"['Pediatrics', 'Teen Health', 'Women's Health', 'Senior Care', 'Adult Medicine', 'Chronic Disease Management', 'Patient Education']",,
+CommuniCare Health Centers - Stone Oak,"['Pediatrics', 'Teen Health', 'Adult Medicine', 'Immunizations', 'Patient Health Education', 'Chronic Disease Management']","20642 Stone Oak Pkwy, Suite 105
+San Antonio, TX 78258",['English'],29.6491194,-98.4637499,(210) 233-7000,"['Pediatrics', 'Teen Health', 'Adult Medicine', 'Immunizations', 'Patient Education', 'Chronic Disease Management']",,
+CENTROMED MARIA CASTRO FLORES CLINIC,"['Family Medicine', 'Dental', 'Lab Services']","7315 South Loop 1604 West
+Somerset, TX 78069",['English'],,,(210) 922-7000,"['Family Medicine', 'Dental', 'Lab Services']",,
+CommuniCare Health Centers - Leon Springs,"['Pediatrics & Teen Health', 'ADHD Care', 'Developmental Checkups', 'Pediatric Acute Care (Sick Visits)', 'Puberty Development Education', 'Sports Physicals', 'Well-Child Visits (Annual Checkups)', ""Women's Health"", 'Physical Exams', 'Gynecological Surgery', 'Obstetrics (Pregnancy Care)', 'Adult Medicine', 'Acute Care', 'Chronic Disease Management', 'Health Screenings', 'Immunizations', 'Patient Health Education', 'Behavioral Health']","21195 I-10, Suite 2101
+San Antonio, TX 78257",['English'],29.6396397,-98.6171205,(210) 233-7000,"['Pediatrics', 'Teen Health', 'Acute Care', 'Women's Health', 'Adult Medicine', 'Chronic Disease Management', 'Immunizations', 'Patient Education', 'Behavioral Health']",,
+CentroMed SA Pediatrics Tri-County Crossing Phase II,"['Pediatrics', 'Physicals', 'Immunizations', 'Child Health Step/EPSDT', 'Sick Visits', 'Routine Follow-Up Care', 'Vision & Hearing Screenings', 'Allergy Treatment', 'Lab Services']","17323 Interstate 35 N
+Schertz, 78154",['English'],29.5963938,-98.2826237,(210) 223-3543,"['Pediatrics', 'Physicals', 'Immunizations', 'Lab Services']",,
+CentroMed SA Pediatrics Cibolo,"['Pediatrics', 'Physicals', 'Immunizations', 'Child Health Step/EPSDT', 'Sick Visits', 'Routine Follow-Up Care', 'Vision & Hearing Screenings', 'Allergy Treatment', 'Lab Services']","580 Cibolo Valley Dr, Suite 221
+Cibolo, Texas 78108",['English'],29.5747704,-98.2423365,(210) 223-3543,"['Pediatrics', 'Physicals', 'Immunizations', 'Lab Services']",,
+University Health - Adult Congenital Heart Clinic Dominion Crossing,['Heart & Vascular'],"21727 I-10
+Suite 107
+San Antonio,TX 78257",['English'],29.6435383,-98.6197932,(210) 644-1230,['Heart & Vascular'],,
+University Health - Advanced Diagnostic Center,"['Cardiology', 'Vascular', 'Pulmonology', 'Gastroenterology', 'Neuroendovascular']","4502 Medical Drive
+1st Floor, Sky Tower
+San Antonio,TX 78229",['English'],,,(210) 743-7355,"['Cardiology', 'Vascular', 'Pulmonology', 'Gastroenterology', 'Neurology']",,
+University Health - Allergy & Asthma - Babcock,"['Asthma', 'Allergies', 'Sinusitis', 'Contact Dermatitis']","2833 Babcock Road
+Suite 304
+San Antonio,TX 78229",['English'],29.5127341,-98.5915229,(210) 644-3700,"['Allergy', 'Asthma', 'Sinus', 'Dermatology']",,
+University Health - Babcock,"['General Surgery', 'Pediatric Behavioral Health', 'Behavioral Health']","2425 Babcock Road
+Suite 111
+San Antonio,TX 78229",['English'],29.5066654,-98.5848909,(210) 358-3108,"['Surgery', 'Behavioral Health', 'Pediatric Behavioral Health']",,
+University Health - Breast Center,"['Women’s Imaging', '3D Mammography', 'Breast Ultrasound', 'Guided Biopsies', 'Stereotactic Biopsies']","8403 Wurzbach Road
+San Antonio,TX 78229",['English'],,,(210) 644-2900,"['Women's Imaging', 'Mammography', 'Ultrasound', 'Biopsies']",,
+University Health - Collier Health Center,"['Adult Primary Care', 'Pediatric Primary Care']","834 W. Southcross Blvd.
+San Antonio,TX 78211",['English'],29.3678333,-98.5233258,(210) 644-1500,"['Adult Primary Care', 'Pediatric Primary Care']",,
+University Health - Davis Health Center,"['Adult Primary Care', 'Pediatric Primary Care']","4702 E Houston Street
+San Antonio,TX 78220",['English'],29.4233492,-98.4008731,(210) 644-2050,"['Adult Primary Care', 'Pediatric Primary Care']",,
+University Health - Dialysis Medical Center,"['Chronic Outpatient Dialysis', 'Hemodialysis', 'Peritoneal Dialysis', 'Continuous Renal Replacement Therapy']","6146 Wurzbach Road
+San Antonio,TX 78238",['English'],,,(210) 644-4300,"['Kidney Care', 'Dialysis']",,
+University Health - Dominion Crossing,"['Adult Primary Care', 'Pediatric Primary Care', 'Interventional Cardiology']","21727 I-10
+Suite 103
+San Antonio,TX 78257",['English'],29.6435383,-98.6197932,(210) 644-1200,"['Adult Primary Care', 'Pediatric Primary Care', 'Cardiology']",,
+University Health - Dr. Robert L.M. Hilliard Center,"['Adult Primary Care', 'Pediatric Primary Care', 'Women’s Health', 'Endocrinology and Diabetes']","919 Locke Street
+San Antonio,TX 78208",['English'],29.4381749,-98.4479631,(210) 644-8700,"['Adult Primary Care', 'Pediatric Primary Care', 'Women's Health', 'Endocrinology']",,
+University Health - Edgewood,['Pediatric Development and Behavior'],"911 Historic Old Highway 90
+San Antonio,TX 78237",['English'],29.4237074,-98.5799694,(210) 644-8050,"['Pediatric Development', 'Behavior']",,
+University Health - Heart Station,"['Adult Cardiology', 'Diagnostic (Non-Invasive) Cardiac Procedures', 'Interventional Cardiac Catheterization']","8300 Floyd Curl Drive
+3rd Floor
+San Antonio,TX 78229",['English'],,,(210) 644-8201,"['Adult Cardiology', 'Diagnostic Cardiology', 'Interventional Cardiology']",,
+University Health - Huebner Specialties,"['Adult hearing & balance', 'Pediatric hearing & balance', 'Pediatric ear', 'nose & throat (ENT)']","9618 Huebner Road
+Suite 310
+San Antonio,TX 78240",['English'],29.532001,-98.591479,(210) a,"['Adult ENT', 'Pediatric ENT', 'Hearing & Balance']",,
+University Health - Inwood,['Adult Primary Care'],"15102 Huebner Road
+San Antonio,TX 78231
+",['English'],29.5784054,-98.5409225,(210) 644-2400,['Adult Primary Care'],,
+University Health - Judson ISD Health Center,"['Adult Primary Care', 'Pediatric Primary Care']","3000 N Foster Rd
+P-164
+San Antonio,TX 78244",['English'],,,(210) 644-2750,"['Adult Primary Care', 'Pediatric Primary Care']",,
+University Health - Kennedy,"['Adult Primary Care', 'Pediatric Primary Care', ""Women's Health""]","1831 S. General McMullen Drive
+San Antonio,TX 78226",['English'],29.3981534,-98.5579464,(210) 358-8255,"['Adult Primary Care', 'Pediatric Primary Care', 'Women's Health']",,
+University Health - Kenwood,"['Gynecology Care', 'Pediatric Primary Care', 'Pregnancy & Childbirth', ""Women's Health""]","302 Dora Street
+San Antonio,TX 78212",['English'],29.4743001,-98.4957326,(210) 358-8255,"['Gynecology', 'Pediatric Primary Care', 'Pregnancy & Childbirth', 'Women's Health']",,
+University Health - Luckey Ranch,['Walk-In Care'],"11930 US-90
+Suite 110
+San Antonio,TX 78252",['English'],,,(210) 644-2500,['Walk-In Care'],,
+University Health - Medical Center Pavilion,"['ExpressMed Walk-In Care', 'PediExpress Walk-In Care', 'Adult Rehabilitation', 'Wound Care', 'Pharmacy', 'Radiology', 'Newborn Clinic']","4647 Medical Drive
+San Antonio,TX 78229",['English'],29.5096164,-98.5770337,(210) 358-8145,"['Walk-In Care', 'Rehabilitation', 'Wound Care', 'Pharmacy', 'Radiology', 'Newborn Care']",,
+University Health - Naco Perrin,"['Gynecology Care', 'Pediatric Primary Care', 'Pregnancy & Childbirth', ""Women's Health""]","4020 Naco Perrin Blvd.
+San Antonio,TX 78217",['English'],29.5432533,-98.416295,(210) 358-8255,"['Gynecology', 'Pediatric Primary Care', 'Pregnancy & Childbirth', 'Women's Health']",,
+University Health - North,"['[Behavioral Care', 'Imaging & Radiology', 'Laboratory Services', 'Neonatal Intensive Care Unit', 'Pediatric Imaging & Radiology', 'Pediatric Primary Care', 'Primary Care']","302 W. Rector Street
+San Antonio,TX 78216",['English'],,,(210) 358-0800,"['Behavioral Health', 'Imaging & Radiology', 'Lab Services', 'NICU', 'Pediatric Imaging', 'Primary Care']",,
+University Health -  Oakwell Specialties,"['Lung Care', 'Sleep Medicine']","3338 Oakwell Ct
+Suite 160
+San Antonio,TX 78218",['English'],29.5065634,-98.4310735,(210) 644-4350,"['Pulmonology', 'Sleep Medicine']",,
+University Health - PAM Health Warm Springs Rehabilitation Hospital Northeast San Antonio,['Rehabilitation Services'],"11407 Wayland Way
+San Antonio,TX 78233",['English'],,,(210) 581-5300,['Rehabilitation'],,
+University Health - Pediatric Cardiology Specialists,['Pediatric Heart'],"5282 Medical Drive
+Suite 614
+San Antonio,TX 78229",['English'],29.5087744,-98.5880488,(210) 644-4600,['Pediatric Cardiology'],,
+University Health - PAM Health Warm Springs Rehabilitation Hospital of San Antonio,['Rehabilitation Services'],"5101 Medical Drive
+San Antonio,TX 78229",['English'],29.5137914,-98.5869555,(210) 616-0100,['Rehabilitation'],,
+University Health - PAM Health Warm Springs Rehabilitation Hospital of Westover Hills,['Rehabilitation Services'],"10323 State Highway 151
+San Antonio,TX 78251",['English'],29.4518909,-98.6845996,(210) 581-5386,['Rehabilitation'],,
+University Health - Pediatric ENT - Deerfield,"['Pediatric Ear', 'Nose & Throat (ENT)']","16723 Huebner Road
+San Antonio,TX 78248",['English'],29.6010972,-98.5226742,(210) 644-3600,['Pediatric ENT'],,
+University Health - Pediatrics - Huebner Commons,['Pediatric Primary Care'],"11703 Huebner Road
+Suite 104
+San Antonio,TX 78230",['English'],29.5516204,-98.5727999,(210) 644-2320,['Pediatric Primary Care'],,
+University Health - Refugee Health Services,"['Review Overseas Medical Records', 'Complete Health History', 'Physical Exams and Mental Health Assessments', 'Vaccinations to Prevent Infectious Diseases', 'Laboratory Testing for Infectious Diseases', 'Pregnancy and Other Conditions', 'Recommendations for Ongoing Health Care']","1033 Ada Street
+Southeast Annex
+San Antonio,TX 78223",['English'],,,(210) 644-7951,"['Medical History', 'Physical Exams', 'Mental Health', 'Vaccinations', 'Lab Tests', 'Pregnancy Care', 'Ongoing Care']",,
+University Health - Robert B. Green Campus,"['Pediatric Primary Care', 'Adult Primary Care', 'Adult and Pediatric Specialties', 'ExpressMed Walk-In Care', 'PediExpress Walk-In Care', 'Outpatient Surgery', 'Pharmacy', 'Radiology', 'Laboratory']","903 W. Martin Street
+San Antonio,TX 78207",['English'],29.4311904,-98.5023459,(210) 358-3400,"['Pediatric Primary Care', 'Adult Primary Care', 'Specialties', 'Walk-In Care', 'Outpatient Surgery', 'Pharmacy', 'Radiology', 'Lab']",,
+University Health - Shirley A. Schreiber Health Center at Jones Middle School,"['Pediatric Primary Care', 'Primary Care']","1256 Pinn Road
+San Antonio,TX 78227",['English'],29.4230458,-98.6237347,(210) 644-2060,"['Pediatric Primary Care', 'Primary Care']",,
+University Health - Southeast,"['Adult Primary Care', 'Pediatric Primary Care', 'Rheumatology', 'Behavioral Health', 'Women’s Health', 'Physical Therapy', 'Neurology', 'Laboratory', 'Pharmacy', 'Radiology']","1055 Ada Street
+San Antonio,TX 78223",['English'],29.3811734,-98.4578116,(210) 358-5515,"['Adult Primary Care', 'Pediatric Primary Care', 'Rheumatology', 'Behavioral Health', 'Women's Health', 'Physical Therapy', 'Neurology', 'Lab', 'Pharmacy', 'Radiology']",,
+University Health - South Flores,"['Adult Primary Care', 'Pediatric Primary Care', 'Arthritis Care', 'Behavioral Care', 'Imaging & Radiology', 'Laboratory Services', 'Lung Care', 'Pediatric Imaging & Radiology', 'Pediatric Kidney Care & Dialysis', 'Pharmacy', 'Podiatry', 'Pregnancy & Childbirth', 'Rehabilitation Services']","600 E Amber Street
+Suite 100
+San Antonio,TX 78221",['English'],29.345074,-98.487128,(210) 358-8255,"['Adult Primary Care', 'Pediatric Primary Care', 'Arthritis Care', 'Behavioral Health', 'Imaging & Radiology', 'Lab Services', 'Pulmonology', 'Pediatric Imaging', 'Pediatric Kidney Care', 'Pharmacy', 'Podiatry', 'Pregnancy & Childbirth', 'Rehabilitation']",,
+University Health - Southwest,"['Adult Primary Care', 'Pediatric Primary Care', 'Behavioral Care', 'Gynecology Care', 'Imaging & Radiology', 'Laboratory Services', 'Pediatric Imaging & Radiology', 'Pharmacy', 'Pregnancy & Childbirth', ""Women's Health""]","2121 SW. 36th Street
+San Antonio,TX 78237",['English'],,,(210) 358-5100,"['Adult Primary Care', 'Pediatric Primary Care', 'Behavioral Health', 'Gynecology', 'Imaging & Radiology', 'Lab Services', 'Pediatric Imaging', 'Pharmacy', 'Pregnancy & Childbirth', 'Women's Health']",,
+University Health - Southwest Health Center,"['Adult Primary Care', 'Pediatric Primary Care']","11914 Dragon Lane
+San Antonio, TX 78252",['English'],29.3116355,-98.6677447,(210) 644-7770,"['Adult Primary Care', 'Pediatric Primary Care']",,
+University Health - Surgery Center,"['Anesthesiology', 'Surgery Services']","903 W. Martin Street
+San Antonio,TX 78207",['English'],29.4311904,-98.5023459,(210) 358-6700,"['Anesthesiology', 'Surgery']",,
+University Health - Surgery Center  (Medical Center),"['Anesthesiology', 'Surgery Services']","8300 Floyd Curl Drive
+San Antonio,TX 78229",['English'],29.5152617,-98.5816595,(210) 644-9300,"['Anesthesiology', 'Surgery']",,
+University Health - Surgery Center (Morgan’s MAC),"['Dental Care', 'ENT', 'General Surgery', 'Gynecology', 'Hand Specialists', 'Neurology', 'Ophthalmology', 'Orthopedics', 'Pediatric General Surgery', 'Physical Medicine and Rehabilitation', 'Podiatry', 'Urology']","5210 Thousand Oaks Drive
+Suite 1120
+San Antonio,TX 78233",['English'],29.5368364,-98.3953294,(210) 644-4400,"['Dental', 'ENT', 'Surgery', 'Gynecology', 'Hand', 'Neurology', 'Ophthalmology', 'Orthopedics', 'Pediatric Surgery', 'Rehabilitation', 'Podiatry', 'Urology']",,
+University Health - Susan Hall Health Center,"['Adult Primary Care', 'Pediatric Primary Care']","1460 Martinez Losoya Rd
+San Antonio,TX 78221",['English'],29.2561097,-98.4858461,(210) 644-3100,"['Adult Primary Care', 'Pediatric Primary Care']",,
+University Health - Tafolla Heath Center,"['Adult Primary Care', 'Pediatric Primary Care']","1303 W Cesar E. Chavez Blvd.
+San Antonio,TX 78207",['English'],29.4233046,-98.5119923,(210) 644-2000,"['Adult Primary Care', 'Pediatric Primary Care']",,
+University Health - Texas Diabetes Institute,"['Adult Endocrinology', 'Pediatric Endocrinology', 'Kidney Care and Dialysis', 'Podiatry', 'Orthopedics and Sports Medicine', 'Rehabilitation', 'Wound Care', 'Heart & Vascular', 'Primary Care', 'Clinical Trials and Research', 'Pharmacy', 'Radiology']","701 S. Zarzamora Street
+San Antonio,TX 78207",['English'],29.4219684,-98.5288723,(210) 358-7000,"['Adult Endocrinology', 'Pediatric Endocrinology', 'Kidney Care', 'Podiatry', 'Orthopedics', 'Rehabilitation', 'Wound Care', 'Heart & Vascular', 'Primary Care', 'Clinical Trials', 'Pharmacy', 'Radiology']",,
+University Health - Texas Liver Tumor Center,['Liver Care'],"4502 Medical Drive
+Transplant Clinic, Rio Tower, Level 2
+San Antonio,TX 78229",['English'],,,(210) 743-4306,['Liver Care'],,
+University Health - Towne Twin Village,"['Immunizations and Vaccinations', 'Routine Health Screenings', 'Annual Wellness Visits', 'Physicals', 'Referrals']","4711 Dietrich Road
+San Antonio,TX 78219",['English'],29.4415001,-98.3989917,(210) 644-3050,"['Immunizations', 'Screenings', 'Wellness', 'Physicals', 'Referrals']",,
+University Health - University Dialysis South,['Kidney Care & Dialysis'],"3750 Commercial Ave.
+Suite 110
+San Antonio,TX 78221",['English'],29.335848,-98.516118,(210) 921-5620,['Kidney Care'],,
+University Health - University Dialysis Southeast,['Kidney Care & Dialysis'],"1407 Fair Ave.
+San Antonio,TX 78223",['English'],29.3841994,-98.4563228,(210) 358-5780,['Kidney Care'],,
+University Health - University Dialysis West,['Kidney Care & Dialysis'],"701 S. Zarzamora Street
+San Antonio,TX 78207",['English'],29.4219684,-98.5288723,(210) 358-7300,['Kidney Care'],,
+University Health - University Hospital,"['Anesthesiology', 'Bariatric Care', 'Behavioral Care', 'Blood Diseases', 'Brain & Spine Care', 'Cancer Care', 'Clinical Trials & Research', 'Emergency Care', 'Eye Care', 'Gastroenterology', 'Heart & Vascular', 'Imaging & Radiology', 'Kidney Care & Dialysis', 'Laboratory Services', 'Liver Care', 'Lung Care', 'Oral & Maxillofacial Surgery', 'Organ Transplantation', 'Orthopedics & Sports Medicine', 'Pediatric Cleft & Craniofacial Center', 'Pediatric Complex Care', 'Pediatric Gastroenterology', 'Pediatric Hematology', 'Pediatric Imaging & Radiology', 'Pediatric Infectious Diseases', 'Pediatric Kidney Care & Dialysis', 'Pediatric Neurology', 'Pediatric Neurosurgery', 'Pediatric Oral & Maxillofacial Surgery', 'Pediatric Orthopedics', 'Pediatric Supportive Care', 'Pediatric Transplant Care', 'Pediatric Trauma & Burn', 'Pharmacy', 'Rehabilitation Services', 'Supportive Care', 'Surgery Services', 'Trauma Care', ""Women's Health"", 'Wound Care']","4502 Medical Drive
+San Antonio,TX 78229",['English'],29.5078264,-98.5780943,(210) 358-4000,"['Anesthesiology', 'Bariatric', 'Behavioral Health', 'Hematology', 'Neurology & Spine', 'Cancer Care', 'Clinical Trials', 'Emergency Care', 'Eye Care', 'Gastroenterology', 'Heart & Vascular', 'Imaging & Radiology', 'Kidney Care', 'Lab Services', 'Liver Care', 'Pulmonology', 'Oral Surgery', 'Organ Transplant', 'Orthopedics', 'Pediatric Surgery', 'Pediatric Gastroenterology', 'Pediatric Hematology', 'Pediatric Imaging', 'Pediatric Infectious Diseases', 'Pediatric Kidney Care', 'Pediatric Neurology', 'Pediatric Neurosurgery', 'Pediatric Oral Surgery', 'Pediatric Orthopedics', 'Pediatric Supportive Care', 'Pediatric Transplant', 'Pediatric Trauma', 'Pharmacy', 'Rehabilitation', 'Supportive Care', 'Surgery', 'Trauma', 'Women's Health', 'Wound Care']",,
+University Health - Warm Springs,"['Pain Management', 'Pediatric Rehabilitation', 'Rehabilitation Services']","5101 Medical Drive
+San Antonio,TX 78229",['English'],29.5137914,-98.5869555,(210) 644-7902,"['Pain Management', 'Pediatric Rehabilitation', 'Rehabilitation']",,
+University Health - Westgate,"['Adult Primary Care', 'Pediatric Primary Care', ""Women's Health"", 'Pediatric Cardiology', 'Lab']","5282 Medical Drive
+San Antonio,TX 78229",['English'],29.5087744,-98.5880488,"(210) 644-2100
+","['Adult Primary Care', 'Pediatric Primary Care', 'Women's Health', 'Pediatric Cardiology', 'Lab']",,
+University Health - Women's & Children's Hospital,"['Gynecology Care', 'Neonatal Intensive Care Unit', 'Pediatric Emergency Care', 'Pediatric Heart', 'Pediatric Supportive Care', 'Pediatric Surgery', 'Pregnancy & Childbirth', ""Women's Health""]","4502 Medical Drive
+San Antonio,TX 78229",['English'],29.5078264,-98.5780943,(210) 358-4000,"['Gynecology', 'NICU', 'Pediatric Emergency', 'Pediatric Cardiology', 'Pediatric Supportive Care', 'Pediatric Surgery', 'Pregnancy & Childbirth', 'Women's Health']",,
+University Health - Zarzamora,"['Gynecology Care', 'Pediatric Primary Care', 'Pregnancy & Childbirth', ""Women's Health""]","4503 S. Zarzamora Street
+San Antonio,TX 78211",['English'],29.3815041,-98.5337699,(210) 358-8255,"['Gynecology', 'Pediatric Primary Care', 'Pregnancy & Childbirth', 'Women's Health']",,

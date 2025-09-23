@@ -56,9 +56,8 @@ function rowsToDoctors(rawRows: CleanedDoctorRow[]): Doctor[] {
   });
 }
 
-// For fallback when CSV loading fails
-const rawRows = parseCSVToObjects<CleanedDoctorRow>(DOCTORS_CLEANED_CSV);
-const raw: Doctor[] = rowsToDoctors(rawRows);
+// For now, use empty data and let loadDoctors handle the loading
+const raw: Doctor[] = [];
 
 // Normalize and filter
 export const doctors: Doctor[] = raw
@@ -75,10 +74,17 @@ export const doctors: Doctor[] = raw
 
 export async function loadDoctors(): Promise<Doctor[]> {
   try {
+    console.log('Attempting to load doctors from CSV...');
     const response = await fetch(`/data/doctors_cleaned.csv`, { cache: 'no-store' });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const text = await response.text();
+    console.log('CSV loaded, length:', text.length);
+    console.log('First 500 chars:', text.substring(0, 500));
+    
     const rows = parseCSVToObjects<CleanedDoctorRow>(text);
+    console.log('Parsed rows:', rows.length);
+    console.log('Sample row:', rows[0]);
+    
     const parsed = rowsToDoctors(rows)
       .filter((d) => d.name)
       .map((d) => ({
@@ -90,9 +96,13 @@ export async function loadDoctors(): Promise<Doctor[]> {
         lat: String(d.lat).trim(),
         lng: String(d.lng).trim(),
       }));
+    
+    console.log('Final parsed doctors:', parsed.length);
+    console.log('Sample doctor:', parsed[0]);
     return parsed;
   } catch (e) {
-    console.warn('Failed to load doctors from CSV, using fallback data:', e);
+    console.error('Failed to load doctors from CSV:', e);
+    console.log('Using fallback data, length:', doctors.length);
     return doctors;
   }
 }
