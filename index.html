@@ -28,16 +28,69 @@
             position: relative;
         }
         
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 300;
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
         }
         
-        .header p {
+        .header-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .header-logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .header-text {
+            text-align: left;
+        }
+        
+        .header-text h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        
+        .header-text p {
+            margin: 0.5rem 0 0 0;
             font-size: 1.1rem;
             opacity: 0.9;
         }
+        
+        /* Mobile responsive design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .header-text {
+                text-align: center;
+            }
+            
+            .header-logo {
+                width: 70px;
+                height: 70px;
+                border-radius: 15px;
+            }
+            
+            .header-text h1 {
+                font-size: 2rem;
+            }
+            
+            .header-text p {
+                font-size: 1rem;
+            }
+        }
+        
         
         .language-selector {
             position: absolute;
@@ -361,8 +414,13 @@
                 <option value="vi">Tiếng Việt</option>
             </select>
         </div>
-        <h1 data-en="SA MedMatch" data-es="SA MedMatch" data-vi="SA MedMatch">SA MedMatch</h1>
-        <p data-en="Resources in San Antonio" data-es="Recursos en San Antonio" data-vi="Tài Nguyên tại San Antonio">Resources in San Antonio</p>
+        <div class="header-content">
+            <img src="medmatchlogo2.png" alt="SA MedMatch Logo" class="header-logo">
+            <div class="header-text">
+                <h1 data-en="SA MedMatch" data-es="SA MedMatch" data-vi="SA MedMatch">SA MedMatch</h1>
+                <p data-en="Resources in San Antonio" data-es="Recursos en San Antonio" data-vi="Tài Nguyên tại San Antonio">Resources in San Antonio</p>
+            </div>
+        </div>
     </div>
     
     <nav class="nav">
