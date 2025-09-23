@@ -362,14 +362,14 @@
             </select>
         </div>
         <h1 data-en="SA MedMatch" data-es="SA MedMatch" data-vi="SA MedMatch">SA MedMatch</h1>
-        <p data-en="Find Medical Care in San Antonio" data-es="Encuentra Atención Médica en San Antonio" data-vi="Tìm Dịch Vụ Y Tế tại San Antonio">Find Medical Care in San Antonio</p>
+        <p data-en="Resources in San Antonio" data-es="Recursos en San Antonio" data-vi="Tài Nguyên tại San Antonio">Resources in San Antonio</p>
     </div>
     
     <nav class="nav">
         <ul>
-            <li><a href="#" class="nav-link active" data-page="home" data-en="Home" data-es="Inicio" data-vi="Trang Chủ">Home</a></li>
+            <li><a href="#" class="nav-link active" data-page="home" data-en="Insuranceless Healthcare Finder" data-es="Buscador de Atención Médica sin Seguro" data-vi="Tìm Dịch Vụ Y Tế Không Bảo Hiểm">Insuranceless Healthcare Finder</a></li>
             <li><a href="#" class="nav-link" data-page="about" data-en="About Us" data-es="Acerca de Nosotros" data-vi="Về Chúng Tôi">About Us</a></li>
-            <li><a href="#" class="nav-link" data-page="resources" data-en="Resources" data-es="Recursos" data-vi="Tài Nguyên">Resources</a></li>
+            <li><a href="#" class="nav-link" data-page="resources" data-en="Additional Resources" data-es="Recursos Adicionales" data-vi="Tài Nguyên Bổ Sung">Additional Resources</a></li>
             <li><a href="#" class="nav-link" data-page="join" data-en="Join Directory" data-es="Únete al Directorio" data-vi="Tham Gia Thư Mục">Join Directory</a></li>
         </ul>
     </nav>
@@ -378,42 +378,45 @@
         <!-- Home Page -->
         <div id="home" class="page active">
             <div class="search-section">
+                <h2 data-en="Find Medical Care" data-es="Encuentra Atención Médica" data-vi="Tìm Dịch Vụ Y Tế">Find Medical Care</h2>
+                <p data-en="Search for medical facilities by specialty, language, or location" data-es="Busca instalaciones médicas por especialidad, idioma o ubicación" data-vi="Tìm kiếm cơ sở y tế theo chuyên khoa, ngôn ngữ hoặc vị trí">Search for medical facilities by specialty, language, or location</p>
+                
                 <div class="search-bar">
                     <div class="search-group">
-                        <label for="generalFilter">General Categories</label>
+                        <label for="generalFilter" data-en="General Categories" data-es="Categorías Generales" data-vi="Danh Mục Chung">General Categories</label>
                         <select id="generalFilter">
-                            <option value="">All Categories</option>
+                            <option value="" data-en="All Categories" data-es="Todas las Categorías" data-vi="Tất Cả Danh Mục">All Categories</option>
                         </select>
                     </div>
                     
                     <div class="search-group">
-                        <label for="specialtyFilter">Specific Specialties</label>
+                        <label for="specialtyFilter" data-en="Specific Specialties" data-es="Especialidades Específicas" data-vi="Chuyên Khoa Cụ Thể">Specific Specialties</label>
                         <select id="specialtyFilter">
-                            <option value="">All Specialties</option>
+                            <option value="" data-en="All Specialties" data-es="Todas las Especialidades" data-vi="Tất Cả Chuyên Khoa">All Specialties</option>
                         </select>
                     </div>
                     
                     <div class="search-group">
-                        <label for="languageFilter">Languages</label>
+                        <label for="languageFilter" data-en="Languages" data-es="Idiomas" data-vi="Ngôn Ngữ">Languages</label>
                         <select id="languageFilter">
-                            <option value="">All Languages</option>
+                            <option value="" data-en="All Languages" data-es="Todos los Idiomas" data-vi="Tất Cả Ngôn Ngữ">All Languages</option>
                         </select>
                     </div>
                     
                     <div class="search-group">
-                        <label for="zipInput">ZIP Code</label>
-                        <input type="text" id="zipInput" placeholder="Enter ZIP code">
+                        <label for="zipInput" data-en="ZIP Code" data-es="Código Postal" data-vi="Mã Bưu Điện">ZIP Code</label>
+                        <input type="text" id="zipInput" placeholder="Enter ZIP code" data-en-placeholder="Enter ZIP code" data-es-placeholder="Ingresa código postal" data-vi-placeholder="Nhập mã bưu điện">
                     </div>
                     
                     <div class="search-buttons">
-                        <button class="btn btn-primary" onclick="filterDoctors()">Search</button>
-                        <button class="btn btn-secondary" onclick="clearFilters()">Clear</button>
+                        <button class="btn btn-primary" onclick="filterDoctors()" data-en="Search" data-es="Buscar" data-vi="Tìm Kiếm">Search</button>
+                        <button class="btn btn-secondary" onclick="clearFilters()" data-en="Clear" data-es="Limpiar" data-vi="Xóa">Clear</button>
                     </div>
                 </div>
                 
                 <div class="view-toggle">
-                    <button id="listViewBtn" class="active" onclick="switchView('list')">List View</button>
-                    <button id="mapViewBtn" onclick="switchView('map')">Map View</button>
+                    <button id="listViewBtn" class="active" onclick="switchView('list')" data-en="List View" data-es="Vista de Lista" data-vi="Xem Danh Sách">List View</button>
+                    <button id="mapViewBtn" onclick="switchView('map')" data-en="Map View" data-es="Vista de Mapa" data-vi="Xem Bản Đồ">Map View</button>
                 </div>
             </div>
             
@@ -435,15 +438,15 @@
         <!-- About Page -->
         <div id="about" class="page">
             <div class="search-section">
-                <h2>About SA MedMatch</h2>
-                <p>SA MedMatch is a comprehensive directory of medical facilities in San Antonio, Texas. Our mission is to help residents find the healthcare services they need quickly and easily.</p>
-                <h3>Features</h3>
+                <h2 data-en="About SA MedMatch" data-es="Acerca de SA MedMatch" data-vi="Về SA MedMatch">About SA MedMatch</h2>
+                <p data-en="SA MedMatch is a comprehensive directory of medical facilities in San Antonio, Texas. Our mission is to help residents find the healthcare services they need quickly and easily." data-es="SA MedMatch es un directorio completo de instalaciones médicas en San Antonio, Texas. Nuestra misión es ayudar a los residentes a encontrar los servicios de atención médica que necesitan de manera rápida y fácil." data-vi="SA MedMatch là một thư mục toàn diện về các cơ sở y tế ở San Antonio, Texas. Sứ mệnh của chúng tôi là giúp cư dân tìm thấy các dịch vụ chăm sóc sức khỏe họ cần một cách nhanh chóng và dễ dàng.">SA MedMatch is a comprehensive directory of medical facilities in San Antonio, Texas. Our mission is to help residents find the healthcare services they need quickly and easily.</p>
+                <h3 data-en="Features" data-es="Características" data-vi="Tính Năng">Features</h3>
                 <ul>
-                    <li>Search by medical specialty and general categories</li>
-                    <li>Filter by language preferences</li>
-                    <li>Interactive map view with facility locations</li>
-                    <li>Detailed information for each facility</li>
-                    <li>Mobile-friendly design</li>
+                    <li data-en="Search by medical specialty and general categories" data-es="Buscar por especialidad médica y categorías generales" data-vi="Tìm kiếm theo chuyên khoa và danh mục chung">Search by medical specialty and general categories</li>
+                    <li data-en="Filter by language preferences" data-es="Filtrar por preferencias de idioma" data-vi="Lọc theo tùy chọn ngôn ngữ">Filter by language preferences</li>
+                    <li data-en="Interactive map view with facility locations" data-es="Vista de mapa interactivo con ubicaciones de instalaciones" data-vi="Xem bản đồ tương tác với vị trí cơ sở">Interactive map view with facility locations</li>
+                    <li data-en="Detailed information for each facility" data-es="Información detallada para cada instalación" data-vi="Thông tin chi tiết cho từng cơ sở">Detailed information for each facility</li>
+                    <li data-en="Mobile-friendly design" data-es="Diseño compatible con dispositivos móviles" data-vi="Thiết kế thân thiện với thiết bị di động">Mobile-friendly design</li>
                 </ul>
             </div>
         </div>
@@ -451,8 +454,8 @@
         <!-- Resources Page -->
         <div id="resources" class="page">
             <div class="search-section">
-                <h2 data-en="Community Resources" data-es="Recursos Comunitarios">Community Resources</h2>
-                <p data-en="Comprehensive list of services and assistance available in San Antonio" data-es="Lista completa de servicios y asistencia disponibles en San Antonio">Comprehensive list of services and assistance available in San Antonio</p>
+                <h2 data-en="Community Resources" data-es="Recursos Comunitarios" data-vi="Tài Nguyên Cộng Đồng">Community Resources</h2>
+                <p data-en="Comprehensive list of services and assistance available in San Antonio" data-es="Lista completa de servicios y asistencia disponibles en San Antonio" data-vi="Danh sách toàn diện về các dịch vụ và hỗ trợ có sẵn tại San Antonio">Comprehensive list of services and assistance available in San Antonio</p>
                 
                 <div class="resources-grid">
                 
@@ -558,58 +561,58 @@
         <!-- Join Directory Page -->
         <div id="join" class="page">
             <div class="search-section">
-                <h2 data-en="Join Our Directory" data-es="Únete a Nuestro Directorio">Join Our Directory</h2>
-                <p data-en="Are you a medical facility in San Antonio? We'd love to include you in our directory!" data-es="¿Eres una instalación médica en San Antonio? ¡Nos encantaría incluirte en nuestro directorio!">Are you a medical facility in San Antonio? We'd love to include you in our directory!</p>
+                <h2 data-en="Join Our Directory" data-es="Únete a Nuestro Directorio" data-vi="Tham Gia Thư Mục Của Chúng Tôi">Join Our Directory</h2>
+                <p data-en="Are you a medical facility in San Antonio? We'd love to include you in our directory!" data-es="¿Eres una instalación médica en San Antonio? ¡Nos encantaría incluirte en nuestro directorio!" data-vi="Bạn có phải là cơ sở y tế ở San Antonio? Chúng tôi rất muốn bao gồm bạn trong thư mục của chúng tôi!">Are you a medical facility in San Antonio? We'd love to include you in our directory!</p>
                 
                 <form id="joinForm" onsubmit="submitForm(event)">
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
                         <div>
-                            <label for="facilityName" data-en="Facility Name *" data-es="Nombre de la Instalación *">Facility Name *</label>
+                            <label for="facilityName" data-en="Facility Name *" data-es="Nombre de la Instalación *" data-vi="Tên Cơ Sở *">Facility Name *</label>
                             <input type="text" id="facilityName" name="facilityName" required>
                         </div>
                         <div>
-                            <label for="contactPerson" data-en="Contact Person *" data-es="Persona de Contacto *">Contact Person *</label>
+                            <label for="contactPerson" data-en="Contact Person *" data-es="Persona de Contacto *" data-vi="Người Liên Hệ *">Contact Person *</label>
                             <input type="text" id="contactPerson" name="contactPerson" required>
                         </div>
                     </div>
                     
                     <div style="margin-bottom: 1rem;">
-                        <label for="address" data-en="Address *" data-es="Dirección *">Address *</label>
+                        <label for="address" data-en="Address *" data-es="Dirección *" data-vi="Địa Chỉ *">Address *</label>
                         <input type="text" id="address" name="address" required style="width: 100%;">
                     </div>
                     
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
                         <div>
-                            <label for="phone" data-en="Phone Number *" data-es="Número de Teléfono *">Phone Number *</label>
+                            <label for="phone" data-en="Phone Number *" data-es="Número de Teléfono *" data-vi="Số Điện Thoại *">Phone Number *</label>
                             <input type="tel" id="phone" name="phone" required>
                         </div>
                         <div>
-                            <label for="email" data-en="Email *" data-es="Correo Electrónico *">Email *</label>
+                            <label for="email" data-en="Email *" data-es="Correo Electrónico *" data-vi="Email *">Email *</label>
                             <input type="email" id="email" name="email" required>
                         </div>
                     </div>
                     
                     <div style="margin-bottom: 1rem;">
-                        <label for="specialties" data-en="Medical Specialties *" data-es="Especialidades Médicas *">Medical Specialties *</label>
+                        <label for="specialties" data-en="Medical Specialties *" data-es="Especialidades Médicas *" data-vi="Chuyên Khoa Y Tế *">Medical Specialties *</label>
                         <textarea id="specialties" name="specialties" required style="width: 100%; height: 80px;" placeholder="List all medical specialties offered (e.g., Family Medicine, Pediatrics, Cardiology)"></textarea>
                     </div>
                     
                     <div style="margin-bottom: 1rem;">
-                        <label for="languages" data-en="Languages Spoken" data-es="Idiomas Hablados">Languages Spoken</label>
+                        <label for="languages" data-en="Languages Spoken" data-es="Idiomas Hablados" data-vi="Ngôn Ngữ Được Nói">Languages Spoken</label>
                         <input type="text" id="languages" name="languages" style="width: 100%;" placeholder="e.g., English, Spanish, French">
                     </div>
                     
                     <div style="margin-bottom: 1rem;">
-                        <label for="hours" data-en="Hours of Operation" data-es="Horario de Operación">Hours of Operation</label>
+                        <label for="hours" data-en="Hours of Operation" data-es="Horario de Operación" data-vi="Giờ Hoạt Động">Hours of Operation</label>
                         <textarea id="hours" name="hours" style="width: 100%; height: 60px;" placeholder="e.g., Monday-Friday: 8AM-5PM, Saturday: 9AM-1PM"></textarea>
                     </div>
                     
                     <div style="margin-bottom: 1rem;">
-                        <label for="additionalInfo" data-en="Additional Information" data-es="Información Adicional">Additional Information</label>
+                        <label for="additionalInfo" data-en="Additional Information" data-es="Información Adicional" data-vi="Thông Tin Bổ Sung">Additional Information</label>
                         <textarea id="additionalInfo" name="additionalInfo" style="width: 100%; height: 80px;" placeholder="Any additional information about your facility..."></textarea>
                     </div>
                     
-                    <button type="submit" class="btn btn-primary" data-en="Submit Application" data-es="Enviar Solicitud">Submit Application</button>
+                    <button type="submit" class="btn btn-primary" data-en="Submit Application" data-es="Enviar Solicitud" data-vi="Gửi Đơn Đăng Ký">Submit Application</button>
                 </form>
                 
                 <div id="formMessage" style="margin-top: 1rem; padding: 1rem; border-radius: 5px; display: none;"></div>
@@ -1165,8 +1168,14 @@
 
         // Language switching functionality
         function changeLanguage(lang) {
+            // Update all elements with translation attributes
             document.querySelectorAll('[data-en][data-es][data-vi]').forEach(element => {
                 element.textContent = element.getAttribute(`data-${lang}`);
+            });
+            
+            // Update input placeholders
+            document.querySelectorAll('[data-en-placeholder][data-es-placeholder][data-vi-placeholder]').forEach(element => {
+                element.placeholder = element.getAttribute(`data-${lang}-placeholder`);
             });
             
             // Update form placeholders and labels
