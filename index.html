@@ -373,7 +373,9 @@
         }
         
         .page.active {
-            display: block;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
         }
         
         .resources-grid {
@@ -1832,6 +1834,7 @@
             // Hide all pages
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
+                console.log('Hiding page:', page.id);
             });
             
             // Show selected page
@@ -1839,6 +1842,7 @@
             if (targetPage) {
                 targetPage.classList.add('active');
                 console.log('Page shown:', pageId);
+                console.log('Page content:', targetPage.innerHTML.substring(0, 200) + '...');
             } else {
                 console.error('Page not found:', pageId);
             }
