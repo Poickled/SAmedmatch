@@ -272,7 +272,9 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             width: 100%;
-            max-width: 400px;
+            max-width: 450px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
         
         .resource-card:hover {
@@ -295,6 +297,8 @@
             border-radius: 6px;
             border-left: 3px solid #dc2626;
             text-align: left;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
         
         .resource-item strong {
@@ -354,18 +358,19 @@
             <select id="languageSelect" onchange="changeLanguage(this.value)">
                 <option value="en">English</option>
                 <option value="es">Español</option>
+                <option value="vi">Tiếng Việt</option>
             </select>
         </div>
-        <h1 data-en="SA MedMatch" data-es="SA MedMatch">SA MedMatch</h1>
-        <p data-en="Find Medical Care in San Antonio" data-es="Encuentra Atención Médica en San Antonio">Find Medical Care in San Antonio</p>
+        <h1 data-en="SA MedMatch" data-es="SA MedMatch" data-vi="SA MedMatch">SA MedMatch</h1>
+        <p data-en="Find Medical Care in San Antonio" data-es="Encuentra Atención Médica en San Antonio" data-vi="Tìm Dịch Vụ Y Tế tại San Antonio">Find Medical Care in San Antonio</p>
     </div>
     
     <nav class="nav">
         <ul>
-            <li><a href="#" class="nav-link active" data-page="home" data-en="Home" data-es="Inicio">Home</a></li>
-            <li><a href="#" class="nav-link" data-page="about" data-en="About Us" data-es="Acerca de Nosotros">About Us</a></li>
-            <li><a href="#" class="nav-link" data-page="resources" data-en="Resources" data-es="Recursos">Resources</a></li>
-            <li><a href="#" class="nav-link" data-page="join" data-en="Join Directory" data-es="Únete al Directorio">Join Directory</a></li>
+            <li><a href="#" class="nav-link active" data-page="home" data-en="Home" data-es="Inicio" data-vi="Trang Chủ">Home</a></li>
+            <li><a href="#" class="nav-link" data-page="about" data-en="About Us" data-es="Acerca de Nosotros" data-vi="Về Chúng Tôi">About Us</a></li>
+            <li><a href="#" class="nav-link" data-page="resources" data-en="Resources" data-es="Recursos" data-vi="Tài Nguyên">Resources</a></li>
+            <li><a href="#" class="nav-link" data-page="join" data-en="Join Directory" data-es="Únete al Directorio" data-vi="Tham Gia Thư Mục">Join Directory</a></li>
         </ul>
     </nav>
     
@@ -1160,7 +1165,7 @@
 
         // Language switching functionality
         function changeLanguage(lang) {
-            document.querySelectorAll('[data-en][data-es]').forEach(element => {
+            document.querySelectorAll('[data-en][data-es][data-vi]').forEach(element => {
                 element.textContent = element.getAttribute(`data-${lang}`);
             });
             
@@ -1170,6 +1175,11 @@
                 document.getElementById('languages').placeholder = 'ej., Inglés, Español, Francés';
                 document.getElementById('hours').placeholder = 'ej., Lunes-Viernes: 8AM-5PM, Sábado: 9AM-1PM';
                 document.getElementById('additionalInfo').placeholder = 'Cualquier información adicional sobre su instalación...';
+            } else if (lang === 'vi') {
+                document.getElementById('specialties').placeholder = 'Liệt kê tất cả các chuyên khoa y tế được cung cấp (ví dụ: Y học Gia đình, Nhi khoa, Tim mạch)';
+                document.getElementById('languages').placeholder = 'ví dụ: Tiếng Anh, Tiếng Tây Ban Nha, Tiếng Pháp';
+                document.getElementById('hours').placeholder = 'ví dụ: Thứ Hai-Thứ Sáu: 8AM-5PM, Thứ Bảy: 9AM-1PM';
+                document.getElementById('additionalInfo').placeholder = 'Bất kỳ thông tin bổ sung nào về cơ sở của bạn...';
             } else {
                 document.getElementById('specialties').placeholder = 'List all medical specialties offered (e.g., Family Medicine, Pediatrics, Cardiology)';
                 document.getElementById('languages').placeholder = 'e.g., English, Spanish, French';
