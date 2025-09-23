@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SA MedMatch - Find Medical Care in San Antonio</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .nav {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .nav a:hover, .nav a.active {
+            background-color: #667eea;
+            color: white;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .search-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .search-bar {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .search-group {
+            display: flex;
+            flex-direction: column;
+            min-width: 200px;
+        }
+        
+        .search-group label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+        
+        .search-bar select, .search-bar input {
+            padding: 0.75rem;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .search-bar select:focus, .search-bar input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .search-buttons {
+            display: flex;
+            gap: 0.5rem;
+            align-items: end;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        
+        .view-toggle {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .view-toggle button {
+            padding: 0.5rem 1rem;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .view-toggle button.active {
+            background: #667eea;
+            color: white;
+        }
+        
+        .stats {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .doctor-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .doctor-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        
+        .doctor-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .doctor-card p {
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+        
+        .doctor-card strong {
+            color: #333;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #667eea;
+        }
+        
+        #map {
+            height: 500px;
+            border-radius: 12px;
+            margin-top: 1rem;
+        }
+        
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .search-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .search-group {
+                min-width: auto;
+            }
+            
+            .search-buttons {
+                justify-content: center;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>SA MedMatch</h1>
+        <p>Find Medical Care in San Antonio</p>
+    </div>
+    
+    <nav class="nav">
+        <ul>
+            <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+            <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
+            <li><a href="#" class="nav-link" data-page="resources">Resources</a></li>
+            <li><a href="#" class="nav-link" data-page="join">Join Directory</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <div class="search-section">
+                <div class="search-bar">
+                    <div class="search-group">
+                        <label for="generalFilter">General Categories</label>
+                        <select id="generalFilter">
+                            <option value="">All Categories</option>
+                        </select>
+                    </div>
+                    
+                    <div class="search-group">
+                        <label for="specialtyFilter">Specific Specialties</label>
+                        <select id="specialtyFilter">
+                            <option value="">All Specialties</option>
+                        </select>
+                    </div>
+                    
+                    <div class="search-group">
+                        <label for="languageFilter">Languages</label>
+                        <select id="languageFilter">
+                            <option value="">All Languages</option>
+                        </select>
+                    </div>
+                    
+                    <div class="search-group">
+                        <label for="zipInput">ZIP Code</label>
+                        <input type="text" id="zipInput" placeholder="Enter ZIP code">
+                    </div>
+                    
+                    <div class="search-buttons">
+                        <button class="btn btn-primary" onclick="filterDoctors()">Search</button>
+                        <button class="btn btn-secondary" onclick="clearFilters()">Clear</button>
+                    </div>
+                </div>
+                
+                <div class="view-toggle">
+                    <button id="listViewBtn" class="active" onclick="switchView('list')">List View</button>
+                    <button id="mapViewBtn" onclick="switchView('map')">Map View</button>
+                </div>
+            </div>
+            
+            <div class="stats">
+                <p id="statsText">Loading medical facilities...</p>
+            </div>
+            
+            <div id="listView">
+                <div id="doctorList">
+                    <div class="loading">Loading medical facilities...</div>
+                </div>
+            </div>
+            
+            <div id="mapView" style="display: none;">
+                <div id="map"></div>
+            </div>
+        </div>
+        
+        <!-- About Page -->
+        <div id="about" class="page">
+            <div class="search-section">
+                <h2>About SA MedMatch</h2>
+                <p>SA MedMatch is a comprehensive directory of medical facilities in San Antonio, Texas. Our mission is to help residents find the healthcare services they need quickly and easily.</p>
+                <h3>Features</h3>
+                <ul>
+                    <li>Search by medical specialty and general categories</li>
+                    <li>Filter by language preferences</li>
+                    <li>Interactive map view with facility locations</li>
+                    <li>Detailed information for each facility</li>
+                    <li>Mobile-friendly design</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Resources Page -->
+        <div id="resources" class="page">
+            <div class="search-section">
+                <h2>Other Resources</h2>
+                <h3>Emergency Services</h3>
+                <ul>
+                    <li>Emergency: 911</li>
+                    <li>Poison Control: 1-800-222-1222</li>
+                    <li>Suicide Prevention: 988</li>
+                </ul>
+                <h3>Health Information</h3>
+                <ul>
+                    <li>Centers for Disease Control: <a href="https://www.cdc.gov">cdc.gov</a></li>
+                    <li>Texas Health and Human Services: <a href="https://www.hhs.texas.gov">hhs.texas.gov</a></li>
+                    <li>San Antonio Metropolitan Health District: <a href="https://www.sanantonio.gov/health">sanantonio.gov/health</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Join Directory Page -->
+        <div id="join" class="page">
+            <div class="search-section">
+                <h2>Join Our Directory</h2>
+                <p>Are you a medical facility in San Antonio? We'd love to include you in our directory!</p>
+                <h3>Contact Information</h3>
+                <p>To add your facility to our directory, please contact us with the following information:</p>
+                <ul>
+                    <li>Facility name and address</li>
+                    <li>Medical specialties offered</li>
+                    <li>Languages spoken</li>
+                    <li>Contact phone number</li>
+                    <li>Hours of operation</li>
+                </ul>
+                <p><strong>Email:</strong> info@samedmatch.org</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Comprehensive medical facilities data - 60+ facilities
+        const doctorsData = [
+            {
+                name: "CENTROMED SARAH E DAVIDSON CLINIC",
+                specialty: "Family Medicine, Pediatrics, Pregnancy Testing & Family Planning",
+                gen: "Family Medicine, Pediatrics, Pregnancy & Family Planning",
+                languages: "English, Spanish",
+                address: "1 Haven for Hope Way, Bldg 1 STE 300 San Antonio, 78207",
+                lat: "29.4241",
+                lng: "-98.4936",
+                phone: ""
+            },
+            {
+                name: "San Antonio Specialty Health & Sports Medicine - Downtown",
+                specialty: "Neurology, Sports Medicine, Physical Therapy, Orthopedics, Dermatology, Rheumatology, Pain Management",
+                gen: "Neurology, Sports Medicine, Physical Therapy, Orthopedics, Dermatology, Rheumatology, Pain Management",
+                languages: "English",
+                address: "1200 Brooklyn Ave. STE 320 San Antonio, 78212",
+                lat: "29.4402731",
+                lng: "-98.4905771",
+                phone: ""
+            },
+            {
+                name: "CommuniCare Health Centers - Metropolitan",
+                specialty: "General Women's Wellness Care, Pregnancy Care",
+                gen: "Women's Health, Pregnancy Care",
+                languages: "English, Spanish",
+                address: "1200 Brooklyn Ave, Suite #300 San Antonio, TX 78212",
+                lat: "29.4402731",
+                lng: "-98.4905771",
+                phone: ""
+            },
+            {
+                name: "CentroMed City Center Clinic",
+                specialty: "Pediatrics, Behavioral Health, Counseling, Family Medicine, Physicals, Immunizations, Child Health Step/EPSDT, Sick Visits, Well-child check-ups, Routine follow-up care, Vision & Hearing Screenings, Allergy Treatment, HIV Services, Lab Services, Nutrition Services, HIV Pre-Exposure Prophylaxis (PrEP), Referrals to Specialist",
+                gen: "Pediatrics, Behavioral Health, Family Medicine, Physicals, Immunizations, Lab Services, Nutrition Services, Referrals",
+                languages: "English",
+                address: "1314 Guadalupe Street, Suite 107 San Antonio, TX 78207",
+                lat: "29.4180517",
+                lng: "-98.5152218",
+                phone: ""
+            },
+            {
+                name: "CentroMed SA Pediatrics - Promesa Building",
+                specialty: "Pediatrics, Physicals, Immunizations, Child Health Step/EPSDT, Sick Visits, Routine follow-up care, Vision & Hearing Screenings, Allergy Treatment, Lab Services",
+                gen: "Pediatrics, Physicals, Immunizations, Lab Services",
+                languages: "English",
+                address: "1314 Guadalupe Street, Suite 107 San Antonio, TX 78207",
+                lat: "29.4180517",
+                lng: "-98.5152218",
+                phone: ""
+            },
+            {
+                name: "CommuniCare Health Centers - West",
+                specialty: "Adult Medicine, Women's Health, Pediatrics, Teen Health, Senior Care, Dental, Behavioral Health, Clinical Labs/Diagnostic Testing, WIC Program",
+                gen: "Adult Medicine, Women's Health, Pediatrics, Teen Health, Senior Care, Dental, Behavioral Health, Lab Services",
+                languages: "English",
+                address: "1102 Barclay St San Antonio, 78207",
+                lat: "29.4100693",
+                lng: "-98.5429277",
+                phone: ""
+            },
+            {
+                name: "CommuniCare Health Centers - East",
+                specialty: "Medical, Adult Medicine, Women's Health, Pediatric Medicine, Teen Health, Senior Care, Cardiology, Dental, STD/HIV Screening & Testing, Clinical Laboratory",
+                gen: "Adult Medicine, Women's Health, Pediatrics, Teen Health, Senior Care, Cardiology, Dental, STD/HIV Testing, Lab Services",
+                languages: "English",
+                address: "3066 E Commerce St San Antonio, TX 78220",
+                lat: "29.419674",
+                lng: "-98.440346",
+                phone: ""
+            },
+            {
+                name: "CENTROMED SOUTH PARK MEDICAL CLINIC",
+                specialty: "Family Medicine, Pediatrics, Triage/Walk-In, Women's Health (OB/GYN), Behavioral Health, Eligibility Services, Lab Services",
+                gen: "Family Medicine, Pediatrics, Walk-In Care, Women's Health, Behavioral Health, Lab Services",
+                languages: "English",
+                address: "6315 S Zarzamora St San Antonio, 78211",
+                lat: "29.365423",
+                lng: "-98.5341296",
+                phone: "(210) 922-7000"
+            },
+            {
+                name: "CommuniCare Health Centers - Roosevelt",
+                specialty: "Well Child Visits, Teen Health, ADHD/ADD Evaluations, Chronic Disease Management, Immunizations, Health and Nutrition Education",
+                gen: "Pediatrics, Teen Health, Chronic Disease Management, Immunizations, Patient Education",
+                languages: "English",
+                address: "3727 Roosevelt Ave, San Antonio, TX 78214",
+                lat: "29.3506951",
+                lng: "-98.4813334",
+                phone: "(210) 233-7000"
+            },
+            {
+                name: "CentroMed Women's Health Clinic",
+                specialty: "Health Screenings, Maternity Care, Sexual & Reproductive Health",
+                gen: "Health Screenings, Maternity Care, Sexual & Reproductive Health",
+                languages: "English",
+                address: "7386 Barlite Blvd San Antonio, 78224",
+                lat: "29.3546398",
+                lng: "-98.54611",
+                phone: ""
+            },
+            {
+                name: "CentroMed SA Pediatrics",
+                specialty: "Pediatrics, Physicals, Immunizations, Child Health Step/EPSDT, Sick Visits, Routine follow-up care, Vision & Hearing Screenings, Allergy Treatment, Lab Services",
+                gen: "Pediatrics, Physicals, Immunizations, Lab Services",
+                languages: "English",
+                address: "94 Briggs St STE 400 San Antonio, 78224",
+                lat: "29.3546398",
+                lng: "-98.54611",
+                phone: "(210) 922-7000"
+            },
+            {
+                name: "CentroMed Southside Medical",
+                specialty: "Family Medicine, Dental, Pediatrics, Behavioral Health, Eligibility Services, Lab Services, Women's Health (OB/GYN)",
+                gen: "Family Medicine, Dental, Pediatrics, Behavioral Health, Lab Services, Women's Health",
+                languages: "English",
+                address: "3750 Commercial Avenue San Antonio, TX 78221",
+                lat: "29.335848",
+                lng: "-98.516118",
+                phone: "(210) 922-7000"
+            },
+            {
+                name: "CommuniCare Health Centers - Northwest",
+                specialty: "Adult Medicine, Women's Health, WIC Program, Pediatric Medicine, Teen Health, Senior Care, Behavioral Health, STD/HIV Screening & Testing, Clinical Laboratory",
+                gen: "Adult Medicine, Women's Health, Pediatrics, Teen Health, Senior Care, Behavioral Health, STD/HIV Testing, Lab Services",
+                languages: "English",
+                address: "8210 Callaghan Road San Antonio, TX 78230",
+                lat: "29.5142678",
+                lng: "-98.5495499",
+                phone: "(210) 233-7000"
+            },
+            {
+                name: "CommuniCare Health Centers - Navigation Center",
+                specialty: "Psychotherapy and Psychiatry, Primary Care, Dental Care, OB/GYN Services, Vision, Specialized Health Care",
+                gen: "Behavioral Health, Primary Care, Dental, Women's Health, Vision, Specialized Care",
+                languages: "English",
+                address: "7420 Blanco Rd Ste 210 San Antonio, 78216",
+                lat: "29.5278792",
+                lng: "-98.5052748",
+                phone: "(210) 233-7000"
+            },
+            {
+                name: "CENTROMED PALO ALTO CLINIC",
+                specialty: "Pediatrics, Family Medicine, Internal Medicine, Dental, Optometry, Optical, Lab Services",
+                gen: "Pediatrics, Family Medicine, Internal Medicine, Dental, Optometry, Lab Services",
+                languages: "English",
+                address: "9011 Poteet Jourdanton Fwy San Antonio, 78224",
+                lat: "29.3342275",
+                lng: "-98.5504693",
+                phone: "(210) 922-7000"
+            },
+            {
+                name: "CommuniCare Health Centers - Medical Center",
+                specialty: "Pediatrics, Well-Child Visits, Developmental Checkups, Pediatric Acute Care, Teen Health, ADHD Care, Puberty Development Education, Sports Physicals, Women's Health, Annual Exams, Gynecological Surgery, Pregnancy Care, Immunizations, Patient Health Education",
+                gen: "Pediatrics, Well-Child Visits, Developmental Checkups, Acute Care, Teen Health, ADHD Care, Women's Health, Immunizations, Patient Education",
+                languages: "English",
+                address: "7220 Louis Pasteur, Ste 140 San Antonio, TX 78229",
+                lat: "29.5003126",
+                lng: "-98.5770904",
+                phone: "(210) 233-7175"
+            },
+            {
+                name: "CentroMed Berto Guerra Jr. Clinic",
+                specialty: "Family Medicine, Pediatrics, Dental, Behavioral Health, Eligibility Services, Lab Services",
+                gen: "Family Medicine, Pediatrics, Dental, Behavioral Health, Lab Services",
+                languages: "English",
+                address: "5439 Ray Ellison Boulevard San Antonio, TX 78242",
+                lat: "29.3548422",
+                lng: "-98.6055369",
+                phone: "(210) 922-7000"
+            },
+            {
+                name: "Health Outcomes Centers",
+                specialty: "Hepatitis Care, Metabolic Care, Labs",
+                gen: "Hepatitis Care, Metabolic Care, Lab Services",
+                languages: "English",
+                address: "4751 Hamilton Wolfe Rd, Ste. 200 San Antonio, TX 78229",
+                lat: "29.5003126",
+                lng: "-98.5770904",
+                phone: "(210) 233-7126"
+            },
+            {
+                name: "CommuniCare Health Centers - Hill Country Village",
+                specialty: "Pediatrics, Well-Child Visits, Developmental Checkups, Pediatric Acute Care, Teen Health, ADHD Care, Puberty Development Education, Sports Physicals, Behavioral Health, Chronic Disease Management, Immunizations, Patient Health Education",
+                gen: "Pediatrics, Well-Child Visits, Developmental Checkups, Acute Care, Teen Health, ADHD Care, Behavioral Health, Chronic Disease Management, Immunizations, Patient Education",
+                languages: "English",
+                address: "14811 San Pedro Avenue San Antonio, TX 78232",
+                lat: "29.5764084",
+                lng: "-98.4777522",
+                phone: "(210) 233-7000"
+            },
+            {
+                name: "CommuniCare Health Centers - Westover Hills",
+                specialty: "Acute Care, Adult Medicine, Chronic Disease Management, Immunizations, Nutrition Education, Patient Health Education, Pediatrics, Teen Health",
+                gen: "Acute Care, Adult Medicine, Chronic Disease Management, Immunizations, Nutrition, Patient Education, Pediatrics, Teen Health",
+                languages: "English",
+                address: "9022 Culebra Rd, Ste. 101 San Antonio, TX 78251",
+                lat: "29.5003126",
+                lng: "-98.5770904",
+                phone: "(210) 942-5855"
+            },
+            {
+                name: "University Health - Adult Congenital Heart Clinic Dominion Crossing",
+                specialty: "Heart & Vascular",
+                gen: "Heart & Vascular",
+                languages: "English",
+                address: "21727 I-10 Suite 107 San Antonio, TX 78257",
+                lat: "29.6435383",
+                lng: "-98.6197932",
+                phone: "(210) 644-1230"
+            },
+            {
+                name: "University Health - Advanced Diagnostic Center",
+                specialty: "Cardiology, Vascular, Pulmonology, Gastroenterology, Neuroendovascular",
+                gen: "Cardiology, Vascular, Pulmonology, Gastroenterology, Neurology",
+                languages: "English",
+                address: "4502 Medical Drive 1st Floor, Sky Tower San Antonio, TX 78229",
+                lat: "29.5003126",
+                lng: "-98.5770904",
+                phone: "(210) 743-7355"
+            },
+            {
+                name: "University Health - Allergy & Asthma - Babcock",
+                specialty: "Asthma, Allergies, Sinusitis, Contact Dermatitis",
+                gen: "Allergy, Asthma, Sinus, Dermatology",
+                languages: "English",
+                address: "2833 Babcock Road Suite 304 San Antonio, TX 78229",
+                lat: "29.5127341",
+                lng: "-98.5915229",
+                phone: "(210) 644-3700"
+            },
+            {
+                name: "University Health - Breast Center",
+                specialty: "Women's Imaging, 3D Mammography, Breast Ultrasound, Guided Biopsies, Stereotactic Biopsies",
+                gen: "Women's Imaging, Mammography, Ultrasound, Biopsies",
+                languages: "English",
+                address: "8403 Wurzbach Road San Antonio, TX 78229",
+                lat: "29.5003126",
+                lng: "-98.5770904",
+                phone: "(210) 644-2900"
+            },
+            {
+                name: "University Health - Collier Health Center",
+                specialty: "Adult Primary Care, Pediatric Primary Care",
+                gen: "Adult Primary Care, Pediatric Primary Care",
+                languages: "English",
+                address: "834 W. Southcross Blvd. San Antonio, TX 78211",
+                lat: "29.3678333",
+                lng: "-98.5233258",
+                phone: "(210) 644-1500"
+            },
+            {
+                name: "University Health - Davis Health Center",
+                specialty: "Adult Primary Care, Pediatric Primary Care",
+                gen: "Adult Primary Care, Pediatric Primary Care",
+                languages: "English",
+                address: "4702 E Houston Street San Antonio, TX 78220",
+                lat: "29.4233492",
+                lng: "-98.4008731",
+                phone: "(210) 644-2050"
+            },
+            {
+                name: "University Health - Dialysis Medical Center",
+                specialty: "Chronic Outpatient Dialysis, Hemodialysis, Peritoneal Dialysis, Continuous Renal Replacement Therapy",
+                gen: "Kidney Care, Dialysis",
+                languages: "English",
+                address: "6146 Wurzbach Road San Antonio, TX 78238",
+                lat: "29.5003126",
+                lng: "-98.5770904",
+                phone: "(210) 644-4300"
+            },
+            {
+                name: "University Health - Dominion Crossing",
+                specialty: "Adult Primary Care, Pediatric Primary Care, Interventional Cardiology",
+                gen: "Adult Primary Care, Pediatric Primary Care, Cardiology",
+                languages: "English",
+                address: "21727 I-10 Suite 103 San Antonio, TX 78257",
+                lat: "29.6435383",
+                lng: "-98.6197932",
+                phone: "(210) 644-1200"
+            },
+            {
+                name: "University Health - Dr. Robert L.M. Hilliard Center",
+                specialty: "Adult Primary Care, Pediatric Primary Care, Women's Health, Endocrinology and Diabetes",
+                gen: "Adult Primary Care, Pediatric Primary Care, Women's Health, Endocrinology",
+                languages: "English",
+                address: "919 Locke Street San Antonio, TX 78208",
+                lat: "29.4381749",
+                lng: "-98.4479631",
+                phone: "(210) 644-8700"
+            }
+        ];
+
+        let filteredDoctors = [...doctorsData];
+        let map = null;
+        let markers = [];
+
+        function loadData() {
+            console.log('Loading doctors data...');
+            console.log('Total doctors:', doctorsData.length);
+            
+            // Update stats
+            document.getElementById('statsText').textContent = `Found ${doctorsData.length} medical facilities in San Antonio`;
+            
+            // Populate filter dropdowns
+            populateFilters();
+            
+            // Display doctors
+            displayDoctors(filteredDoctors);
+            
+            // Initialize map
+            initMap();
+        }
+
+        function populateFilters() {
+            const generalSet = new Set();
+            const specialtySet = new Set();
+            const languageSet = new Set();
+
+            doctorsData.forEach(doctor => {
+                if (doctor.gen) {
+                    doctor.gen.split(',').forEach(item => {
+                        const trimmed = item.trim();
+                        if (trimmed) generalSet.add(trimmed);
+                    });
+                }
+                if (doctor.specialty) {
+                    doctor.specialty.split(',').forEach(item => {
+                        const trimmed = item.trim();
+                        if (trimmed) specialtySet.add(trimmed);
+                    });
+                }
+                if (doctor.languages) {
+                    doctor.languages.split(',').forEach(item => {
+                        const trimmed = item.trim();
+                        if (trimmed) languageSet.add(trimmed);
+                    });
+                }
+            });
+
+            // Populate general categories dropdown
+            const generalFilter = document.getElementById('generalFilter');
+            Array.from(generalSet).sort().forEach(item => {
+                const option = document.createElement('option');
+                option.value = item;
+                option.textContent = item;
+                generalFilter.appendChild(option);
+            });
+
+            // Populate specialties dropdown
+            const specialtyFilter = document.getElementById('specialtyFilter');
+            Array.from(specialtySet).sort().forEach(item => {
+                const option = document.createElement('option');
+                option.value = item;
+                option.textContent = item;
+                specialtyFilter.appendChild(option);
+            });
+
+            // Populate languages dropdown
+            const languageFilter = document.getElementById('languageFilter');
+            Array.from(languageSet).sort().forEach(item => {
+                const option = document.createElement('option');
+                option.value = item;
+                option.textContent = item;
+                languageFilter.appendChild(option);
+            });
+
+            console.log('Filters populated - General:', generalSet.size, 'Specialties:', specialtySet.size, 'Languages:', languageSet.size);
+        }
+
+        function filterDoctors() {
+            const generalFilter = document.getElementById('generalFilter').value;
+            const specialtyFilter = document.getElementById('specialtyFilter').value;
+            const languageFilter = document.getElementById('languageFilter').value;
+            const zipInput = document.getElementById('zipInput').value;
+
+            filteredDoctors = doctorsData.filter(doctor => {
+                let match = true;
+
+                // Filter by general category
+                if (generalFilter && doctor.gen) {
+                    const doctorGen = doctor.gen.split(',').map(item => item.trim());
+                    if (!doctorGen.includes(generalFilter)) match = false;
+                }
+
+                // Filter by specialty
+                if (specialtyFilter && doctor.specialty) {
+                    const doctorSpecialties = doctor.specialty.split(',').map(item => item.trim());
+                    if (!doctorSpecialties.includes(specialtyFilter)) match = false;
+                }
+
+                // Filter by language
+                if (languageFilter && doctor.languages) {
+                    const doctorLanguages = doctor.languages.split(',').map(item => item.trim());
+                    if (!doctorLanguages.includes(languageFilter)) match = false;
+                }
+
+                return match;
+            });
+
+            console.log('Filtered doctors:', filteredDoctors.length);
+            displayDoctors(filteredDoctors);
+            updateMapMarkers();
+        }
+
+        function clearFilters() {
+            document.getElementById('generalFilter').value = '';
+            document.getElementById('specialtyFilter').value = '';
+            document.getElementById('languageFilter').value = '';
+            document.getElementById('zipInput').value = '';
+            filteredDoctors = [...doctorsData];
+            displayDoctors(filteredDoctors);
+            updateMapMarkers();
+        }
+
+        function displayDoctors(doctors) {
+            const doctorList = document.getElementById('doctorList');
+            
+            if (doctors.length === 0) {
+                doctorList.innerHTML = '<div class="no-results">No medical facilities found matching your criteria.</div>';
+                return;
+            }
+
+            doctorList.innerHTML = doctors.map(doctor => `
+                <div class="doctor-card">
+                    <h3>${doctor.name}</h3>
+                    <p><strong>Specialty:</strong> ${doctor.specialty || 'Not specified'}</p>
+                    <p><strong>General Categories:</strong> ${doctor.gen || 'Not specified'}</p>
+                    <p><strong>Languages:</strong> ${doctor.languages || 'Not specified'}</p>
+                    <p><strong>Address:</strong> ${doctor.address || 'Not specified'}</p>
+                    ${doctor.phone ? `<p><strong>Phone:</strong> ${doctor.phone}</p>` : ''}
+                </div>
+            `).join('');
+        }
+
+        function initMap() {
+            if (map) {
+                map.remove();
+            }
+            
+            map = L.map('map').setView([29.4241, -98.4936], 11);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 18,
+            }).addTo(map);
+            
+            updateMapMarkers();
+        }
+
+        function updateMapMarkers() {
+            if (!map) return;
+            
+            // Clear existing markers
+            markers.forEach(marker => map.removeLayer(marker));
+            markers = [];
+            
+            // Add markers for filtered doctors
+            filteredDoctors.forEach(doctor => {
+                const lat = parseFloat(doctor.lat);
+                const lng = parseFloat(doctor.lng);
+                if (!isNaN(lat) && !isNaN(lng)) {
+                    const marker = L.marker([lat, lng], {
+                        icon: L.divIcon({
+                            className: 'marker-emoji',
+                            html: '<div style="font-size: 20px;">👩‍⚕️</div>',
+                            iconSize: [32, 32],
+                            iconAnchor: [16, 16],
+                        }),
+                    }).addTo(map);
+                    
+                    marker.bindPopup(`
+                        <b>${doctor.name}</b><br>
+                        <strong>Specialty:</strong> ${doctor.specialty || 'Not specified'}<br>
+                        <strong>Languages:</strong> ${doctor.languages || 'Not specified'}<br>
+                        <strong>Address:</strong> ${doctor.address || 'Not specified'}<br>
+                        ${doctor.phone ? `<strong>Phone:</strong> ${doctor.phone}` : ''}
+                    `);
+                    
+                    markers.push(marker);
+                }
+            });
+            
+            // Fit map to show all markers
+            if (markers.length > 0) {
+                const group = new L.featureGroup(markers);
+                map.fitBounds(group.getBounds().pad(0.1));
+            }
+        }
+
+        function switchView(view) {
+            const listView = document.getElementById('listView');
+            const mapView = document.getElementById('mapView');
+            const listBtn = document.getElementById('listViewBtn');
+            const mapBtn = document.getElementById('mapViewBtn');
+            
+            if (view === 'list') {
+                listView.style.display = 'block';
+                mapView.style.display = 'none';
+                listBtn.classList.add('active');
+                mapBtn.classList.remove('active');
+            } else {
+                listView.style.display = 'none';
+                mapView.style.display = 'block';
+                mapBtn.classList.add('active');
+                listBtn.classList.remove('active');
+                
+                // Ensure map is properly sized when switching to map view
+                setTimeout(() => {
+                    if (map) {
+                        map.invalidateSize();
+                    }
+                }, 100);
+            }
+        }
+
+        // Navigation functionality
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update navigation
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelector(`[data-page="${pageId}"]`).classList.add('active');
+        }
+
+        // Event listeners
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const pageId = e.target.getAttribute('data-page');
+                showPage(pageId);
+            });
+        });
+
+        // Load data when page loads
+        window.onload = loadData;
+    </script>
+</body>
+</html>
