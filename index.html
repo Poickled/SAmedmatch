@@ -1847,6 +1847,35 @@
                 
                 // Force scroll to page
                 targetPage.scrollIntoView({ behavior: 'smooth' });
+                
+                // Force the page to be visible with inline styles
+                targetPage.style.display = 'block';
+                targetPage.style.visibility = 'visible';
+                targetPage.style.opacity = '1';
+                targetPage.style.position = 'relative';
+                targetPage.style.zIndex = '9999';
+                targetPage.style.backgroundColor = 'white';
+                targetPage.style.minHeight = '500px';
+                targetPage.style.border = '5px solid red';
+                targetPage.style.margin = '20px';
+                targetPage.style.padding = '20px';
+                
+                console.log('Forced page visibility with inline styles');
+                
+                // Additional debugging
+                console.log('Page offsetTop:', targetPage.offsetTop);
+                console.log('Page offsetLeft:', targetPage.offsetLeft);
+                console.log('Page offsetWidth:', targetPage.offsetWidth);
+                console.log('Page offsetHeight:', targetPage.offsetHeight);
+                console.log('Page clientWidth:', targetPage.clientWidth);
+                console.log('Page clientHeight:', targetPage.clientHeight);
+                console.log('Page scrollTop:', targetPage.scrollTop);
+                console.log('Page scrollLeft:', targetPage.scrollLeft);
+                
+                // Check if page is in viewport
+                const rect = targetPage.getBoundingClientRect();
+                console.log('Page bounding rect:', rect);
+                console.log('Page is in viewport:', rect.top >= 0 && rect.left >= 0 && rect.bottom <= window.innerHeight && rect.right <= window.innerWidth);
             } else {
                 console.error('Page not found:', pageId);
             }
