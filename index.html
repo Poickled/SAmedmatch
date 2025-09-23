@@ -142,6 +142,61 @@
             color: white;
         }
         
+        /* Dropdown Navigation */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-toggle {
+            cursor: pointer;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            min-width: 250px;
+            z-index: 1000;
+            display: none;
+            padding: 0.5rem 0;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-item {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+        
+        .dropdown-item:hover {
+            background-color: #dc2626;
+            color: white;
+        }
+        
+        .dropdown-item:first-child {
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        
+        .dropdown-item:last-child {
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -427,7 +482,22 @@
         <ul>
             <li><a href="#" class="nav-link active" data-page="home" data-en="Insuranceless Healthcare Finder" data-es="Buscador de Atención Médica sin Seguro" data-vi="Tìm Dịch Vụ Y Tế Không Bảo Hiểm">Insuranceless Healthcare Finder</a></li>
             <li><a href="#" class="nav-link" data-page="about" data-en="About Us" data-es="Acerca de Nosotros" data-vi="Về Chúng Tôi">About Us</a></li>
-            <li><a href="#" class="nav-link" data-page="resources" data-en="Additional Resources" data-es="Recursos Adicionales" data-vi="Tài Nguyên Bổ Sung">Additional Resources</a></li>
+            <li class="dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-en="Community Resources" data-es="Recursos Comunitarios" data-vi="Tài Nguyên Cộng Đồng">Community Resources</a>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item" data-page="emergency" data-en="Emergency Services" data-es="Servicios de Emergencia" data-vi="Dịch Vụ Khẩn Cấp">Emergency Services</a>
+                    <a href="#" class="dropdown-item" data-page="insurance" data-en="Insurance & Financial" data-es="Seguro y Financiero" data-vi="Bảo Hiểm và Tài Chính">Insurance & Financial</a>
+                    <a href="#" class="dropdown-item" data-page="healthcare" data-en="Low-Cost Healthcare" data-es="Atención Médica de Bajo Costo" data-vi="Chăm Sóc Y Tế Chi Phí Thấp">Low-Cost Healthcare</a>
+                    <a href="#" class="dropdown-item" data-page="prescription" data-en="Prescription Assistance" data-es="Asistencia de Recetas" data-vi="Hỗ Trợ Thuốc Kê Đơn">Prescription Assistance</a>
+                    <a href="#" class="dropdown-item" data-page="mental-health" data-en="Mental Health" data-es="Salud Mental" data-vi="Sức Khỏe Tâm Thần">Mental Health</a>
+                    <a href="#" class="dropdown-item" data-page="crisis" data-en="Crisis & Emergency" data-es="Crisis y Emergencia" data-vi="Khủng Hoảng và Khẩn Cấp">Crisis & Emergency</a>
+                    <a href="#" class="dropdown-item" data-page="food-clothing" data-en="Food & Clothing" data-es="Comida y Ropa" data-vi="Thực Phẩm và Quần Áo">Food & Clothing</a>
+                    <a href="#" class="dropdown-item" data-page="homeless" data-en="Homeless Services" data-es="Servicios para Personas sin Hogar" data-vi="Dịch Vụ Người Vô Gia Cư">Homeless Services</a>
+                    <a href="#" class="dropdown-item" data-page="employment" data-en="Employment & Reentry" data-es="Empleo y Reinserción" data-vi="Việc Làm và Tái Hòa Nhập">Employment & Reentry</a>
+                    <a href="#" class="dropdown-item" data-page="veterans" data-en="Veteran Services" data-es="Servicios para Veteranos" data-vi="Dịch Vụ Cựu Chiến Binh">Veteran Services</a>
+                    <a href="#" class="dropdown-item" data-page="health-info" data-en="Health Information" data-es="Información de Salud" data-vi="Thông Tin Sức Khỏe">Health Information</a>
+                </div>
+            </li>
         </ul>
     </nav>
     
@@ -508,7 +578,94 @@
             </div>
         </div>
         
-        <!-- Resources Page -->
+        <!-- Emergency Services Page -->
+        <div id="emergency" class="page">
+            <div class="search-section">
+                <h2 data-en="Emergency Services" data-es="Servicios de Emergencia" data-vi="Dịch Vụ Khẩn Cấp">Emergency Services</h2>
+                <p data-en="Critical emergency services available 24/7 in San Antonio" data-es="Servicios de emergencia críticos disponibles 24/7 en San Antonio" data-vi="Các dịch vụ khẩn cấp quan trọng có sẵn 24/7 tại San Antonio">Critical emergency services available 24/7 in San Antonio</p>
+                
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h4 data-en="Emergency Contacts" data-es="Contactos de Emergencia" data-vi="Liên Hệ Khẩn Cấp">Emergency Contacts</h4>
+                        <div class="resource-item">
+                            <strong data-en="Emergency: 911" data-es="Emergencia: 911" data-vi="Khẩn Cấp: 911">Emergency: 911</strong>
+                            <span class="phone">Available 24/7</span>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="Poison Control: 1-800-222-1222" data-es="Control de Envenenamiento: 1-800-222-1222" data-vi="Kiểm Soát Chất Độc: 1-800-222-1222">Poison Control: 1-800-222-1222</strong>
+                            <span class="phone">24/7 Hotline</span>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="Suicide Prevention: 988" data-es="Prevención del Suicidio: 988" data-vi="Phòng Chống Tự Tử: 988">Suicide Prevention: 988</strong>
+                            <span class="phone">Crisis Support</span>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="Crisis Text Line: Text HOME to 741741" data-es="Línea de Texto de Crisis: Envía HOME al 741741" data-vi="Đường Dây Tin Nhắn Khủng Hoảng: Gửi HOME đến 741741">Crisis Text Line: Text HOME to 741741</strong>
+                            <span class="phone">Text Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Insurance & Financial Page -->
+        <div id="insurance" class="page">
+            <div class="search-section">
+                <h2 data-en="Insurance & Financial Assistance" data-es="Seguro y Asistencia Financiera" data-vi="Bảo Hiểm và Hỗ Trợ Tài Chính">Insurance & Financial Assistance</h2>
+                <p data-en="Health insurance options and financial assistance programs" data-es="Opciones de seguro de salud y programas de asistencia financiera" data-vi="Các lựa chọn bảo hiểm y chương trình hỗ trợ tài chính">Health insurance options and financial assistance programs</p>
+                
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h4 data-en="Health Insurance Marketplace" data-es="Mercado de Seguros de Salud" data-vi="Thị Trường Bảo Hiểm Y Tế">Health Insurance Marketplace</h4>
+                        <div class="resource-item">
+                            <strong data-en="Healthcare.gov" data-es="Healthcare.gov" data-vi="Healthcare.gov">Healthcare.gov</strong>
+                            <span class="phone"><a href="https://www.healthcare.gov">healthcare.gov</a></span>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="Texas Medicaid" data-es="Medicaid de Texas" data-vi="Medicaid Texas">Texas Medicaid</strong>
+                            <span class="phone"><a href="https://www.hhs.texas.gov/services/health/medicaid-chip">hhs.texas.gov</a></span>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="CHIP (Children's Health Insurance Program)" data-es="CHIP (Programa de Seguro de Salud para Niños)" data-vi="CHIP (Chương Trình Bảo Hiểm Y Tế Trẻ Em)">CHIP (Children's Health Insurance Program)</strong>
+                            <span class="phone"><a href="https://www.hhs.texas.gov/services/health/medicaid-chip">hhs.texas.gov</a></span>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="San Antonio Health Insurance Assistance: (210) 207-7830" data-es="Asistencia de Seguro de Salud de San Antonio: (210) 207-7830" data-vi="Hỗ Trợ Bảo Hiểm Y Tế San Antonio: (210) 207-7830">San Antonio Health Insurance Assistance: (210) 207-7830</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Low-Cost Healthcare Page -->
+        <div id="healthcare" class="page">
+            <div class="search-section">
+                <h2 data-en="Low-Cost & Free Healthcare" data-es="Atención Médica de Bajo Costo y Gratuita" data-vi="Chăm Sóc Y Tế Chi Phí Thấp và Miễn Phí">Low-Cost & Free Healthcare</h2>
+                <p data-en="Affordable healthcare options for uninsured and underinsured residents" data-es="Opciones de atención médica asequibles para residentes sin seguro y con seguro insuficiente" data-vi="Các lựa chọn chăm sóc y tế giá cả phải chăng cho cư dân không có bảo hiểm">Affordable healthcare options for uninsured and underinsured residents</p>
+                
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h4 data-en="Community Health Centers" data-es="Centros de Salud Comunitarios" data-vi="Trung Tâm Y Tế Cộng Đồng">Community Health Centers</h4>
+                        <div class="resource-item">
+                            <strong data-en="CentroMed - Sliding Fee Scale" data-es="CentroMed - Escala de Tarifas Deslizantes" data-vi="CentroMed - Thang Phí Trượt">CentroMed - Sliding Fee Scale</strong>
+                            <span class="phone"><a href="https://www.centromed.org">centromed.org</a></span>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="CommuniCare Health Centers - Income-Based Fees" data-es="Centros de Salud CommuniCare - Tarifas Basadas en Ingresos" data-vi="Trung Tâm Y Tế CommuniCare - Phí Dựa Trên Thu Nhập">CommuniCare Health Centers - Income-Based Fees</strong>
+                            <span class="phone"><a href="https://www.communicarehc.org">communicarehc.org</a></span>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="University Health - Financial Assistance: (210) 358-3000" data-es="University Health - Asistencia Financiera: (210) 358-3000" data-vi="University Health - Hỗ Trợ Tài Chính: (210) 358-3000">University Health - Financial Assistance: (210) 358-3000</strong>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="San Antonio Free Clinic: (210) 226-0000" data-es="Clínica Gratuita de San Antonio: (210) 226-0000" data-vi="Phòng Khám Miễn Phí San Antonio: (210) 226-0000">San Antonio Free Clinic: (210) 226-0000</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resources Page (Overview) -->
         <div id="resources" class="page">
             <div class="search-section">
                 <h2 data-en="Community Resources" data-es="Recursos Comunitarios" data-vi="Tài Nguyên Cộng Đồng">Community Resources</h2>
@@ -612,6 +769,291 @@
                     <li data-en="San Antonio Metropolitan Health District: <a href='https://www.sanantonio.gov/health'>sanantonio.gov/health</a>" data-es="Distrito Metropolitano de Salud de San Antonio: <a href='https://www.sanantonio.gov/health'>sanantonio.gov/health</a>">San Antonio Metropolitan Health District: <a href="https://www.sanantonio.gov/health">sanantonio.gov/health</a></li>
                     <li data-en="MedlinePlus (Health Information in Spanish): <a href='https://medlineplus.gov/spanish'>medlineplus.gov/spanish</a>" data-es="MedlinePlus (Información de Salud en Español): <a href='https://medlineplus.gov/spanish'>medlineplus.gov/spanish</a>">MedlinePlus (Health Information in Spanish): <a href="https://medlineplus.gov/spanish">medlineplus.gov/spanish</a></li>
                 </ul>
+            </div>
+        </div>
+
+        <!-- Prescription Assistance Page -->
+        <div id="prescription" class="page">
+            <div class="search-section">
+                <h2 data-en="Prescription Assistance" data-es="Asistencia de Recetas" data-vi="Hỗ Trợ Thuốc Kê Đơn">Prescription Assistance</h2>
+                <p data-en="Programs to help with prescription medication costs" data-es="Programas para ayudar con los costos de medicamentos recetados" data-vi="Các chương trình hỗ trợ chi phí thuốc kê đơn">Programs to help with prescription medication costs</p>
+                
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h4 data-en="Prescription Assistance Programs" data-es="Programas de Asistencia de Recetas" data-vi="Chương Trình Hỗ Trợ Thuốc Kê Đơn">Prescription Assistance Programs</h4>
+                        <div class="resource-item">
+                            <strong data-en="Partnership for Prescription Assistance" data-es="Asociación para Asistencia de Recetas" data-vi="Đối Tác Hỗ Trợ Thuốc Kê Đơn">Partnership for Prescription Assistance</strong>
+                            <span class="phone"><a href="https://www.pparx.org">pparx.org</a></span>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="NeedyMeds" data-es="NeedyMeds" data-vi="NeedyMeds">NeedyMeds</strong>
+                            <span class="phone"><a href="https://www.needymeds.org">needymeds.org</a></span>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="GoodRx - Prescription Discounts" data-es="GoodRx - Descuentos de Recetas" data-vi="GoodRx - Giảm Giá Thuốc Kê Đơn">GoodRx - Prescription Discounts</strong>
+                            <span class="phone"><a href="https://www.goodrx.com">goodrx.com</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mental Health Page -->
+        <div id="mental-health" class="page">
+            <div class="search-section">
+                <h2 data-en="Mental Health Resources" data-es="Recursos de Salud Mental" data-vi="Tài Nguyên Sức Khỏe Tâm Thần">Mental Health Resources</h2>
+                <p data-en="Mental health support and counseling services" data-es="Servicios de apoyo y consejería de salud mental" data-vi="Dịch vụ hỗ trợ và tư vấn sức khỏe tâm thần">Mental health support and counseling services</p>
+                
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h4 data-en="Crisis Support" data-es="Apoyo de Crisis" data-vi="Hỗ Trợ Khủng Hoảng">Crisis Support</h4>
+                        <div class="resource-item">
+                            <strong data-en="Crisis Hotline: 988" data-es="Línea de Crisis: 988" data-vi="Đường Dây Khủng Hoảng: 988">Crisis Hotline: 988</strong>
+                            <span class="phone">24/7 Support</span>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="National Alliance on Mental Illness (NAMI) San Antonio: (210) 734-3349" data-es="Alianza Nacional sobre Enfermedades Mentales (NAMI) San Antonio: (210) 734-3349" data-vi="Liên Minh Quốc Gia về Bệnh Tâm Thần (NAMI) San Antonio: (210) 734-3349">National Alliance on Mental Illness (NAMI) San Antonio: (210) 734-3349</strong>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="Center for Health Care Services: (210) 225-5471" data-es="Centro de Servicios de Atención Médica: (210) 225-5471" data-vi="Trung Tâm Dịch Vụ Chăm Sóc Y Tế: (210) 225-5471">Center for Health Care Services: (210) 225-5471</strong>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="Mental Health America of San Antonio: (210) 223-7000" data-es="Salud Mental América de San Antonio: (210) 223-7000" data-vi="Sức Khỏe Tâm Thần Mỹ San Antonio: (210) 223-7000">Mental Health America of San Antonio: (210) 223-7000</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Crisis & Emergency Page -->
+        <div id="crisis" class="page">
+            <div class="search-section">
+                <h2 data-en="Crisis & Emergency Services" data-es="Servicios de Crisis y Emergencia" data-vi="Dịch Vụ Khủng Hoảng và Khẩn Cấp">Crisis & Emergency Services</h2>
+                <p data-en="Specialized crisis intervention and emergency support services" data-es="Servicios especializados de intervención en crisis y apoyo de emergencia" data-vi="Dịch vụ can thiệp khủng hoảng chuyên biệt và hỗ trợ khẩn cấp">Specialized crisis intervention and emergency support services</p>
+                
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h4 data-en="Crisis Hotlines" data-es="Líneas de Crisis" data-vi="Đường Dây Khủng Hoảng">Crisis Hotlines</h4>
+                        <div class="resource-item">
+                            <strong data-en="Center for Healthcare Crisis Line: 1-800-316-9241" data-es="Línea de Crisis de Atención Médica: 1-800-316-9241" data-vi="Đường Dây Khủng Hoảng Chăm Sóc Y Tế: 1-800-316-9241">Center for Healthcare Crisis Line: 1-800-316-9241</strong>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="National Crisis Helpline: 1-800-662-4357" data-es="Línea Nacional de Crisis: 1-800-662-4357" data-vi="Đường Dây Khủng Hoảng Quốc Gia: 1-800-662-4357">National Crisis Helpline: 1-800-662-4357</strong>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="National Suicide Prevention Lifeline: 1-800-273-8255" data-es="Línea Nacional de Prevención del Suicidio: 1-800-273-8255" data-vi="Đường Dây Phòng Chống Tự Tử Quốc Gia: 1-800-273-8255">National Suicide Prevention Lifeline: 1-800-273-8255</strong>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="Veterans Crisis Line: 1-800-273-8255 (press 1)" data-es="Línea de Crisis de Veteranos: 1-800-273-8255 (presiona 1)" data-vi="Đường Dây Khủng Hoảng Cựu Chiến Binh: 1-800-273-8255 (nhấn 1)">Veterans Crisis Line: 1-800-273-8255 (press 1)</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4 data-en="Local Crisis Services" data-es="Servicios de Crisis Locales" data-vi="Dịch Vụ Khủng Hoảng Địa Phương">Local Crisis Services</h4>
+                        <div class="resource-item">
+                            <strong data-en="San Antonio Police Crisis Intervention Team: 210-335-6000" data-es="Equipo de Intervención en Crisis de la Policía de San Antonio: 210-335-6000" data-vi="Đội Can Thiệp Khủng Hoảng Cảnh Sát San Antonio: 210-335-6000">San Antonio Police Crisis Intervention Team: 210-335-6000</strong>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="Mobile Crisis Outreach Team (MCOT): 210-223-7233" data-es="Equipo de Alcance de Crisis Móvil (MCOT): 210-223-7233" data-vi="Đội Tiếp Cận Khủng Hoảng Di Động (MCOT): 210-223-7233">Mobile Crisis Outreach Team (MCOT): 210-223-7233</strong>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="National Domestic Violence Hotline: 1-800-799-7233" data-es="Línea Nacional de Violencia Doméstica: 1-800-799-7233" data-vi="Đường Dây Bạo Lực Gia Đình Quốc Gia: 1-800-799-7233">National Domestic Violence Hotline: 1-800-799-7233</strong>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="RAINN - Rape, Abuse, and Incest National Network: 1-800-656-4673" data-es="RAINN - Red Nacional de Violación, Abuso e Incesto: 1-800-656-4673" data-vi="RAINN - Mạng Lưới Quốc Gia về Hiếp Dâm, Lạm Dụng và Loạn Luân: 1-800-656-4673">RAINN - Rape, Abuse, and Incest National Network: 1-800-656-4673</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Food & Clothing Page -->
+        <div id="food-clothing" class="page">
+            <div class="search-section">
+                <h2 data-en="Food & Clothing Assistance" data-es="Asistencia de Comida y Ropa" data-vi="Hỗ Trợ Thực Phẩm và Quần Áo">Food & Clothing Assistance</h2>
+                <p data-en="Food pantries, clothing assistance, and basic needs support" data-es="Despensas de comida, asistencia de ropa y apoyo de necesidades básicas" data-vi="Kho thực phẩm, hỗ trợ quần áo và hỗ trợ nhu cầu cơ bản">Food pantries, clothing assistance, and basic needs support</p>
+                
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h4 data-en="Major Food Banks" data-es="Bancos de Alimentos Principales" data-vi="Ngân Hàng Thực Phẩm Chính">Major Food Banks</h4>
+                        <div class="resource-item">
+                            <strong data-en="San Antonio Food Bank: 210-431-8326" data-es="Banco de Alimentos de San Antonio: 210-431-8326" data-vi="Ngân Hàng Thực Phẩm San Antonio: 210-431-8326">San Antonio Food Bank: 210-431-8326</strong>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="The Alamo Center - 5018 San Pedro Ave, San Antonio, TX 78212: 210-824-5537" data-es="El Centro Alamo - 5018 San Pedro Ave, San Antonio, TX 78212: 210-824-5537" data-vi="Trung Tâm Alamo - 5018 San Pedro Ave, San Antonio, TX 78212: 210-824-5537">The Alamo Center - 5018 San Pedro Ave, San Antonio, TX 78212: 210-824-5537</strong>
+                            <span class="phone">Mon-Fri 10am-3pm</span>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="AR Nelson Outreach by Bethel AME Church - 225 N Swiss St, San Antonio, TX 78202: 210-227-4015" data-es="AR Nelson Outreach por la Iglesia Bethel AME - 225 N Swiss St, San Antonio, TX 78202: 210-227-4015" data-vi="AR Nelson Outreach bởi Nhà Thờ Bethel AME - 225 N Swiss St, San Antonio, TX 78202: 210-227-4015">AR Nelson Outreach by Bethel AME Church - 225 N Swiss St, San Antonio, TX 78202: 210-227-4015</strong>
+                            <span class="phone">Tue/Thu 11am-1pm</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4 data-en="Clothing Assistance" data-es="Asistencia de Ropa" data-vi="Hỗ Trợ Quần Áo">Clothing Assistance</h4>
+                        <div class="resource-item">
+                            <strong data-en="Catholic Charities - 2127 S. Zarzamora St, San Antonio, TX 78207: 210-226-6178" data-es="Caridades Católicas - 2127 S. Zarzamora St, San Antonio, TX 78207: 210-226-6178" data-vi="Từ Thiện Công Giáo - 2127 S. Zarzamora St, San Antonio, TX 78207: 210-226-6178">Catholic Charities - 2127 S. Zarzamora St, San Antonio, TX 78207: 210-226-6178</strong>
+                            <span class="phone">Mon-Fri 8:30am-2pm</span>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="Christian Assistance Ministry (CAM) - 110 McCullough Ave, San Antonio, TX 78215: 210-223-4099" data-es="Ministerio de Asistencia Cristiana (CAM) - 110 McCullough Ave, San Antonio, TX 78215: 210-223-4099" data-vi="Bộ Phận Hỗ Trợ Cơ Đốc (CAM) - 110 McCullough Ave, San Antonio, TX 78215: 210-223-4099">Christian Assistance Ministry (CAM) - 110 McCullough Ave, San Antonio, TX 78215: 210-223-4099</strong>
+                            <span class="phone">Mon-Thu 9:30am-3pm, Fri 9am-11:30am</span>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="Free Little Pantry SA - Multiple locations, 24/7 access" data-es="Despensa Pequeña Gratuita SA - Múltiples ubicaciones, acceso 24/7" data-vi="Kho Thực Phẩm Nhỏ Miễn Phí SA - Nhiều địa điểm, truy cập 24/7">Free Little Pantry SA - Multiple locations, 24/7 access</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Homeless Services Page -->
+        <div id="homeless" class="page">
+            <div class="search-section">
+                <h2 data-en="Homeless Services" data-es="Servicios para Personas sin Hogar" data-vi="Dịch Vụ Người Vô Gia Cư">Homeless Services</h2>
+                <p data-en="Housing assistance, shelter services, and support for homeless individuals" data-es="Asistencia de vivienda, servicios de refugio y apoyo para personas sin hogar" data-vi="Hỗ trợ nhà ở, dịch vụ trú ẩn và hỗ trợ cho người vô gia cư">Housing assistance, shelter services, and support for homeless individuals</p>
+                
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h4 data-en="Emergency Housing" data-es="Vivienda de Emergencia" data-vi="Nhà Ở Khẩn Cấp">Emergency Housing</h4>
+                        <div class="resource-item">
+                            <strong data-en="Homeless Connection Hotline: 210-207-1799" data-es="Línea de Conexión para Personas sin Hogar: 210-207-1799" data-vi="Đường Dây Kết Nối Người Vô Gia Cư: 210-207-1799">Homeless Connection Hotline: 210-207-1799</strong>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="Haven for Hope - 1 Haven for Hope Way, San Antonio, TX 78207: 210-220-2132" data-es="Haven for Hope - 1 Haven for Hope Way, San Antonio, TX 78207: 210-220-2132" data-vi="Haven for Hope - 1 Haven for Hope Way, San Antonio, TX 78207: 210-220-2132">Haven for Hope - 1 Haven for Hope Way, San Antonio, TX 78207: 210-220-2132</strong>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="Endeavors - 6363 De Zavala Rd, San Antonio, TX 78249: 210-431-6466" data-es="Endeavors - 6363 De Zavala Rd, San Antonio, TX 78249: 210-431-6466" data-vi="Endeavors - 6363 De Zavala Rd, San Antonio, TX 78249: 210-431-6466">Endeavors - 6363 De Zavala Rd, San Antonio, TX 78249: 210-431-6466</strong>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="San Antonio Housing Authority (SAHA) - 818 South Flores, San Antonio, TX 78204: 210-477-6000" data-es="Autoridad de Vivienda de San Antonio (SAHA) - 818 South Flores, San Antonio, TX 78204: 210-477-6000" data-vi="Cơ Quan Nhà Ở San Antonio (SAHA) - 818 South Flores, San Antonio, TX 78204: 210-477-6000">San Antonio Housing Authority (SAHA) - 818 South Flores, San Antonio, TX 78204: 210-477-6000</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4 data-en="Support Services" data-es="Servicios de Apoyo" data-vi="Dịch Vụ Hỗ Trợ">Support Services</h4>
+                        <div class="resource-item">
+                            <strong data-en="Corazon San Antonio - 504 Avenue E, San Antonio, TX 78215: 210-392-7701" data-es="Corazon San Antonio - 504 Avenue E, San Antonio, TX 78215: 210-392-7701" data-vi="Corazon San Antonio - 504 Avenue E, San Antonio, TX 78215: 210-392-7701">Corazon San Antonio - 504 Avenue E, San Antonio, TX 78215: 210-392-7701</strong>
+                            <span class="phone">Mon-Fri 10am-4pm</span>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="Hot Meal served Monday - Friday: 12:00 PM - 1:00 PM" data-es="Comida Caliente servida Lunes - Viernes: 12:00 PM - 1:00 PM" data-vi="Bữa Ăn Nóng phục vụ Thứ Hai - Thứ Sáu: 12:00 PM - 1:00 PM">Hot Meal served Monday - Friday: 12:00 PM - 1:00 PM</strong>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="Showers available Tuesday, Thursday, Friday: 1:00 PM - 3:00 PM" data-es="Duchas disponibles Martes, Jueves, Viernes: 1:00 PM - 3:00 PM" data-vi="Vòi Sen có sẵn Thứ Ba, Thứ Năm, Thứ Sáu: 1:00 PM - 3:00 PM">Showers available Tuesday, Thursday, Friday: 1:00 PM - 3:00 PM</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Employment & Reentry Page -->
+        <div id="employment" class="page">
+            <div class="search-section">
+                <h2 data-en="Employment & Reentry Services" data-es="Servicios de Empleo y Reinserción" data-vi="Dịch Vụ Việc Làm và Tái Hòa Nhập">Employment & Reentry Services</h2>
+                <p data-en="Job training, career development, and reentry support for formerly incarcerated individuals" data-es="Capacitación laboral, desarrollo profesional y apoyo de reinserción para personas anteriormente encarceladas" data-vi="Đào tạo việc làm, phát triển nghề nghiệp và hỗ trợ tái hòa nhập cho những người từng bị giam giữ">Job training, career development, and reentry support for formerly incarcerated individuals</p>
+                
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h4 data-en="Career Development" data-es="Desarrollo Profesional" data-vi="Phát Triển Nghề Nghiệp">Career Development</h4>
+                        <div class="resource-item">
+                            <strong data-en="Career Gear by Dress for Success - 600 N Frio St, San Antonio, TX 78207" data-es="Career Gear por Dress for Success - 600 N Frio St, San Antonio, TX 78207" data-vi="Career Gear bởi Dress for Success - 600 N Frio St, San Antonio, TX 78207">Career Gear by Dress for Success - 600 N Frio St, San Antonio, TX 78207</strong>
+                            <span class="phone">Mon-Thu 8:30am-4:30pm</span>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="Career Closet by Presa Community Center - 3721 S Presa, San Antonio, TX 78210: 210-532-5295" data-es="Closet de Carrera por Centro Comunitario Presa - 3721 S Presa, San Antonio, TX 78210: 210-532-5295" data-vi="Tủ Quần Áo Nghề Nghiệp bởi Trung Tâm Cộng Đồng Presa - 3721 S Presa, San Antonio, TX 78210: 210-532-5295">Career Closet by Presa Community Center - 3721 S Presa, San Antonio, TX 78210: 210-532-5295</strong>
+                            <span class="phone">Mon-Fri 8am-11:30pm, 1-3:30pm</span>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="Vocational Rehabilitation Services: 210-522-8014" data-es="Servicios de Rehabilitación Vocacional: 210-522-8014" data-vi="Dịch Vụ Phục Hồi Nghề Nghiệp: 210-522-8014">Vocational Rehabilitation Services: 210-522-8014</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4 data-en="Reentry Programs" data-es="Programas de Reinserción" data-vi="Chương Trình Tái Hòa Nhập">Reentry Programs</h4>
+                        <div class="resource-item">
+                            <strong data-en="Bexar County Reentry Program - 222 S Comal St, San Antonio, TX 78207: 210-335-8744" data-es="Programa de Reinserción del Condado de Bexar - 222 S Comal St, San Antonio, TX 78207: 210-335-8744" data-vi="Chương Trình Tái Hòa Nhập Quận Bexar - 222 S Comal St, San Antonio, TX 78207: 210-335-8744">Bexar County Reentry Program - 222 S Comal St, San Antonio, TX 78207: 210-335-8744</strong>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="Goodwill Reentry Services - 4551 Deitrich Rd, Rm 129, San Antonio, TX 78219: 210-243-0524" data-es="Servicios de Reinserción Goodwill - 4551 Deitrich Rd, Rm 129, San Antonio, TX 78219: 210-243-0524" data-vi="Dịch Vụ Tái Hòa Nhập Goodwill - 4551 Deitrich Rd, Rm 129, San Antonio, TX 78219: 210-243-0524">Goodwill Reentry Services - 4551 Deitrich Rd, Rm 129, San Antonio, TX 78219: 210-243-0524</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Veteran Services Page -->
+        <div id="veterans" class="page">
+            <div class="search-section">
+                <h2 data-en="Veteran Services" data-es="Servicios para Veteranos" data-vi="Dịch Vụ Cựu Chiến Binh">Veteran Services</h2>
+                <p data-en="Specialized services and support for veterans and their families" data-es="Servicios especializados y apoyo para veteranos y sus familias" data-vi="Dịch vụ chuyên biệt và hỗ trợ cho cựu chiến binh và gia đình">Specialized services and support for veterans and their families</p>
+                
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h4 data-en="Veteran Support Services" data-es="Servicios de Apoyo para Veteranos" data-vi="Dịch Vụ Hỗ Trợ Cựu Chiến Binh">Veteran Support Services</h4>
+                        <div class="resource-item">
+                            <strong data-en="National Homeless Veterans Hotline: 1-877-424-3838" data-es="Línea Nacional de Veteranos sin Hogar: 1-877-424-3838" data-vi="Đường Dây Cựu Chiến Binh Vô Gia Cư Quốc Gia: 1-877-424-3838">National Homeless Veterans Hotline: 1-877-424-3838</strong>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="1 On 1 Veterans Assistance - 4102 S New Braunfels Ave, Suite 110-132, San Antonio, TX 78223: 210-990-1115" data-es="Asistencia 1 a 1 para Veteranos - 4102 S New Braunfels Ave, Suite 110-132, San Antonio, TX 78223: 210-990-1115" data-vi="Hỗ Trợ Cựu Chiến Binh 1-1 - 4102 S New Braunfels Ave, Suite 110-132, San Antonio, TX 78223: 210-990-1115">1 On 1 Veterans Assistance - 4102 S New Braunfels Ave, Suite 110-132, San Antonio, TX 78223: 210-990-1115</strong>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="Endeavors Veteran Services - 6363 De Zavala Rd, San Antonio, TX 78249: 210-431-6466" data-es="Servicios para Veteranos Endeavors - 6363 De Zavala Rd, San Antonio, TX 78249: 210-431-6466" data-vi="Dịch Vụ Cựu Chiến Binh Endeavors - 6363 De Zavala Rd, San Antonio, TX 78249: 210-431-6466">Endeavors Veteran Services - 6363 De Zavala Rd, San Antonio, TX 78249: 210-431-6466</strong>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="Homeless Veterans Reintegration Program - 611 N. Flores, Suite 200, San Antonio, TX 78205: 210-233-4088" data-es="Programa de Reintegración de Veteranos sin Hogar - 611 N. Flores, Suite 200, San Antonio, TX 78205: 210-233-4088" data-vi="Chương Trình Tái Hòa Nhập Cựu Chiến Binh Vô Gia Cư - 611 N. Flores, Suite 200, San Antonio, TX 78205: 210-233-4088">Homeless Veterans Reintegration Program - 611 N. Flores, Suite 200, San Antonio, TX 78205: 210-233-4088</strong>
+                            <span class="phone">Mon-Fri 8:30am-5:30pm</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4 data-en="Veteran Resources" data-es="Recursos para Veteranos" data-vi="Tài Nguyên Cựu Chiến Binh">Veteran Resources</h4>
+                        <div class="resource-item">
+                            <strong data-en="Jacqueline Smith Foundation - 600 Soledad St, San Antonio, TX 78205" data-es="Fundación Jacqueline Smith - 600 Soledad St, San Antonio, TX 78205" data-vi="Quỹ Jacqueline Smith - 600 Soledad St, San Antonio, TX 78205">Jacqueline Smith Foundation - 600 Soledad St, San Antonio, TX 78205</strong>
+                            <span class="phone">Mon-Fri 8am-5pm</span>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="Provides: clothing, shoes, and hygiene items to homeless veterans" data-es="Proporciona: ropa, zapatos y artículos de higiene para veteranos sin hogar" data-vi="Cung cấp: quần áo, giày dép và đồ vệ sinh cho cựu chiến binh vô gia cư">Provides: clothing, shoes, and hygiene items to homeless veterans</strong>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="Free financial literacy classes for military population" data-es="Clases gratuitas de alfabetización financiera para población militar" data-vi="Lớp học tài chính miễn phí cho quân nhân">Free financial literacy classes for military population</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Health Information Page -->
+        <div id="health-info" class="page">
+            <div class="search-section">
+                <h2 data-en="Health Information" data-es="Información de Salud" data-vi="Thông Tin Sức Khỏe">Health Information</h2>
+                <p data-en="Reliable health information resources and educational materials" data-es="Recursos de información de salud confiables y materiales educativos" data-vi="Tài nguyên thông tin sức khỏe đáng tin cậy và tài liệu giáo dục">Reliable health information resources and educational materials</p>
+                
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h4 data-en="Government Health Resources" data-es="Recursos de Salud del Gobierno" data-vi="Tài Nguyên Y Tế Chính Phủ">Government Health Resources</h4>
+                        <div class="resource-item">
+                            <strong data-en="Centers for Disease Control" data-es="Centros para el Control de Enfermedades" data-vi="Trung Tâm Kiểm Soát Dịch Bệnh">Centers for Disease Control</strong>
+                            <span class="phone"><a href="https://www.cdc.gov">cdc.gov</a></span>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="Texas Health and Human Services" data-es="Servicios de Salud y Humanos de Texas" data-vi="Dịch Vụ Y Tế và Nhân Sinh Texas">Texas Health and Human Services</strong>
+                            <span class="phone"><a href="https://www.hhs.texas.gov">hhs.texas.gov</a></span>
+                        </div>
+                        <div class="resource-item">
+                            <strong data-en="San Antonio Metropolitan Health District" data-es="Distrito de Salud Metropolitano de San Antonio" data-vi="Quận Y Tế Đô Thị San Antonio">San Antonio Metropolitan Health District</strong>
+                            <span class="phone"><a href="https://www.sanantonio.gov/health">sanantonio.gov/health</a></span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4 data-en="Multilingual Health Information" data-es="Información de Salud Multilingüe" data-vi="Thông Tin Y Tế Đa Ngôn Ngữ">Multilingual Health Information</h4>
+                        <div class="resource-item">
+                            <strong data-en="MedlinePlus (Health Information in Spanish)" data-es="MedlinePlus (Información de Salud en Español)" data-vi="MedlinePlus (Thông Tin Y Tế bằng Tiếng Tây Ban Nha)">MedlinePlus (Health Information in Spanish)</strong>
+                            <span class="phone"><a href="https://www.medlineplus.gov/spanish">medlineplus.gov/spanish</a></span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         
@@ -1390,11 +1832,19 @@
         }
 
         // Event listeners
-        document.querySelectorAll('.nav-link').forEach(link => {
+        document.querySelectorAll('.nav-link, .dropdown-item').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const pageId = e.target.getAttribute('data-page');
-                showPage(pageId);
+                if (pageId) {
+                    showPage(pageId);
+                    
+                    // Update active state for main nav links (not dropdown items)
+                    if (link.classList.contains('nav-link') && !link.classList.contains('dropdown-toggle')) {
+                        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                        link.classList.add('active');
+                    }
+                }
             });
         });
 
