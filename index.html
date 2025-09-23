@@ -874,6 +874,43 @@
             
             // Initialize map
             initMap();
+            
+            // Extract and log all unique terms for translation
+            const allTerms = extractAllTerms();
+            console.log('All unique terms found in dataset:', allTerms);
+        }
+
+        // Function to extract all unique terms from dataset
+        function extractAllTerms() {
+            const allTerms = new Set();
+            
+            doctorsData.forEach(doctor => {
+                // Extract specialty terms
+                if (doctor.specialty) {
+                    doctor.specialty.split(',').forEach(item => {
+                        const trimmed = item.trim();
+                        if (trimmed) allTerms.add(trimmed);
+                    });
+                }
+                
+                // Extract general category terms
+                if (doctor.gen) {
+                    doctor.gen.split(',').forEach(item => {
+                        const trimmed = item.trim();
+                        if (trimmed) allTerms.add(trimmed);
+                    });
+                }
+                
+                // Extract language terms
+                if (doctor.languages) {
+                    doctor.languages.split(',').forEach(item => {
+                        const trimmed = item.trim();
+                        if (trimmed) allTerms.add(trimmed);
+                    });
+                }
+            });
+            
+            return Array.from(allTerms).sort();
         }
 
         // Function to translate data values
