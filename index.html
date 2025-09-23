@@ -564,58 +564,42 @@
                 <h2 data-en="Join Our Directory" data-es="Únete a Nuestro Directorio" data-vi="Tham Gia Thư Mục Của Chúng Tôi">Join Our Directory</h2>
                 <p data-en="Are you a medical facility in San Antonio? We'd love to include you in our directory!" data-es="¿Eres una instalación médica en San Antonio? ¡Nos encantaría incluirte en nuestro directorio!" data-vi="Bạn có phải là cơ sở y tế ở San Antonio? Chúng tôi rất muốn bao gồm bạn trong thư mục của chúng tôi!">Are you a medical facility in San Antonio? We'd love to include you in our directory!</p>
                 
-                <form id="joinForm" onsubmit="submitForm(event)">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
-                        <div>
-                            <label for="facilityName" data-en="Facility Name *" data-es="Nombre de la Instalación *" data-vi="Tên Cơ Sở *">Facility Name *</label>
-                            <input type="text" id="facilityName" name="facilityName" required>
-                        </div>
-                        <div>
-                            <label for="contactPerson" data-en="Contact Person *" data-es="Persona de Contacto *" data-vi="Người Liên Hệ *">Contact Person *</label>
-                            <input type="text" id="contactPerson" name="contactPerson" required>
-                        </div>
-                    </div>
+                <div style="background: #f8f9fa; padding: 2rem; border-radius: 8px; margin: 2rem 0;">
+                    <h3 data-en="Contact Information" data-es="Información de Contacto" data-vi="Thông Tin Liên Hệ">Contact Information</h3>
+                    <p data-en="To join our directory, please contact us with the following information:" data-es="Para unirse a nuestro directorio, por favor contáctenos con la siguiente información:" data-vi="Để tham gia thư mục của chúng tôi, vui lòng liên hệ với chúng tôi với thông tin sau:">To join our directory, please contact us with the following information:</p>
                     
-                    <div style="margin-bottom: 1rem;">
-                        <label for="address" data-en="Address *" data-es="Dirección *" data-vi="Địa Chỉ *">Address *</label>
-                        <input type="text" id="address" name="address" required style="width: 100%;">
-                    </div>
+                    <ul style="margin: 1rem 0; padding-left: 2rem;">
+                        <li data-en="Facility Name" data-es="Nombre de la Instalación" data-vi="Tên Cơ Sở">Facility Name</li>
+                        <li data-en="Contact Person" data-es="Persona de Contacto" data-vi="Người Liên Hệ">Contact Person</li>
+                        <li data-en="Address" data-es="Dirección" data-vi="Địa Chỉ">Address</li>
+                        <li data-en="Phone Number" data-es="Número de Teléfono" data-vi="Số Điện Thoại">Phone Number</li>
+                        <li data-en="Email" data-es="Correo Electrónico" data-vi="Email">Email</li>
+                        <li data-en="Medical Specialties" data-es="Especialidades Médicas" data-vi="Chuyên Khoa Y Tế">Medical Specialties</li>
+                        <li data-en="Languages Spoken" data-es="Idiomas Hablados" data-vi="Ngôn Ngữ Được Nói">Languages Spoken</li>
+                        <li data-en="Hours of Operation" data-es="Horario de Operación" data-vi="Giờ Hoạt Động">Hours of Operation</li>
+                    </ul>
                     
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
-                        <div>
-                            <label for="phone" data-en="Phone Number *" data-es="Número de Teléfono *" data-vi="Số Điện Thoại *">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-                        <div>
-                            <label for="email" data-en="Email *" data-es="Correo Electrónico *" data-vi="Email *">Email *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
+                    <div style="background: white; padding: 1.5rem; border-radius: 6px; border-left: 4px solid #dc2626;">
+                        <h4 data-en="Email Us" data-es="Envíanos un Email" data-vi="Gửi Email Cho Chúng Tôi">Email Us</h4>
+                        <p><strong data-en="Email:" data-es="Email:" data-vi="Email:">Email:</strong> <a href="mailto:info@samedmatch.org">info@samedmatch.org</a></p>
+                        
+                        <h4 data-en="Call Us" data-es="Llámanos" data-vi="Gọi Cho Chúng Tôi">Call Us</h4>
+                        <p><strong data-en="Phone:" data-es="Teléfono:" data-vi="Điện Thoại:">Phone:</strong> <a href="tel:+12105551234">(210) 555-1234</a></p>
+                        
+                        <h4 data-en="Visit Our Office" data-es="Visita Nuestra Oficina" data-vi="Thăm Văn Phòng Của Chúng Tôi">Visit Our Office</h4>
+                        <p><strong data-en="Address:" data-es="Dirección:" data-vi="Địa Chỉ:">Address:</strong> 123 Medical Plaza, San Antonio, TX 78201</p>
                     </div>
-                    
-                    <div style="margin-bottom: 1rem;">
-                        <label for="specialties" data-en="Medical Specialties *" data-es="Especialidades Médicas *" data-vi="Chuyên Khoa Y Tế *">Medical Specialties *</label>
-                        <textarea id="specialties" name="specialties" required style="width: 100%; height: 80px;" placeholder="List all medical specialties offered (e.g., Family Medicine, Pediatrics, Cardiology)"></textarea>
-                    </div>
-                    
-                    <div style="margin-bottom: 1rem;">
-                        <label for="languages" data-en="Languages Spoken" data-es="Idiomas Hablados" data-vi="Ngôn Ngữ Được Nói">Languages Spoken</label>
-                        <input type="text" id="languages" name="languages" style="width: 100%;" placeholder="e.g., English, Spanish, French">
-                    </div>
-                    
-                    <div style="margin-bottom: 1rem;">
-                        <label for="hours" data-en="Hours of Operation" data-es="Horario de Operación" data-vi="Giờ Hoạt Động">Hours of Operation</label>
-                        <textarea id="hours" name="hours" style="width: 100%; height: 60px;" placeholder="e.g., Monday-Friday: 8AM-5PM, Saturday: 9AM-1PM"></textarea>
-                    </div>
-                    
-                    <div style="margin-bottom: 1rem;">
-                        <label for="additionalInfo" data-en="Additional Information" data-es="Información Adicional" data-vi="Thông Tin Bổ Sung">Additional Information</label>
-                        <textarea id="additionalInfo" name="additionalInfo" style="width: 100%; height: 80px;" placeholder="Any additional information about your facility..."></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary" data-en="Submit Application" data-es="Enviar Solicitud" data-vi="Gửi Đơn Đăng Ký">Submit Application</button>
-                </form>
+                </div>
                 
-                <div id="formMessage" style="margin-top: 1rem; padding: 1rem; border-radius: 5px; display: none;"></div>
+                <div style="background: #e7f3ff; padding: 1.5rem; border-radius: 8px; margin: 2rem 0;">
+                    <h4 data-en="What Happens Next?" data-es="¿Qué Pasa Después?" data-vi="Điều Gì Xảy Ra Tiếp Theo?">What Happens Next?</h4>
+                    <ol style="margin: 1rem 0; padding-left: 2rem;">
+                        <li data-en="We review your information" data-es="Revisamos su información" data-vi="Chúng tôi xem xét thông tin của bạn">We review your information</li>
+                        <li data-en="We verify your facility details" data-es="Verificamos los detalles de su instalación" data-vi="Chúng tôi xác minh chi tiết cơ sở của bạn">We verify your facility details</li>
+                        <li data-en="We add you to our directory" data-es="Te agregamos a nuestro directorio" data-vi="Chúng tôi thêm bạn vào thư mục của chúng tôi">We add you to our directory</li>
+                        <li data-en="You receive confirmation" data-es="Recibes confirmación" data-vi="Bạn nhận được xác nhận">You receive confirmation</li>
+                    </ol>
+                </div>
             </div>
         </div>
     </div>
@@ -937,6 +921,19 @@
             initMap();
         }
 
+        // Function to translate data values
+        function translateDataValue(value, lang) {
+            if (!value) return value;
+            return value.split(',').map(item => {
+                const trimmed = item.trim();
+                const translation = translations[trimmed];
+                if (translation && translation[lang]) {
+                    return translation[lang];
+                }
+                return trimmed;
+            }).join(', ');
+        }
+
         // Translation mappings for medical terms
         const translations = {
             // General Categories
@@ -1093,18 +1090,24 @@
 
         function displayDoctors(doctors) {
             const doctorList = document.getElementById('doctorList');
+            const currentLang = document.getElementById('languageSelect').value || 'en';
             
             if (doctors.length === 0) {
-                doctorList.innerHTML = '<div class="no-results">No medical facilities found matching your criteria.</div>';
+                const noResultsText = {
+                    en: 'No medical facilities found matching your criteria.',
+                    es: 'No se encontraron instalaciones médicas que coincidan con sus criterios.',
+                    vi: 'Không tìm thấy cơ sở y tế nào phù hợp với tiêu chí của bạn.'
+                };
+                doctorList.innerHTML = `<div class="no-results">${noResultsText[currentLang]}</div>`;
                 return;
             }
 
             doctorList.innerHTML = doctors.map(doctor => `
                 <div class="doctor-card">
                     <h3>${doctor.name}</h3>
-                    <p><strong data-en="Specialty:" data-es="Especialidad:" data-vi="Chuyên Khoa:">Specialty:</strong> ${doctor.specialty || 'Not specified'}</p>
-                    <p><strong data-en="General Categories:" data-es="Categorías Generales:" data-vi="Danh Mục Chung:">General Categories:</strong> ${doctor.gen || 'Not specified'}</p>
-                    <p><strong data-en="Languages:" data-es="Idiomas:" data-vi="Ngôn Ngữ:">Languages:</strong> ${doctor.languages || 'Not specified'}</p>
+                    <p><strong data-en="Specialty:" data-es="Especialidad:" data-vi="Chuyên Khoa:">Specialty:</strong> ${translateDataValue(doctor.specialty, currentLang) || 'Not specified'}</p>
+                    <p><strong data-en="General Categories:" data-es="Categorías Generales:" data-vi="Danh Mục Chung:">General Categories:</strong> ${translateDataValue(doctor.gen, currentLang) || 'Not specified'}</p>
+                    <p><strong data-en="Languages:" data-es="Idiomas:" data-vi="Ngôn Ngữ:">Languages:</strong> ${translateDataValue(doctor.languages, currentLang) || 'Not specified'}</p>
                     <p><strong data-en="Address:" data-es="Dirección:" data-vi="Địa Chỉ:">Address:</strong> ${doctor.address || 'Not specified'}</p>
                     ${doctor.phone ? `<p><strong data-en="Phone:" data-es="Teléfono:" data-vi="Điện Thoại:">Phone:</strong> ${doctor.phone}</p>` : ''}
                 </div>
