@@ -20,11 +20,12 @@
         }
         
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
             color: white;
             padding: 2rem 0;
             text-align: center;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
         }
         
         .header h1 {
@@ -36,6 +37,26 @@
         .header p {
             font-size: 1.1rem;
             opacity: 0.9;
+        }
+        
+        .language-selector {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+        
+        .language-selector select {
+            padding: 0.5rem;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 5px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        .language-selector select option {
+            background: #dc2626;
+            color: white;
         }
         
         .nav {
@@ -64,7 +85,7 @@
         }
         
         .nav a:hover, .nav a.active {
-            background-color: #667eea;
+            background-color: #dc2626;
             color: white;
         }
         
@@ -112,7 +133,7 @@
         
         .search-bar select:focus, .search-bar input:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: #dc2626;
         }
         
         .search-buttons {
@@ -132,13 +153,13 @@
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
             color: white;
         }
         
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
         }
         
         .btn-secondary {
@@ -158,21 +179,21 @@
         
         .view-toggle button {
             padding: 0.5rem 1rem;
-            border: 2px solid #667eea;
+            border: 2px solid #dc2626;
             background: white;
-            color: #667eea;
+            color: #dc2626;
             border-radius: 5px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
         
         .view-toggle button.active {
-            background: #667eea;
+            background: #dc2626;
             color: white;
         }
         
         .stats {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
             color: white;
             padding: 1rem;
             border-radius: 8px;
@@ -195,7 +216,7 @@
         }
         
         .doctor-card h3 {
-            color: #667eea;
+            color: #dc2626;
             margin-bottom: 1rem;
             font-size: 1.3rem;
         }
@@ -267,16 +288,22 @@
 </head>
 <body>
     <div class="header">
-        <h1>SA MedMatch</h1>
-        <p>Find Medical Care in San Antonio</p>
+        <div class="language-selector">
+            <select id="languageSelect" onchange="changeLanguage(this.value)">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+            </select>
+        </div>
+        <h1 data-en="SA MedMatch" data-es="SA MedMatch">SA MedMatch</h1>
+        <p data-en="Find Medical Care in San Antonio" data-es="Encuentra Atención Médica en San Antonio">Find Medical Care in San Antonio</p>
     </div>
     
     <nav class="nav">
         <ul>
-            <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
-            <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
-            <li><a href="#" class="nav-link" data-page="resources">Resources</a></li>
-            <li><a href="#" class="nav-link" data-page="join">Join Directory</a></li>
+            <li><a href="#" class="nav-link active" data-page="home" data-en="Home" data-es="Inicio">Home</a></li>
+            <li><a href="#" class="nav-link" data-page="about" data-en="About Us" data-es="Acerca de Nosotros">About Us</a></li>
+            <li><a href="#" class="nav-link" data-page="resources" data-en="Resources" data-es="Recursos">Resources</a></li>
+            <li><a href="#" class="nav-link" data-page="join" data-en="Join Directory" data-es="Únete al Directorio">Join Directory</a></li>
         </ul>
     </nav>
     
@@ -357,18 +384,53 @@
         <!-- Resources Page -->
         <div id="resources" class="page">
             <div class="search-section">
-                <h2>Other Resources</h2>
-                <h3>Emergency Services</h3>
+                <h2 data-en="Healthcare Resources" data-es="Recursos de Salud">Healthcare Resources</h2>
+                
+                <h3 data-en="Emergency Services" data-es="Servicios de Emergencia">Emergency Services</h3>
                 <ul>
-                    <li>Emergency: 911</li>
-                    <li>Poison Control: 1-800-222-1222</li>
-                    <li>Suicide Prevention: 988</li>
+                    <li data-en="Emergency: 911" data-es="Emergencia: 911">Emergency: 911</li>
+                    <li data-en="Poison Control: 1-800-222-1222" data-es="Control de Envenenamiento: 1-800-222-1222">Poison Control: 1-800-222-1222</li>
+                    <li data-en="Suicide Prevention: 988" data-es="Prevención del Suicidio: 988">Suicide Prevention: 988</li>
+                    <li data-en="Crisis Text Line: Text HOME to 741741" data-es="Línea de Texto de Crisis: Envía HOME al 741741">Crisis Text Line: Text HOME to 741741</li>
                 </ul>
-                <h3>Health Information</h3>
+                
+                <h3 data-en="Insurance & Financial Assistance" data-es="Seguro y Asistencia Financiera">Insurance & Financial Assistance</h3>
                 <ul>
-                    <li>Centers for Disease Control: <a href="https://www.cdc.gov">cdc.gov</a></li>
-                    <li>Texas Health and Human Services: <a href="https://www.hhs.texas.gov">hhs.texas.gov</a></li>
-                    <li>San Antonio Metropolitan Health District: <a href="https://www.sanantonio.gov/health">sanantonio.gov/health</a></li>
+                    <li data-en="Healthcare.gov - Health Insurance Marketplace: <a href='https://www.healthcare.gov'>healthcare.gov</a>" data-es="Healthcare.gov - Mercado de Seguros de Salud: <a href='https://www.healthcare.gov'>healthcare.gov</a>">Healthcare.gov - Health Insurance Marketplace: <a href="https://www.healthcare.gov">healthcare.gov</a></li>
+                    <li data-en="Texas Medicaid: <a href='https://www.hhs.texas.gov/services/health/medicaid-chip'>hhs.texas.gov/services/health/medicaid-chip</a>" data-es="Medicaid de Texas: <a href='https://www.hhs.texas.gov/services/health/medicaid-chip'>hhs.texas.gov/services/health/medicaid-chip</a>">Texas Medicaid: <a href="https://www.hhs.texas.gov/services/health/medicaid-chip">hhs.texas.gov/services/health/medicaid-chip</a></li>
+                    <li data-en="CHIP (Children's Health Insurance Program): <a href='https://www.hhs.texas.gov/services/health/medicaid-chip'>hhs.texas.gov/services/health/medicaid-chip</a>" data-es="CHIP (Programa de Seguro de Salud para Niños): <a href='https://www.hhs.texas.gov/services/health/medicaid-chip'>hhs.texas.gov/services/health/medicaid-chip</a>">CHIP (Children's Health Insurance Program): <a href="https://www.hhs.texas.gov/services/health/medicaid-chip">hhs.texas.gov/services/health/medicaid-chip</a></li>
+                    <li data-en="San Antonio Health Insurance Assistance: (210) 207-7830" data-es="Asistencia de Seguro de Salud de San Antonio: (210) 207-7830">San Antonio Health Insurance Assistance: (210) 207-7830</li>
+                </ul>
+                
+                <h3 data-en="Low-Cost & Free Healthcare" data-es="Atención Médica de Bajo Costo y Gratuita">Low-Cost & Free Healthcare</h3>
+                <ul>
+                    <li data-en="CentroMed - Sliding Fee Scale: <a href='https://www.centromed.org'>centromed.org</a>" data-es="CentroMed - Escala de Tarifas Deslizantes: <a href='https://www.centromed.org'>centromed.org</a>">CentroMed - Sliding Fee Scale: <a href="https://www.centromed.org">centromed.org</a></li>
+                    <li data-en="CommuniCare Health Centers - Income-Based Fees: <a href='https://www.communicarehc.org'>communicarehc.org</a>" data-es="Centros de Salud CommuniCare - Tarifas Basadas en Ingresos: <a href='https://www.communicarehc.org'>communicarehc.org</a>">CommuniCare Health Centers - Income-Based Fees: <a href="https://www.communicarehc.org">communicarehc.org</a></li>
+                    <li data-en="University Health - Financial Assistance: (210) 358-3000" data-es="University Health - Asistencia Financiera: (210) 358-3000">University Health - Financial Assistance: (210) 358-3000</li>
+                    <li data-en="San Antonio Free Clinic: (210) 226-0000" data-es="Clínica Gratuita de San Antonio: (210) 226-0000">San Antonio Free Clinic: (210) 226-0000</li>
+                </ul>
+                
+                <h3 data-en="Prescription Assistance" data-es="Asistencia para Recetas">Prescription Assistance</h3>
+                <ul>
+                    <li data-en="Partnership for Prescription Assistance: <a href='https://www.pparx.org'>pparx.org</a>" data-es="Asociación para Asistencia de Recetas: <a href='https://www.pparx.org'>pparx.org</a>">Partnership for Prescription Assistance: <a href="https://www.pparx.org">pparx.org</a></li>
+                    <li data-en="NeedyMeds: <a href='https://www.needymeds.org'>needymeds.org</a>" data-es="NeedyMeds: <a href='https://www.needymeds.org'>needymeds.org</a>">NeedyMeds: <a href="https://www.needymeds.org">needymeds.org</a></li>
+                    <li data-en="GoodRx - Prescription Discounts: <a href='https://www.goodrx.com'>goodrx.com</a>" data-es="GoodRx - Descuentos en Recetas: <a href='https://www.goodrx.com'>goodrx.com</a>">GoodRx - Prescription Discounts: <a href="https://www.goodrx.com">goodrx.com</a></li>
+                </ul>
+                
+                <h3 data-en="Mental Health Resources" data-es="Recursos de Salud Mental">Mental Health Resources</h3>
+                <ul>
+                    <li data-en="Crisis Hotline: 988" data-es="Línea de Crisis: 988">Crisis Hotline: 988</li>
+                    <li data-en="National Alliance on Mental Illness (NAMI) San Antonio: (210) 734-3349" data-es="Alianza Nacional sobre Enfermedades Mentales (NAMI) San Antonio: (210) 734-3349">National Alliance on Mental Illness (NAMI) San Antonio: (210) 734-3349</li>
+                    <li data-en="Center for Health Care Services: (210) 225-5471" data-es="Centro de Servicios de Atención Médica: (210) 225-5471">Center for Health Care Services: (210) 225-5471</li>
+                    <li data-en="Mental Health America of San Antonio: (210) 223-7000" data-es="Salud Mental América de San Antonio: (210) 223-7000">Mental Health America of San Antonio: (210) 223-7000</li>
+                </ul>
+                
+                <h3 data-en="Health Information" data-es="Información de Salud">Health Information</h3>
+                <ul>
+                    <li data-en="Centers for Disease Control: <a href='https://www.cdc.gov'>cdc.gov</a>" data-es="Centros para el Control de Enfermedades: <a href='https://www.cdc.gov'>cdc.gov</a>">Centers for Disease Control: <a href="https://www.cdc.gov">cdc.gov</a></li>
+                    <li data-en="Texas Health and Human Services: <a href='https://www.hhs.texas.gov'>hhs.texas.gov</a>" data-es="Servicios de Salud y Humanos de Texas: <a href='https://www.hhs.texas.gov'>hhs.texas.gov</a>">Texas Health and Human Services: <a href="https://www.hhs.texas.gov">hhs.texas.gov</a></li>
+                    <li data-en="San Antonio Metropolitan Health District: <a href='https://www.sanantonio.gov/health'>sanantonio.gov/health</a>" data-es="Distrito Metropolitano de Salud de San Antonio: <a href='https://www.sanantonio.gov/health'>sanantonio.gov/health</a>">San Antonio Metropolitan Health District: <a href="https://www.sanantonio.gov/health">sanantonio.gov/health</a></li>
+                    <li data-en="MedlinePlus (Health Information in Spanish): <a href='https://medlineplus.gov/spanish'>medlineplus.gov/spanish</a>" data-es="MedlinePlus (Información de Salud en Español): <a href='https://medlineplus.gov/spanish'>medlineplus.gov/spanish</a>">MedlinePlus (Health Information in Spanish): <a href="https://medlineplus.gov/spanish">medlineplus.gov/spanish</a></li>
                 </ul>
             </div>
         </div>
@@ -376,18 +438,61 @@
         <!-- Join Directory Page -->
         <div id="join" class="page">
             <div class="search-section">
-                <h2>Join Our Directory</h2>
-                <p>Are you a medical facility in San Antonio? We'd love to include you in our directory!</p>
-                <h3>Contact Information</h3>
-                <p>To add your facility to our directory, please contact us with the following information:</p>
-                <ul>
-                    <li>Facility name and address</li>
-                    <li>Medical specialties offered</li>
-                    <li>Languages spoken</li>
-                    <li>Contact phone number</li>
-                    <li>Hours of operation</li>
-                </ul>
-                <p><strong>Email:</strong> info@samedmatch.org</p>
+                <h2 data-en="Join Our Directory" data-es="Únete a Nuestro Directorio">Join Our Directory</h2>
+                <p data-en="Are you a medical facility in San Antonio? We'd love to include you in our directory!" data-es="¿Eres una instalación médica en San Antonio? ¡Nos encantaría incluirte en nuestro directorio!">Are you a medical facility in San Antonio? We'd love to include you in our directory!</p>
+                
+                <form id="joinForm" onsubmit="submitForm(event)">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                        <div>
+                            <label for="facilityName" data-en="Facility Name *" data-es="Nombre de la Instalación *">Facility Name *</label>
+                            <input type="text" id="facilityName" name="facilityName" required>
+                        </div>
+                        <div>
+                            <label for="contactPerson" data-en="Contact Person *" data-es="Persona de Contacto *">Contact Person *</label>
+                            <input type="text" id="contactPerson" name="contactPerson" required>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 1rem;">
+                        <label for="address" data-en="Address *" data-es="Dirección *">Address *</label>
+                        <input type="text" id="address" name="address" required style="width: 100%;">
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                        <div>
+                            <label for="phone" data-en="Phone Number *" data-es="Número de Teléfono *">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div>
+                            <label for="email" data-en="Email *" data-es="Correo Electrónico *">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 1rem;">
+                        <label for="specialties" data-en="Medical Specialties *" data-es="Especialidades Médicas *">Medical Specialties *</label>
+                        <textarea id="specialties" name="specialties" required style="width: 100%; height: 80px;" placeholder="List all medical specialties offered (e.g., Family Medicine, Pediatrics, Cardiology)"></textarea>
+                    </div>
+                    
+                    <div style="margin-bottom: 1rem;">
+                        <label for="languages" data-en="Languages Spoken" data-es="Idiomas Hablados">Languages Spoken</label>
+                        <input type="text" id="languages" name="languages" style="width: 100%;" placeholder="e.g., English, Spanish, French">
+                    </div>
+                    
+                    <div style="margin-bottom: 1rem;">
+                        <label for="hours" data-en="Hours of Operation" data-es="Horario de Operación">Hours of Operation</label>
+                        <textarea id="hours" name="hours" style="width: 100%; height: 60px;" placeholder="e.g., Monday-Friday: 8AM-5PM, Saturday: 9AM-1PM"></textarea>
+                    </div>
+                    
+                    <div style="margin-bottom: 1rem;">
+                        <label for="additionalInfo" data-en="Additional Information" data-es="Información Adicional">Additional Information</label>
+                        <textarea id="additionalInfo" name="additionalInfo" style="width: 100%; height: 80px;" placeholder="Any additional information about your facility..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" data-en="Submit Application" data-es="Enviar Solicitud">Submit Application</button>
+                </form>
+                
+                <div id="formMessage" style="margin-top: 1rem; padding: 1rem; border-radius: 5px; display: none;"></div>
             </div>
         </div>
     </div>
@@ -934,6 +1039,64 @@
                 showPage(pageId);
             });
         });
+
+        // Language switching functionality
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-en][data-es]').forEach(element => {
+                element.textContent = element.getAttribute(`data-${lang}`);
+            });
+            
+            // Update form placeholders and labels
+            if (lang === 'es') {
+                document.getElementById('specialties').placeholder = 'Lista todas las especialidades médicas ofrecidas (ej., Medicina Familiar, Pediatría, Cardiología)';
+                document.getElementById('languages').placeholder = 'ej., Inglés, Español, Francés';
+                document.getElementById('hours').placeholder = 'ej., Lunes-Viernes: 8AM-5PM, Sábado: 9AM-1PM';
+                document.getElementById('additionalInfo').placeholder = 'Cualquier información adicional sobre su instalación...';
+            } else {
+                document.getElementById('specialties').placeholder = 'List all medical specialties offered (e.g., Family Medicine, Pediatrics, Cardiology)';
+                document.getElementById('languages').placeholder = 'e.g., English, Spanish, French';
+                document.getElementById('hours').placeholder = 'e.g., Monday-Friday: 8AM-5PM, Saturday: 9AM-1PM';
+                document.getElementById('additionalInfo').placeholder = 'Any additional information about your facility...';
+            }
+        }
+
+        // Form submission functionality
+        function submitForm(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Simulate form submission (in a real app, this would send to a server)
+            const messageDiv = document.getElementById('formMessage');
+            messageDiv.style.display = 'block';
+            messageDiv.style.background = '#d4edda';
+            messageDiv.style.color = '#155724';
+            messageDiv.style.border = '1px solid #c3e6cb';
+            
+            const currentLang = document.getElementById('languageSelect').value;
+            if (currentLang === 'es') {
+                messageDiv.innerHTML = `
+                    <strong>¡Solicitud Enviada!</strong><br>
+                    Gracias por su interés en unirse a nuestro directorio. 
+                    Hemos recibido su información y nos pondremos en contacto con usted pronto.
+                `;
+            } else {
+                messageDiv.innerHTML = `
+                    <strong>Application Submitted!</strong><br>
+                    Thank you for your interest in joining our directory. 
+                    We have received your information and will contact you soon.
+                `;
+            }
+            
+            // Reset form
+            event.target.reset();
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        }
 
         // Load data when page loads
         window.onload = loadData;
