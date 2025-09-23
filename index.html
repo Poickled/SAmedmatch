@@ -798,9 +798,8 @@
 
         <!-- Prescription Assistance Page -->
         <div id="prescription" class="page">
-            <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: red; color: white; padding: 50px; font-size: 32px; z-index: 99999; border: 10px solid yellow;">
-                PRESCRIPTION PAGE - FIXED POSITION TEST
-            </div>
+            <h1>Prescription Assistance</h1>
+            <p>This is the prescription assistance page.</p>
         </div>
 
         <!-- Mental Health Page -->
@@ -1823,58 +1822,43 @@
         function showPage(pageId) {
             console.log('showPage called with:', pageId);
             
-            // Hide all pages
+            // Hide all pages by setting display: none directly
             document.querySelectorAll('.page').forEach(page => {
+                page.style.display = 'none';
                 page.classList.remove('active');
                 console.log('Hiding page:', page.id);
             });
             
-            // Show selected page
+            // Show selected page by setting display: block directly
             const targetPage = document.getElementById(pageId);
             if (targetPage) {
-                targetPage.classList.add('active');
-                console.log('Page shown:', pageId);
-                console.log('Page content:', targetPage.innerHTML.substring(0, 200) + '...');
-                
-                // Debug: Check computed styles
-                const computedStyle = window.getComputedStyle(targetPage);
-                console.log('Page display:', computedStyle.display);
-                console.log('Page visibility:', computedStyle.visibility);
-                console.log('Page opacity:', computedStyle.opacity);
-                console.log('Page position:', computedStyle.position);
-                console.log('Page z-index:', computedStyle.zIndex);
-                
-                // Force scroll to page
-                targetPage.scrollIntoView({ behavior: 'smooth' });
-                
-                // Force the page to be visible with inline styles
                 targetPage.style.display = 'block';
                 targetPage.style.visibility = 'visible';
                 targetPage.style.opacity = '1';
                 targetPage.style.position = 'relative';
-                targetPage.style.zIndex = '9999';
+                targetPage.style.zIndex = '999';
                 targetPage.style.backgroundColor = 'white';
                 targetPage.style.minHeight = '500px';
-                targetPage.style.border = '5px solid red';
-                targetPage.style.margin = '20px';
                 targetPage.style.padding = '20px';
+                targetPage.style.margin = '20px';
+                targetPage.style.border = '2px solid #ccc';
+                targetPage.classList.add('active');
                 
-                console.log('Forced page visibility with inline styles');
+                console.log('Page shown:', pageId);
+                console.log('Page content:', targetPage.innerHTML.substring(0, 200) + '...');
                 
-                // Additional debugging
-                console.log('Page offsetTop:', targetPage.offsetTop);
-                console.log('Page offsetLeft:', targetPage.offsetLeft);
-                console.log('Page offsetWidth:', targetPage.offsetWidth);
-                console.log('Page offsetHeight:', targetPage.offsetHeight);
-                console.log('Page clientWidth:', targetPage.clientWidth);
-                console.log('Page clientHeight:', targetPage.clientHeight);
-                console.log('Page scrollTop:', targetPage.scrollTop);
-                console.log('Page scrollLeft:', targetPage.scrollLeft);
+                // Scroll to the page
+                targetPage.scrollIntoView({ behavior: 'smooth' });
                 
-                // Check if page is in viewport
-                const rect = targetPage.getBoundingClientRect();
-                console.log('Page bounding rect:', rect);
-                console.log('Page is in viewport:', rect.top >= 0 && rect.left >= 0 && rect.bottom <= window.innerHeight && rect.right <= window.innerWidth);
+                // Debug: Check final dimensions
+                setTimeout(() => {
+                    console.log('Final dimensions after 100ms:');
+                    console.log('offsetWidth:', targetPage.offsetWidth);
+                    console.log('offsetHeight:', targetPage.offsetHeight);
+                    console.log('clientWidth:', targetPage.clientWidth);
+                    console.log('clientHeight:', targetPage.clientHeight);
+                    console.log('getBoundingClientRect:', targetPage.getBoundingClientRect());
+                }, 100);
             } else {
                 console.error('Page not found:', pageId);
             }
