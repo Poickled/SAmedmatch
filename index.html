@@ -1890,12 +1890,24 @@
             // Dropdown items
             document.querySelectorAll('.dropdown-item').forEach(item => {
                 item.addEventListener('click', (e) => {
-                    e.preventDefault();
                     const pageId = e.target.getAttribute('data-page');
+                    const href = e.target.getAttribute('href');
+                    
+                    // If it has a data-page attribute, it's an internal page - prevent default and show page
                     if (pageId) {
+                        e.preventDefault();
                         showPage(pageId);
                         dropdown.classList.remove('open');
                         // Don't update active nav for dropdown items
+                    }
+                    // If it has an href attribute (like prescription.html), allow normal link behavior
+                    else if (href && href !== '#') {
+                        // Allow the link to work normally - don't prevent default
+                        dropdown.classList.remove('open');
+                    }
+                    // If it's just a # link, prevent default
+                    else {
+                        e.preventDefault();
                     }
                 });
             });
