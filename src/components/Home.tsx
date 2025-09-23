@@ -28,7 +28,6 @@ const Home: React.FC<HomeProps> = ({ currentLang, translations }) => {
       const hospitals = hospitalsData.filter((h: any) => h.name && h.lat && h.lng);
       
       console.log('Loaded doctors:', doctors.length);
-      console.log('Sample doctor:', doctors[0]);
       
       setAllDoctors(doctors);
       setCurrentDoctors(doctors);
@@ -47,9 +46,7 @@ const Home: React.FC<HomeProps> = ({ currentLang, translations }) => {
       const generalArray = Array.from(genSet).sort();
       const languagesArray = Array.from(languageSet).sort();
       
-      console.log('Specialties found:', specialtiesArray.length);
-      console.log('General categories found:', generalArray.length);
-      console.log('Languages found:', languagesArray.length);
+      console.log('Data processed - Specialties:', specialtiesArray.length, 'General:', generalArray.length, 'Languages:', languagesArray.length);
       
       setSpecialties(specialtiesArray);
       setGeneralCategories(generalArray);
