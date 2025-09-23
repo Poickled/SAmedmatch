@@ -257,6 +257,64 @@
             display: block;
         }
         
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .resource-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        
+        .resource-card h4 {
+            color: #dc2626;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            border-bottom: 2px solid #f3f4f6;
+            padding-bottom: 0.5rem;
+        }
+        
+        .resource-item {
+            margin-bottom: 0.75rem;
+            padding: 0.5rem;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border-left: 3px solid #dc2626;
+        }
+        
+        .resource-item strong {
+            color: #333;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        
+        .resource-item .phone {
+            color: #dc2626;
+            font-weight: 600;
+        }
+        
+        .resource-item .address {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .resource-item .hours {
+            color: #666;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+        
         @media (max-width: 768px) {
             .search-bar {
                 flex-direction: column;
@@ -384,7 +442,10 @@
         <!-- Resources Page -->
         <div id="resources" class="page">
             <div class="search-section">
-                <h2 data-en="Healthcare Resources" data-es="Recursos de Salud">Healthcare Resources</h2>
+                <h2 data-en="Community Resources" data-es="Recursos Comunitarios">Community Resources</h2>
+                <p data-en="Comprehensive list of services and assistance available in San Antonio" data-es="Lista completa de servicios y asistencia disponibles en San Antonio">Comprehensive list of services and assistance available in San Antonio</p>
+                
+                <div class="resources-grid">
                 
                 <h3 data-en="Emergency Services" data-es="Servicios de Emergencia">Emergency Services</h3>
                 <ul>
@@ -423,6 +484,56 @@
                     <li data-en="National Alliance on Mental Illness (NAMI) San Antonio: (210) 734-3349" data-es="Alianza Nacional sobre Enfermedades Mentales (NAMI) San Antonio: (210) 734-3349">National Alliance on Mental Illness (NAMI) San Antonio: (210) 734-3349</li>
                     <li data-en="Center for Health Care Services: (210) 225-5471" data-es="Centro de Servicios de Atención Médica: (210) 225-5471">Center for Health Care Services: (210) 225-5471</li>
                     <li data-en="Mental Health America of San Antonio: (210) 223-7000" data-es="Salud Mental América de San Antonio: (210) 223-7000">Mental Health America of San Antonio: (210) 223-7000</li>
+                </ul>
+                
+                <h3 data-en="Crisis & Emergency Services" data-es="Servicios de Crisis y Emergencia">Crisis & Emergency Services</h3>
+                <ul>
+                    <li data-en="Center for Healthcare Crisis Line: 1-800-316-9241" data-es="Línea de Crisis de Atención Médica: 1-800-316-9241">Center for Healthcare Crisis Line: 1-800-316-9241</li>
+                    <li data-en="National Crisis Helpline: 1-800-662-4357" data-es="Línea Nacional de Crisis: 1-800-662-4357">National Crisis Helpline: 1-800-662-4357</li>
+                    <li data-en="National Suicide Prevention Lifeline: 1-800-273-8255" data-es="Línea Nacional de Prevención del Suicidio: 1-800-273-8255">National Suicide Prevention Lifeline: 1-800-273-8255</li>
+                    <li data-en="Veterans Crisis Line: 1-800-273-8255 (press 1)" data-es="Línea de Crisis para Veteranos: 1-800-273-8255 (presiona 1)">Veterans Crisis Line: 1-800-273-8255 (press 1)</li>
+                    <li data-en="San Antonio Police Crisis Intervention Team: 210-335-6000" data-es="Equipo de Intervención en Crisis de la Policía de San Antonio: 210-335-6000">San Antonio Police Crisis Intervention Team: 210-335-6000</li>
+                    <li data-en="Mobile Crisis Outreach Team (MCOT): 210-223-7233" data-es="Equipo de Alcance de Crisis Móvil (MCOT): 210-223-7233">Mobile Crisis Outreach Team (MCOT): 210-223-7233</li>
+                    <li data-en="National Domestic Violence Hotline: 1-800-799-7233" data-es="Línea Nacional de Violencia Doméstica: 1-800-799-7233">National Domestic Violence Hotline: 1-800-799-7233</li>
+                    <li data-en="RAINN - Rape, Abuse, and Incest National Network: 1-800-656-4673" data-es="RAINN - Red Nacional de Violación, Abuso e Incesto: 1-800-656-4673">RAINN - Rape, Abuse, and Incest National Network: 1-800-656-4673</li>
+                    <li data-en="Texas Abuse Helpline: 1-800-252-5400" data-es="Línea de Ayuda de Abuso de Texas: 1-800-252-5400">Texas Abuse Helpline: 1-800-252-5400</li>
+                </ul>
+                
+                <h3 data-en="Food & Clothing Assistance" data-es="Asistencia de Comida y Ropa">Food & Clothing Assistance</h3>
+                <ul>
+                    <li data-en="San Antonio Food Bank: 210-431-8326" data-es="Banco de Alimentos de San Antonio: 210-431-8326">San Antonio Food Bank: 210-431-8326</li>
+                    <li data-en="The Alamo Center - 5018 San Pedro Ave, San Antonio, TX 78212: 210-824-5537 (Mon-Fri 10am-3pm)" data-es="El Centro Alamo - 5018 San Pedro Ave, San Antonio, TX 78212: 210-824-5537 (Lun-Vie 10am-3pm)">The Alamo Center - 5018 San Pedro Ave, San Antonio, TX 78212: 210-824-5537 (Mon-Fri 10am-3pm)</li>
+                    <li data-en="AR Nelson Outreach by Bethel AME Church - 225 N Swiss St, San Antonio, TX 78202: 210-227-4015 (Tue/Thu 11am-1pm)" data-es="AR Nelson Outreach por Iglesia Bethel AME - 225 N Swiss St, San Antonio, TX 78202: 210-227-4015 (Mar/Jue 11am-1pm)">AR Nelson Outreach by Bethel AME Church - 225 N Swiss St, San Antonio, TX 78202: 210-227-4015 (Tue/Thu 11am-1pm)</li>
+                    <li data-en="Catholic Charities - 2127 S. Zarzamora St, San Antonio, TX 78207: 210-226-6178 (Mon-Fri 8:30am-2pm)" data-es="Caridades Católicas - 2127 S. Zarzamora St, San Antonio, TX 78207: 210-226-6178 (Lun-Vie 8:30am-2pm)">Catholic Charities - 2127 S. Zarzamora St, San Antonio, TX 78207: 210-226-6178 (Mon-Fri 8:30am-2pm)</li>
+                    <li data-en="Christian Assistance Ministry (CAM) - 110 McCullough Ave, San Antonio, TX 78215: 210-223-4099 (Mon-Thu 9:30am-3pm, Fri 9am-11:30am)" data-es="Ministerio de Asistencia Cristiana (CAM) - 110 McCullough Ave, San Antonio, TX 78215: 210-223-4099 (Lun-Jue 9:30am-3pm, Vie 9am-11:30am)">Christian Assistance Ministry (CAM) - 110 McCullough Ave, San Antonio, TX 78215: 210-223-4099 (Mon-Thu 9:30am-3pm, Fri 9am-11:30am)</li>
+                    <li data-en="Free Little Pantry SA - Multiple locations, 24/7 access" data-es="Despensa Pequeña Gratuita SA - Múltiples ubicaciones, acceso 24/7">Free Little Pantry SA - Multiple locations, 24/7 access</li>
+                </ul>
+                
+                <h3 data-en="Homeless Services" data-es="Servicios para Personas sin Hogar">Homeless Services</h3>
+                <ul>
+                    <li data-en="Homeless Connection Hotline: 210-207-1799" data-es="Línea de Conexión para Personas sin Hogar: 210-207-1799">Homeless Connection Hotline: 210-207-1799</li>
+                    <li data-en="Haven for Hope - 1 Haven for Hope Way, San Antonio, TX 78207: 210-220-2132" data-es="Haven for Hope - 1 Haven for Hope Way, San Antonio, TX 78207: 210-220-2132">Haven for Hope - 1 Haven for Hope Way, San Antonio, TX 78207: 210-220-2132</li>
+                    <li data-en="Endeavors - 6363 De Zavala Rd, San Antonio, TX 78249: 210-431-6466" data-es="Endeavors - 6363 De Zavala Rd, San Antonio, TX 78249: 210-431-6466">Endeavors - 6363 De Zavala Rd, San Antonio, TX 78249: 210-431-6466</li>
+                    <li data-en="San Antonio Housing Authority (SAHA) - 818 South Flores, San Antonio, TX 78204: 210-477-6000" data-es="Autoridad de Vivienda de San Antonio (SAHA) - 818 South Flores, San Antonio, TX 78204: 210-477-6000">San Antonio Housing Authority (SAHA) - 818 South Flores, San Antonio, TX 78204: 210-477-6000</li>
+                    <li data-en="Corazon San Antonio - 504 Avenue E, San Antonio, TX 78215: 210-392-7701 (Mon-Fri 10am-4pm)" data-es="Corazón San Antonio - 504 Avenue E, San Antonio, TX 78215: 210-392-7701 (Lun-Vie 10am-4pm)">Corazon San Antonio - 504 Avenue E, San Antonio, TX 78215: 210-392-7701 (Mon-Fri 10am-4pm)</li>
+                </ul>
+                
+                <h3 data-en="Employment & Reentry Services" data-es="Servicios de Empleo y Reingreso">Employment & Reentry Services</h3>
+                <ul>
+                    <li data-en="Career Gear by Dress for Success - 600 N Frio St, San Antonio, TX 78207 (Mon-Thu 8:30am-4:30pm)" data-es="Career Gear por Dress for Success - 600 N Frio St, San Antonio, TX 78207 (Lun-Jue 8:30am-4:30pm)">Career Gear by Dress for Success - 600 N Frio St, San Antonio, TX 78207 (Mon-Thu 8:30am-4:30pm)</li>
+                    <li data-en="Career Closet by Presa Community Center - 3721 S Presa, San Antonio, TX 78210: 210-532-5295 (Mon-Fri 8am-11:30pm, 1-3:30pm)" data-es="Closet de Carrera por Centro Comunitario Presa - 3721 S Presa, San Antonio, TX 78210: 210-532-5295 (Lun-Vie 8am-11:30pm, 1-3:30pm)">Career Closet by Presa Community Center - 3721 S Presa, San Antonio, TX 78210: 210-532-5295 (Mon-Fri 8am-11:30pm, 1-3:30pm)</li>
+                    <li data-en="Vocational Rehabilitation Services: 210-522-8014" data-es="Servicios de Rehabilitación Vocacional: 210-522-8014">Vocational Rehabilitation Services: 210-522-8014</li>
+                    <li data-en="Bexar County Reentry Program - 222 S Comal St, San Antonio, TX 78207: 210-335-8744" data-es="Programa de Reingreso del Condado de Bexar - 222 S Comal St, San Antonio, TX 78207: 210-335-8744">Bexar County Reentry Program - 222 S Comal St, San Antonio, TX 78207: 210-335-8744</li>
+                    <li data-en="Goodwill Reentry Services - 4551 Deitrich Rd, Rm 129, San Antonio, TX 78219: 210-243-0524" data-es="Servicios de Reingreso de Goodwill - 4551 Deitrich Rd, Rm 129, San Antonio, TX 78219: 210-243-0524">Goodwill Reentry Services - 4551 Deitrich Rd, Rm 129, San Antonio, TX 78219: 210-243-0524</li>
+                </ul>
+                
+                <h3 data-en="Veteran Services" data-es="Servicios para Veteranos">Veteran Services</h3>
+                <ul>
+                    <li data-en="National Homeless Veterans Hotline: 1-877-424-3838" data-es="Línea Nacional de Veteranos sin Hogar: 1-877-424-3838">National Homeless Veterans Hotline: 1-877-424-3838</li>
+                    <li data-en="1 On 1 Veterans Assistance - 4102 S New Braunfels Ave, Suite 110-132, San Antonio, TX 78223: 210-990-1115" data-es="Asistencia 1 a 1 para Veteranos - 4102 S New Braunfels Ave, Suite 110-132, San Antonio, TX 78223: 210-990-1115">1 On 1 Veterans Assistance - 4102 S New Braunfels Ave, Suite 110-132, San Antonio, TX 78223: 210-990-1115</li>
+                    <li data-en="Endeavors Veteran Services - 6363 De Zavala Rd, San Antonio, TX 78249: 210-431-6466" data-es="Servicios para Veteranos de Endeavors - 6363 De Zavala Rd, San Antonio, TX 78249: 210-431-6466">Endeavors Veteran Services - 6363 De Zavala Rd, San Antonio, TX 78249: 210-431-6466</li>
+                    <li data-en="Homeless Veterans Reintegration Program - 611 N. Flores, Suite 200, San Antonio, TX 78205: 210-233-4088 (Mon-Fri 8:30am-5:30pm)" data-es="Programa de Reintegración de Veteranos sin Hogar - 611 N. Flores, Suite 200, San Antonio, TX 78205: 210-233-4088 (Lun-Vie 8:30am-5:30pm)">Homeless Veterans Reintegration Program - 611 N. Flores, Suite 200, San Antonio, TX 78205: 210-233-4088 (Mon-Fri 8:30am-5:30pm)</li>
+                    <li data-en="Jacqueline Smith Foundation - 600 Soledad St, San Antonio, TX 78205 (Mon-Fri 8am-5pm)" data-es="Fundación Jacqueline Smith - 600 Soledad St, San Antonio, TX 78205 (Lun-Vie 8am-5pm)">Jacqueline Smith Foundation - 600 Soledad St, San Antonio, TX 78205 (Mon-Fri 8am-5pm)</li>
                 </ul>
                 
                 <h3 data-en="Health Information" data-es="Información de Salud">Health Information</h3>
