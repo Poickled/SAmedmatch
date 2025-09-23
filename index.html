@@ -3,96 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SA MedMatch - Test</title>
+    <title>SA MedMatch - Find Medical Care in San Antonio</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
+            padding: 0;
+            box-sizing: border-box;
         }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 2rem;
         }
+        
+        .search-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
         .search-bar {
             display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
             flex-wrap: wrap;
+            align-items: center;
         }
+        
+        .search-group {
+            display: flex;
+            flex-direction: column;
+            min-width: 200px;
+        }
+        
+        .search-group label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+        
         .search-bar select, .search-bar input {
-            padding: 8px 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-        .search-bar button {
-            padding: 8px 16px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .search-bar button:hover {
-            background-color: #0056b3;
-        }
-        .doctor-card {
-            border: 1px solid #ddd;
+            padding: 0.75rem;
+            border: 2px solid #e1e5e9;
             border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 15px;
-            background: #fafafa;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
         }
+        
+        .search-bar select:focus, .search-bar input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .search-buttons {
+            display: flex;
+            gap: 0.5rem;
+            align-items: end;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        
+        .stats {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .doctor-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .doctor-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        
         .doctor-card h3 {
-            margin: 0 0 10px 0;
-            color: #333;
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
         }
+        
         .doctor-card p {
-            margin: 5px 0;
+            margin-bottom: 0.5rem;
             color: #666;
         }
-        .stats {
-            background: #e9ecef;
-            padding: 10px;
-            border-radius: 4px;
-            margin-bottom: 20px;
+        
+        .doctor-card strong {
+            color: #333;
+        }
+        
+        .no-results {
             text-align: center;
+            padding: 3rem;
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #667eea;
+        }
+        
+        @media (max-width: 768px) {
+            .search-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .search-group {
+                min-width: auto;
+            }
+            
+            .search-buttons {
+                justify-content: center;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="header">
+        <h1>SA MedMatch</h1>
+        <p>Find Medical Care in San Antonio</p>
+    </div>
+    
     <div class="container">
-        <h1>SA MedMatch - Data Test</h1>
-        
-        <div class="stats">
-            <p>Loading doctor data...</p>
-        </div>
-        
-        <div class="search-bar">
-            <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
-                <select id="generalFilter">
-                    <option value="">All General Categories</option>
-                </select>
-                <select id="specialtyFilter">
-                    <option value="">All Specialties</option>
-                </select>
-                <select id="languageFilter">
-                    <option value="">All Languages</option>
-                </select>
-                <input type="text" id="zipInput" placeholder="Enter ZIP code">
-                <button onclick="filterDoctors()">Search</button>
-                <button onclick="clearFilters()">Clear</button>
+        <div class="search-section">
+            <div class="search-bar">
+                <div class="search-group">
+                    <label for="generalFilter">General Categories</label>
+                    <select id="generalFilter">
+                        <option value="">All Categories</option>
+                    </select>
+                </div>
+                
+                <div class="search-group">
+                    <label for="specialtyFilter">Specific Specialties</label>
+                    <select id="specialtyFilter">
+                        <option value="">All Specialties</option>
+                    </select>
+                </div>
+                
+                <div class="search-group">
+                    <label for="languageFilter">Languages</label>
+                    <select id="languageFilter">
+                        <option value="">All Languages</option>
+                    </select>
+                </div>
+                
+                <div class="search-group">
+                    <label for="zipInput">ZIP Code</label>
+                    <input type="text" id="zipInput" placeholder="Enter ZIP code">
+                </div>
+                
+                <div class="search-buttons">
+                    <button class="btn btn-primary" onclick="filterDoctors()">Search</button>
+                    <button class="btn btn-secondary" onclick="clearFilters()">Clear</button>
+                </div>
             </div>
         </div>
         
+        <div class="stats">
+            <p id="statsText">Loading medical facilities...</p>
+        </div>
+        
         <div id="doctorList">
-            <!-- Doctors will be loaded here -->
+            <div class="loading">Loading medical facilities...</div>
         </div>
     </div>
 
@@ -150,36 +299,6 @@
                 phone: ""
             },
             {
-                name: "CENTROMED FAMILY MEDICINE CLINIC",
-                specialty: "",
-                gen: "",
-                languages: "English",
-                address: "",
-                lat: "",
-                lng: "",
-                phone: ""
-            },
-            {
-                name: "Devine Behavioral Health",
-                specialty: "Medical, Dental, Wellness Gym",
-                gen: "Medical, Dental, Wellness",
-                languages: "English",
-                address: "1010 W. Hondo Ave, Devine, Texas 78016",
-                lat: "29.1472609",
-                lng: "-98.9160889",
-                phone: ""
-            },
-            {
-                name: "CommuniCare Health Centers - Vital Life Wellness Broadway",
-                specialty: "Peak Transformation Program, Preventative Primary Care, Weight Loss Program, Hormone Replacement Therapy, Sexual Health Services, Individualized Diagnostic Care",
-                gen: "Preventive Care, Weight Loss, Hormone Therapy, Sexual Health",
-                languages: "English",
-                address: "2520 Broadway St, Ste 100 San Antonio, 78215",
-                lat: "",
-                lng: "",
-                phone: ""
-            },
-            {
                 name: "CommuniCare Health Centers - West",
                 specialty: "Adult Medicine, Women's Health, Pediatrics, Teen Health, Senior Care, Dental, Behavioral Health, Clinical Labs/Diagnostic Testing, WIC Program",
                 gen: "Adult Medicine, Women's Health, Pediatrics, Teen Health, Senior Care, Dental, Behavioral Health, Lab Services",
@@ -200,16 +319,6 @@
                 phone: ""
             },
             {
-                name: "CommuniCare Health Centers - Mobile Health Unit",
-                specialty: "Blood pressure, Height/weight, Vision screenings, Flu vaccines, COVID, influenza, and strep testing, Physical exams, Screening labs",
-                gen: "Primary Care, Screenings, Vaccinations",
-                languages: "English",
-                address: "3066 E Commerce St San Antonio, 78220",
-                lat: "29.419674",
-                lng: "-98.440346",
-                phone: ""
-            },
-            {
                 name: "CENTROMED SOUTH PARK MEDICAL CLINIC",
                 specialty: "Family Medicine, Pediatrics, Triage/Walk-In, Women's Health (OB/GYN), Behavioral Health, Eligibility Services, Lab Services",
                 gen: "Family Medicine, Pediatrics, Walk-In Care, Women's Health, Behavioral Health, Lab Services",
@@ -220,16 +329,6 @@
                 phone: "(210) 922-7000"
             },
             {
-                name: "CENTROMED SOUTH PARK DENTAL CLINIC",
-                specialty: "Complete Dental Exam, Preventative Care, Fillings, Root Canals, Extraction, Crowns, Bridges, Dentures, Partials",
-                gen: "Dental",
-                languages: "English",
-                address: "910 Wagner Ave San Antonio, 78211",
-                lat: "",
-                lng: "",
-                phone: "(210) 922-7000"
-            },
-            {
                 name: "CommuniCare Health Centers - Roosevelt",
                 specialty: "Well Child Visits, Teen Health, ADHD/ADD Evaluations, Chronic Disease Management, Immunizations, Health and Nutrition Education",
                 gen: "Pediatrics, Teen Health, Chronic Disease Management, Immunizations, Patient Education",
@@ -237,16 +336,6 @@
                 address: "3727 Roosevelt Ave, San Antonio, TX 78214",
                 lat: "29.3506951",
                 lng: "-98.4813334",
-                phone: "(210) 233-7000"
-            },
-            {
-                name: "CommuniCare Health Centers - South",
-                specialty: "Acute Care, Well Child Visits, Teen Health, ADHD/ADD Evaluations, Chronic Disease Management, Immunizations, Health and Nutrition Education",
-                gen: "Acute Care, Pediatrics, Teen Health, Chronic Disease Management, Immunizations, Patient Education",
-                languages: "English",
-                address: "2316 SE Military Dr, San Antonio, TX 78223",
-                lat: "29.3520317",
-                lng: "-98.4559002",
                 phone: "(210) 233-7000"
             },
             {
@@ -278,16 +367,6 @@
                 lat: "29.335848",
                 lng: "-98.516118",
                 phone: "(210) 922-7000"
-            },
-            {
-                name: "CentroMed SA Pediatrics Southeast",
-                specialty: "Pediatrics, Physicals, Immunizations, Child Health Step/EPSDT, Sick Visits, Routine follow-up care, Vision & Hearing Screenings, Allergy Treatment, Lab Services",
-                gen: "Pediatrics, Physicals, Immunizations, Lab Services",
-                languages: "English",
-                address: "3327 Research Plz STE 307 San Antonio, 78235",
-                lat: "29.3435597",
-                lng: "-98.4372625",
-                phone: "(210) 223-3543"
             },
             {
                 name: "CommuniCare Health Centers - Northwest",
@@ -350,46 +429,6 @@
                 phone: "(210) 233-7126"
             },
             {
-                name: "CENTROMED WOMEN'S SHELTER CLINIC - LA PALOMA DE PAZ",
-                specialty: "Mental Health, Substance Abuse",
-                gen: "Mental Health, Substance Abuse",
-                languages: "English",
-                address: "7404 W US Highway 90 Bldg 37 San Antonio, 78227",
-                lat: "",
-                lng: "",
-                phone: ""
-            },
-            {
-                name: "CentroMed Noemi Galvan Eling Clinic",
-                specialty: "Family Medicine, Pediatrics, Triage/Walk-In, Women's Health (OB/GYN), Dental, Behavioral Health, Eligibility Services, Lab Services",
-                gen: "Family Medicine, Pediatrics, Walk-In Care, Women's Health, Dental, Behavioral Health, Lab Services",
-                languages: "English",
-                address: "5542 Walzem Road San Antonio, TX 78218",
-                lat: "",
-                lng: "",
-                phone: "(210) 922-7000"
-            },
-            {
-                name: "CommuniCare at The MAC",
-                specialty: "Pediatric Primary Care, Adult Primary Care, Behavioral & Mental Health, OB/GYN Services, Chronic Disease Management, Patient Health Education",
-                gen: "Pediatrics, Adult Medicine, Behavioral Health, Women's Health, Chronic Disease Management, Patient Education",
-                languages: "English",
-                address: "5210 Thousand Oaks Dr, Suite 1203 San Antonio, TX 78233",
-                lat: "29.5368364",
-                lng: "-98.3953294",
-                phone: "(210) 233-7250"
-            },
-            {
-                name: "CentroMed Thousand Oaks Clinic",
-                specialty: "Family Medicine, Pediatrics, Dental, Eligibility Services, Lab Services",
-                gen: "Family Medicine, Pediatrics, Dental, Lab Services",
-                languages: "English",
-                address: "4300 Thousand Oak Drive, Suites #103 & 104 San Antonio, TX 78217",
-                lat: "",
-                lng: "",
-                phone: "(210) 922-7000"
-            },
-            {
                 name: "CommuniCare Health Centers - Hill Country Village",
                 specialty: "Pediatrics, Well-Child Visits, Developmental Checkups, Pediatric Acute Care, Teen Health, ADHD Care, Puberty Development Education, Sports Physicals, Behavioral Health, Chronic Disease Management, Immunizations, Patient Health Education",
                 gen: "Pediatrics, Well-Child Visits, Developmental Checkups, Acute Care, Teen Health, ADHD Care, Behavioral Health, Chronic Disease Management, Immunizations, Patient Education",
@@ -408,176 +447,6 @@
                 lat: "",
                 lng: "",
                 phone: "(210) 942-5855"
-            },
-            {
-                name: "CommuniCare Health Centers - Potranco",
-                specialty: "Pediatrics, Well-Child Visits, Developmental Checkups, Pediatric Acute Care, Teen Health, ADHD Care, Puberty Development Education, Sports Physicals, Women's Health, Annual Exams, Gynecological Surgery, Obstetrics (Pregnancy Care), Behavioral Health, Chronic Disease Management, Immunizations, Patient Health Education, WIC Program, Nutrition Education",
-                gen: "Pediatrics, Well-Child Visits, Developmental Checkups, Acute Care, Teen Health, ADHD Care, Women's Health, Immunizations, Patient Education, Nutrition",
-                languages: "English",
-                address: "10002 Westover Bluff San Antonio Texas 78251",
-                lat: "",
-                lng: "",
-                phone: "(210) 233-7216"
-            },
-            {
-                name: "CommuniCare Health Centers - Hallmark University",
-                specialty: "Virtual Adult Acute Care, Testing for Flu, COVID, and RSV, Annual Wellness Exams, Patient Health Education, A1C Testing",
-                gen: "Virtual Care, Screenings, Vaccinations, Wellness Exams, Patient Education",
-                languages: "English",
-                address: "9855 Westover Hills Blvd, Suite 156 San Antonio, TX 78251",
-                lat: "",
-                lng: "",
-                phone: "(210) 431-6264"
-            },
-            {
-                name: "CommuniCare Health Centers - Allergy Institute",
-                specialty: "Allergy",
-                gen: "Allergy",
-                languages: "English",
-                address: "4456 Lockhill-Selma Rd, Suite 103, San Antonio, TX 78249",
-                lat: "29.5842882",
-                lng: "-98.5705676",
-                phone: "(210) 455-2000"
-            },
-            {
-                name: "CommuniCare Blvd Dental",
-                specialty: "Adult & Pediatric Dentistry, Dental Exams, Teeth Cleanings, Sealants, Fillings, Root Canals, Extractions, Crowns, Bridges, Dentures, Implants",
-                gen: "Dental",
-                languages: "English",
-                address: "5138 UTSA Blvd, Ste. 116 San Antonio, TX 78249",
-                lat: "",
-                lng: "",
-                phone: "(210) 233-7186"
-            },
-            {
-                name: "CENTROMED FAMILY FIRST CLINIC",
-                specialty: "Family Medicine, Pediatrics, Lab Services",
-                gen: "Family Medicine, Pediatrics, Lab Services",
-                languages: "English",
-                address: "9135 Schaefer Road, Suite 4 Converse, TX 78109",
-                lat: "29.506306",
-                lng: "-98.306537",
-                phone: "(210) 922-7000"
-            },
-            {
-                name: "CommuniCare Health Centers - Vital Life Wellness Stone Oak",
-                specialty: "Peak Transformation Program, Preventative Primary Care, Weight Loss Program, Hormone Replacement Therapy, Sexual Health Services, Individualized Diagnostic Care",
-                gen: "Preventive Care, Weight Loss, Hormone Therapy, Sexual Health",
-                languages: "English",
-                address: "418 N Loop 1604 W San Antonio, TX 78232",
-                lat: "",
-                lng: "",
-                phone: "(210) 922-7000"
-            },
-            {
-                name: "Apollo Wellness",
-                specialty: "HIV/STI Testing, STI Treatment, PrEP Prescriptions and Management (In-Person or Virtual Visits), PEP Prescriptions, DoxyPEP Prescriptions, Sexual Health Education, Chronic Disease Management, Immunizations, Physicals, STD/HIV Testing and Treatment, Hepatitis B and Hepatitis C Evaluations, Counseling",
-                gen: "STD/HIV Testing, PrEP/PEP, Chronic Disease Management, Immunizations, Physicals, Patient Education",
-                languages: "English",
-                address: "6511 W Loop 1604 N, Ste. 105, San Antonio, TX",
-                lat: "",
-                lng: "",
-                phone: "(972) 224-3438"
-            },
-            {
-                name: "CentroMed SA Pediatrics Stone Oak",
-                specialty: "Pediatrics, Physicals, Immunizations, Child Health Step/EPSDT, Sick Visits, Routine Follow-Up Care, Vision & Hearing Screenings, Allergy Treatment, Lab Services",
-                gen: "Pediatrics, Physicals, Immunizations, Lab Services",
-                languages: "English",
-                address: "123 Stone Oak Loop San Antonio, 78258",
-                lat: "29.6305911",
-                lng: "-98.4942968",
-                phone: "(210) 223-3543"
-            },
-            {
-                name: "CommuniCare Health Centers - Encino Park",
-                specialty: "Pediatrics, Teen Health, Adult Medicine, Senior Care, Immunizations, Patient Health Education, Chronic Disease Management",
-                gen: "Pediatrics, Teen Health, Adult Medicine, Senior Care, Immunizations, Patient Education, Chronic Disease Management",
-                languages: "English",
-                address: "20306 Encino Ledge, Ste. 101 and 103 San Antonio, TX 78259",
-                lat: "",
-                lng: "",
-                phone: "(210) 233-7000"
-            },
-            {
-                name: "CommuniCare Health Centers - Luckey Ranch",
-                specialty: "Adult Medicine, Pediatrics, Teen Health, Women's Health (OB/GYN), Senior Care, After Hours Urgent Care",
-                gen: "Adult Medicine, Pediatrics, Teen Health, Women's Health, Senior Care, Urgent Care",
-                languages: "English",
-                address: "11930 US 90, Ste. 110, San Antonio, TX 78245",
-                lat: "",
-                lng: "",
-                phone: "(210) 233-7000"
-            },
-            {
-                name: "CommuniCare Health Centers - Helotes",
-                specialty: "Pediatrics & Teen Health, ADHD Care, Developmental Checkups, Pediatric Acute Care (Sick Visits), Puberty Development Education, Sports Physicals, Well-Child Visits, Women's Health, Physical Exams, Gynecological Surgery, Obstetrics (Pregnancy Care), Adult Medicine, Acute Care, Chronic Disease Management, Health Screenings, Immunizations, Patient Health Education, Behavioral Health",
-                gen: "Pediatrics, Teen Health, Women's Health, Adult Medicine, Acute Care, Chronic Disease Management, Immunizations, Patient Education, Behavioral Health",
-                languages: "English",
-                address: "12850 Bandera Rd, Ste 106 Helotes, TX 78023",
-                lat: "29.5624171",
-                lng: "-98.6832169",
-                phone: "(210) 233-7000"
-            },
-            {
-                name: "CommuniCare Health Centers - Alamo Ranch",
-                specialty: "Pediatrics, Teen Health, Women's Health (OB/GYN), Senior Care, Adult Medicine, Chronic Disease Management, Patient Health Education",
-                gen: "Pediatrics, Teen Health, Women's Health, Senior Care, Adult Medicine, Chronic Disease Management, Patient Education",
-                languages: "English",
-                address: "6838 Alamo Pkwy, Suite #5 San Antonio, TX 78253",
-                lat: "",
-                lng: "",
-                phone: "(210) 233-7000"
-            },
-            {
-                name: "CommuniCare Health Centers - Stone Oak",
-                specialty: "Pediatrics, Teen Health, Adult Medicine, Immunizations, Patient Health Education, Chronic Disease Management",
-                gen: "Pediatrics, Teen Health, Adult Medicine, Immunizations, Patient Education, Chronic Disease Management",
-                languages: "English",
-                address: "20642 Stone Oak Pkwy, Suite 105 San Antonio, TX 78258",
-                lat: "29.6491194",
-                lng: "-98.4637499",
-                phone: "(210) 233-7000"
-            },
-            {
-                name: "CENTROMED MARIA CASTRO FLORES CLINIC",
-                specialty: "Family Medicine, Dental, Lab Services",
-                gen: "Family Medicine, Dental, Lab Services",
-                languages: "English",
-                address: "7315 South Loop 1604 West Somerset, TX 78069",
-                lat: "",
-                lng: "",
-                phone: "(210) 922-7000"
-            },
-            {
-                name: "CommuniCare Health Centers - Leon Springs",
-                specialty: "Pediatrics & Teen Health, ADHD Care, Developmental Checkups, Pediatric Acute Care (Sick Visits), Puberty Development Education, Sports Physicals, Well-Child Visits (Annual Checkups), Women's Health, Physical Exams, Gynecological Surgery, Obstetrics (Pregnancy Care), Adult Medicine, Acute Care, Chronic Disease Management, Health Screenings, Immunizations, Patient Health Education, Behavioral Health",
-                gen: "Pediatrics, Teen Health, Acute Care, Women's Health, Adult Medicine, Chronic Disease Management, Immunizations, Patient Education, Behavioral Health",
-                languages: "English",
-                address: "21195 I-10, Suite 2101 San Antonio, TX 78257",
-                lat: "29.6396397",
-                lng: "-98.6171205",
-                phone: "(210) 233-7000"
-            },
-            {
-                name: "CentroMed SA Pediatrics Tri-County Crossing Phase II",
-                specialty: "Pediatrics, Physicals, Immunizations, Child Health Step/EPSDT, Sick Visits, Routine Follow-Up Care, Vision & Hearing Screenings, Allergy Treatment, Lab Services",
-                gen: "Pediatrics, Physicals, Immunizations, Lab Services",
-                languages: "English",
-                address: "17323 Interstate 35 N Schertz, 78154",
-                lat: "29.5963938",
-                lng: "-98.2826237",
-                phone: "(210) 223-3543"
-            },
-            {
-                name: "CentroMed SA Pediatrics Cibolo",
-                specialty: "Pediatrics, Physicals, Immunizations, Child Health Step/EPSDT, Sick Visits, Routine Follow-Up Care, Vision & Hearing Screenings, Allergy Treatment, Lab Services",
-                gen: "Pediatrics, Physicals, Immunizations, Lab Services",
-                languages: "English",
-                address: "580 Cibolo Valley Dr, Suite 221 Cibolo, Texas 78108",
-                lat: "29.5747704",
-                lng: "-98.2423365",
-                phone: "(210) 223-3543"
             },
             {
                 name: "University Health - Adult Congenital Heart Clinic Dominion Crossing",
@@ -608,16 +477,6 @@
                 lat: "29.5127341",
                 lng: "-98.5915229",
                 phone: "(210) 644-3700"
-            },
-            {
-                name: "University Health - Babcock",
-                specialty: "General Surgery, Pediatric Behavioral Health, Behavioral Health",
-                gen: "Surgery, Behavioral Health, Pediatric Behavioral Health",
-                languages: "English",
-                address: "2425 Babcock Road Suite 111 San Antonio, TX 78229",
-                lat: "29.5066654",
-                lng: "-98.5848909",
-                phone: "(210) 358-3108"
             },
             {
                 name: "University Health - Breast Center",
@@ -688,7 +547,7 @@
             console.log('Total doctors:', doctorsData.length);
             
             // Update stats
-            document.querySelector('.stats p').textContent = `Loaded ${doctorsData.length} medical facilities`;
+            document.getElementById('statsText').textContent = `Found ${doctorsData.length} medical facilities in San Antonio`;
             
             // Populate filter dropdowns
             populateFilters();
@@ -800,7 +659,7 @@
             const doctorList = document.getElementById('doctorList');
             
             if (doctors.length === 0) {
-                doctorList.innerHTML = '<div class="doctor-card"><p>No doctors found matching your criteria.</p></div>';
+                doctorList.innerHTML = '<div class="no-results">No medical facilities found matching your criteria.</div>';
                 return;
             }
 
