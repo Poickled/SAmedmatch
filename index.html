@@ -571,7 +571,15 @@
                 </div>
             </div>
             
+            <div class="stats">
+                <p id="statsText">Loading medical facilities...</p>
+            </div>
             
+            <div id="listView">
+                <div id="doctorList">
+                    <div class="loading">Loading medical facilities...</div>
+                </div>
+            </div>
             
             <div id="mapView" style="display: none;">
                 <div id="map"></div>
@@ -1359,15 +1367,15 @@
             console.log('Loading doctors data...');
             console.log('Total doctors:', doctorsData.length);
             
+            // Update stats
+            document.getElementById('statsText').textContent = `Found ${doctorsData.length} medical facilities in San Antonio`;
             
             // Populate filter dropdowns
             populateFilters();
             
             // Display doctors
             displayDoctors(filteredDoctors);
-                        
-            // Update stats
-            document.getElementById('statsText').textContent = `Found ${doctorsData.length} medical facilities in San Antonio`;
+            
             // Initialize map
             initMap();
             
