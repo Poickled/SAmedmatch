@@ -1365,7 +1365,9 @@
             
             // Display doctors
             displayDoctors(filteredDoctors);
-            
+                        
+            // Update stats
+            document.getElementById('statsText').textContent = `Found ${doctorsData.length} medical facilities in San Antonio`;
             // Initialize map
             initMap();
             
