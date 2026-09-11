@@ -716,10 +716,8 @@
                     });
                 }
                 if (doctor.languages) {
-                    doctor.languages.split(',').forEach(item => {
-                        const trimmed = item.trim();
-                        if (trimmed) languageSet.add(trimmed);
-                    });
+                    const langs = String(doctor.languages).replace(/[\[\]"'“”]/g, '').split(',').map(item => item.trim()).filter(Boolean);
+                    langs.forEach(item => { if (item) languageSet.add(item); });
                 }
             });
 
@@ -774,9 +772,9 @@
                     if (!doctorSpecialties.includes(specialtyFilter)) match = false;
                 }
 
-                // Filter by language
+                // Filter by language (normalize formats like "['English', 'Spanish']")
                 if (languageFilter && doctor.languages) {
-                    const doctorLanguages = doctor.languages.split(',').map(item => item.trim());
+                    const doctorLanguages = String(doctor.languages).replace(/[\[\]"'“”]/g, '').split(',').map(item => item.trim()).filter(Boolean);
                     if (!doctorLanguages.includes(languageFilter)) match = false;
                 }
 

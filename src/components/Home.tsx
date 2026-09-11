@@ -20,6 +20,15 @@ const Home: React.FC<HomeProps> = ({ currentLang, translations }) => {
   const [generalCategories, setGeneralCategories] = useState<string[]>([]);
   const [languages, setLanguages] = useState<string[]>([]);
 
+  // Helper to normalize languages strings like "English, Spanish" or "['English', 'Spanish']"
+  const parseLangs = (s: string) => {
+    return String(s || '')
+      .replace(/[\[\]"'“”]/g, '')
+      .split(',')
+      .map((x) => x.trim())
+      .filter(Boolean);
+  };
+
   useEffect(() => {
     const init = async () => {
       // Prefer runtime-loaded CSV from public/ if available; fallback to bundled
@@ -39,7 +48,7 @@ const Home: React.FC<HomeProps> = ({ currentLang, translations }) => {
       doctors.forEach((doc: any) => {
         if (doc.specialty) doc.specialty.split(',').forEach((s: string) => specialtySet.add(s.trim()));
         if (doc.gen) doc.gen.split(',').forEach((g: string) => genSet.add(g.trim()));
-        if (doc.languages) doc.languages.split(',').forEach((l: string) => languageSet.add(l.trim()));
+        if (doc.languages) parseLangs(doc.languages).forEach((l: string) => languageSet.add(l));
       });
       
       const specialtiesArray = Array.from(specialtySet).sort();
@@ -76,7 +85,7 @@ const Home: React.FC<HomeProps> = ({ currentLang, translations }) => {
       
       // filter by languages
       if (Array.isArray(criteria.languages) && criteria.languages.length > 0) {
-        const docLangs = (doc.languages || '').split(',').map((l: string) => l.trim());
+        const docLangs = parseLangs(doc.languages);
         const hasAny = criteria.languages.some((l: string) => docLangs.includes(l));
         if (!hasAny) match = false;
       }
